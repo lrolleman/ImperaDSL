@@ -1,0 +1,272 @@
+Impera DSL Documentation
+
+Goal: The purpose of this language is to provide imperative support to mass creation and 
+editing of structured data files (json, xml etc), where the type system exists only to 
+facilitate this goal and provide no further restrictions. 
+
+Current Status: The basic types (vars, keys) are in, as well as basic control flow and functions
+				JSON parsing works, but is not at all integrated yet. 
+
+Types
+
+There are 5 data types in Impera:
+	Var: 
+		Strings, integers, booleans and doubles. How it is interpreted depends entirely on how
+		you try and use it. 
+		Ex 1.
+			void main() {
+				var truestring = "true";
+				var trueboolean = true;
+				if (truestring) {
+					println("print1");
+				}
+				if (trueboolean) {
+					println("print2");
+				}
+			}
+			
+			the output will be:
+			print1
+			print2
+			
+			while the var truestring was initialized to the string value "true", the interpreter will
+			quite happily treat it as a boolean. 
+			
+		Integers and Floating Point Numbers:
+		The result of an arithmetic operation using numbers will be of the appearance of it's most 
+		complex member
+		Ex 2.
+			void main() {
+				var v1 = 10;
+				var v2 = 10.0;
+				var v3 = 10.5;
+				println(v1 + v1);
+				println(v1 + v2);
+				println(v1 + v3);
+				println(v2 + v3);
+			}
+			
+			the output will be:
+			20
+			20.0
+			20.5
+			20.5
+			
+			Note the second one is 20.0, rather than 20, as the (trivial) decimal is maintained in the var
+			
+		UNDER THE HOOD:
+		The interpreter doesn't even bother keeping track of the internal type of var variables,
+		as far as it's concerned, everything is a string until you try to do something un-string-like,
+		such as an add operation, at which point it does it's best to convert to the desired type and
+		perform the operation. 
+		This will likely change later due to performance reasons. 
+	
+	Key:
+		Keys are, in short, key-value pairs. 
+		The key itself is any var, and the value can be anything at all (including other keys). 
+		A good way to think of these is to compare them to the keys in a JSON file. 
+		Keys can also be used anywhere their value can be used. 
+		Ex 3.
+			void main() {
+				key k1 = "number1":10;
+				key k2 = "number2":20;
+				println(k1);
+				println(k2);
+				println(k1 + k2);
+			}
+			
+			will output:
+			number1:10
+			number2:20
+			30
+			
+			note how the add operation implicitly casts the keys to a var
+		
+		See Get in Expressions and Set, assignments and declarations in statements
+		for more info on how to use keys. 
+		
+		Once vectors are implemented, I plan on adding the ability to get and return a vector of all keys
+		that are currently in scope with the specified name. 
+		
+	Array:
+		not yet implemented
+	Vector:
+		not yet implemented
+	Object:
+		not yet implemented
+		
+	Type Casts:
+		Impera supports explicit type casts, however these are there for a matter of convenience and do not
+		provide any actual new functionality, and there are hazards involved with using them. As such they
+		should only be used rarely and with care. 
+		
+		Ex Casts:
+			void main() {
+				key k = "Bob":10;
+				var v = 20;
+				println((var)k);
+				println((key)v);
+			}
+			
+			Will output:
+			10
+			null:20
+			
+			notice how v has a key value of null now. This can cause issues if it is used inappropriately 
+		
+	Expressions:
+		Arithmetic:
+			Add, subtract, multiply, divide and power. Follows the usual order of operation rules
+			
+			Ex Arithmetic:
+				var main() {
+					var x = 5;
+					var y = 5.5;
+					println(x + y);
+					println(x - y);
+					println(x / 5);
+					println(x / y);
+					println(x * 2);
+					println(x ^ 2);
+					return 0;
+				}
+				
+				will output:
+				10.5
+				-0.5
+				1
+				0.9090909090909091
+				10
+				25
+		
+		Logic:
+			and, or, xor and not
+			
+			Ex Logic:
+				var main() {
+					var t = true;
+					var f = false;
+	
+					println(t and t);
+					println(t and f);
+					println(f and f);
+					println(t or t);
+					println(t or f);
+					println(f or f);
+					println(t xor t);
+					println(t xor f);
+					println(f xor f);
+					println(!t);
+					println(!f);
+					return 0;
+				}
+				
+				Output:
+				true
+				false
+				false
+				true
+				true
+				false
+				false
+				true
+				false
+				false
+				true
+				
+		Comparison:
+			Greater than, less than, equal, greater than and equal, less than and equal
+			
+			Ex Compare:
+				var main() {
+					var x = 5;
+					var y = 10;
+					println(x == y);
+					println(x != y);
+					println(x == 5);
+					println(x == 5.0);
+					println(x > y);
+					println(x < y);
+					println(x <= y);
+					println(x >= y);
+					println(x <= 5.0);
+					println("Bob" == x);
+					println("Bob" == "Bob");
+	
+					return 0;
+				}
+				
+				Output:
+				false
+				true
+				true
+				true
+				false
+				true
+				true
+				false
+				true
+				false
+				true
+			
+		Concatenation:
+			Quite simply, stick stuff together
+			
+			Ex Concat:
+				void main() {
+					var string = "Bob";
+					var number = 10;
+					println(string <- "bie");
+					println(number <- " " <- string <- "s");
+				}
+				
+				Ouput:
+				Bobbie
+				10 Bobs
+				
+				note it will happily concatenate numbers and strings. As mentioned in the types section,
+				Impera doesn't really care what it is, so longer as it can make sense of it in context
+				
+		Get:
+			Gets the value of the key in a key variable
+			
+			Ex 4: 
+				void main() {
+					key k = "foo":"bar";
+					println(k);
+					println(%k);
+					println((var)k);
+				}
+				
+				Output:
+				foo:bar
+				foo
+				bar
+				
+		Negative/Positive:
+			Unary negative and positive. 
+			
+			Ex 5:
+				void main() {
+					var n = -2;
+					var p = 5;
+					println(+n);
+					println(-n);
+					println(-p);
+					println(+p);
+				}
+				
+				Output:
+				2
+				2
+				-5
+				5
+				
+				Note the positive operator might more accurately be called the absolute value operator, unlike
+				the trivial operator found in some other languages. 
+	
+	Statements:
+	
+	Functions:
+	
+	Errors:
