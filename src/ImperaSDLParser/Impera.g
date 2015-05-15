@@ -34,6 +34,7 @@ program
   
 globals
   : declaration* function*
+  //: (declaration|function)*
   ;
   
 declaration
@@ -42,6 +43,7 @@ declaration
   
 statement
   : assignment
+  | declaration
   | printstatement
   | returnstatement
   | statcall
@@ -69,7 +71,7 @@ printstatement
   ;
   
 block
-  : LBRACE (declaration|statement)* RBRACE -> ^(BLOCK declaration* statement*)
+  : LBRACE statement* RBRACE -> ^(BLOCK statement*)
   ;
   
 assignment

@@ -6,11 +6,61 @@ facilitate this goal and provide no further restrictions.
 
 Current Status: The basic types (vars, keys) are in, as well as basic control flow and functions
 				JSON parsing works, but is not at all integrated yet. 
+				
+				
+Table of Contents:
+	Overview
+	
+	1. Comments
+	2. Types
+		2.1 Var
+		2.2 Key
+		2.3 Array
+		2.4 Vector
+		2.5 Object
+		2.6 Type Casts
+	3. Expressions
+		3.1 Arithmetic
+		3.2 Logic
+		3.3 Comparison
+		3.4 Concatenation
+		3.5 Get
+		3.6 Negative/Positive (absolute value)
+	4. Statements
+		4.1 Declarations
+		4.2 Assignments
+		4.3 Block
+		4.4 If Statements
+		4.5 While Statements
+		4.6 Print/Println
+		4.7 Set
+	5. Functions
+		5.1 Return
+	6. Errors
+		TO-DO
 
-Types
+OVERVIEW:
+	The Impera interpreter is an AST interpreter, which runs on an expanded version of the AST produced by ANTLR written
+	entirely in Java. 
+	The main execution components of the system are divided into two main categories, Expressions and Statements. 
+	Every statement (ex. if statement, assignment) and every expression (ex. x + y, t and f, a <= b etc.) have their own
+	class, corresponding to a node in the execution tree. Each of these implement the Statement or Expression interfaces,
+	making good use of Java's polymorphism when executing the tree. 
+	Other persistent data is kept in a separate package, such as the symbol table and global methods pertaining to the 
+	type system. 
+	All of the errors in Impera extend from a custom ImperaException, which takes the error message and adds line numbers
+	to it from the base AST
+	See "UNDER THE HOOD" segments in the rest of the documentation for further details
+
+1. Comments:
+	Standard C/Java commenting
+	//comment out line
+	/*comment out everything inside*/
+
+2. Types
 
 There are 5 data types in Impera:
-	Var: 
+	2.1 Var: 
 		Strings, integers, booleans and doubles. How it is interpreted depends entirely on how
 		you try and use it. 
 		Ex 1.
@@ -61,7 +111,7 @@ There are 5 data types in Impera:
 		perform the operation. 
 		This will likely change later due to performance reasons. 
 	
-	Key:
+	2.2 Key:
 		Keys are, in short, key-value pairs. 
 		The key itself is any var, and the value can be anything at all (including other keys). 
 		A good way to think of these is to compare them to the keys in a JSON file. 
@@ -88,14 +138,14 @@ There are 5 data types in Impera:
 		Once vectors are implemented, I plan on adding the ability to get and return a vector of all keys
 		that are currently in scope with the specified name. 
 		
-	Array:
-		not yet implemented
-	Vector:
-		not yet implemented
-	Object:
-		not yet implemented
+	2.3 Array:
+		not yet implemented TO-DO
+	2.4 Vector:
+		not yet implemented TO-DO
+	2.5 Object:
+		not yet implemented TO-DO
 		
-	Type Casts:
+	2.6 Type Casts:
 		Impera supports explicit type casts, however these are there for a matter of convenience and do not
 		provide any actual new functionality, and there are hazards involved with using them. As such they
 		should only be used rarely and with care. 
@@ -114,159 +164,324 @@ There are 5 data types in Impera:
 			
 			notice how v has a key value of null now. This can cause issues if it is used inappropriately 
 		
-	Expressions:
-		Arithmetic:
-			Add, subtract, multiply, divide and power. Follows the usual order of operation rules
-			
-			Ex Arithmetic:
-				var main() {
-					var x = 5;
-					var y = 5.5;
-					println(x + y);
-					println(x - y);
-					println(x / 5);
-					println(x / y);
-					println(x * 2);
-					println(x ^ 2);
-					return 0;
-				}
-				
-				will output:
-				10.5
-				-0.5
-				1
-				0.9090909090909091
-				10
-				25
+3. Expressions:
+	3.1 Arithmetic:
+		Add, subtract, multiply, divide and power. Follows the usual order of operation rules
 		
-		Logic:
-			and, or, xor and not
+		Ex Arithmetic:
+			var main() {
+				var x = 5;
+				var y = 5.5;
+				println(x + y);
+				println(x - y);
+				println(x / 5);
+				println(x / y);
+				println(x * 2);
+				println(x ^ 2);
+				return 0;
+			}
 			
-			Ex Logic:
-				var main() {
-					var t = true;
-					var f = false;
+			will output:
+			10.5
+			-0.5
+			1
+			0.9090909090909091
+			10
+			25
 	
-					println(t and t);
-					println(t and f);
-					println(f and f);
-					println(t or t);
-					println(t or f);
-					println(f or f);
-					println(t xor t);
-					println(t xor f);
-					println(f xor f);
-					println(!t);
-					println(!f);
-					return 0;
-				}
-				
-				Output:
-				true
-				false
-				false
-				true
-				true
-				false
-				false
-				true
-				false
-				false
-				true
-				
-		Comparison:
-			Greater than, less than, equal, greater than and equal, less than and equal
+	3.2 Logic:
+		and, or, xor and not
+		
+		Ex Logic:
+			var main() {
+				var t = true;
+				var f = false;
+
+				println(t and t);
+				println(t and f);
+				println(f and f);
+				println(t or t);
+				println(t or f);
+				println(f or f);
+				println(t xor t);
+				println(t xor f);
+				println(f xor f);
+				println(!t);
+				println(!f);
+				return 0;
+			}
 			
-			Ex Compare:
-				var main() {
-					var x = 5;
-					var y = 10;
-					println(x == y);
-					println(x != y);
-					println(x == 5);
-					println(x == 5.0);
-					println(x > y);
-					println(x < y);
-					println(x <= y);
-					println(x >= y);
-					println(x <= 5.0);
-					println("Bob" == x);
-					println("Bob" == "Bob");
+			Output:
+			true
+			false
+			false
+			true
+			true
+			false
+			false
+			true
+			false
+			false
+			true
+			
+	3.3 Comparison:
+		Greater than, less than, equal, greater than and equal, less than and equal
+		
+		Ex Compare:
+			var main() {
+				var x = 5;
+				var y = 10;
+				println(x == y);
+				println(x != y);
+				println(x == 5);
+				println(x == 5.0);
+				println(x > y);
+				println(x < y);
+				println(x <= y);
+				println(x >= y);
+				println(x <= 5.0);
+				println("Bob" == x);
+				println("Bob" == "Bob");
+
+				return 0;
+			}
+			
+			Output:
+			false
+			true
+			true
+			true
+			false
+			true
+			true
+			false
+			true
+			false
+			true
+		
+	3.4 Concatenation:
+		Quite simply, stick stuff together
+		
+		Ex Concat:
+			void main() {
+				var string = "Bob";
+				var number = 10;
+				println(string <- "bie");
+				println(number <- " " <- string <- "s");
+			}
+			
+			Ouput:
+			Bobbie
+			10 Bobs
+			
+			note it will happily concatenate numbers and strings. As mentioned in the types section,
+			Impera doesn't really care what it is, so longer as it can make sense of it in context
+			
+	3.5 Get:
+		Gets the value of the key in a key variable
+		
+		Ex 4: 
+			void main() {
+				key k = "foo":"bar";
+				println(k);
+				println(%k);
+				println((var)k);
+			}
+			
+			Output:
+			foo:bar
+			foo
+			bar
+			
+	3.6 Negative/Positive:
+		Unary negative and positive. 
+		
+		Ex 5:
+			void main() {
+				var n = -2;
+				var p = 5;
+				println(+n);
+				println(-n);
+				println(-p);
+				println(+p);
+			}
+			
+			Output:
+			2
+			2
+			-5
+			5
+			
+			Note the positive operator might more accurately be called the absolute value operator, unlike
+			the trivial operator found in some other languages. 
+
+4. Statements:
+	4.1 Declaration:
+		Declarations follow the same basic style as most languages, <type> <id> = <expression>
+		Keep in mind that declarations only exist within their scope. 
+		All global declarations must be declared at the beginning of the file, before main or any other function
+		
+		Ex 6:
+			var x = 0;
+			void main() {
+				println(x);
+			}
+			
+			Output:
+			0
+			
+	4.2 Assignment:
+		Assigns a value to an already declared variable, pretty standard fare. 
+		
+		Ex Assig:
+			var x = 10.0;
+			var main() {
+				x = "Bob";
+				println(x);
+				return 0;
+			}
+			
+			Output:
+			Bob
+			
+		Where caution must be taken is in the assignment of keys to vars and vice versa. Impera will
+		implicity cast the result of the expression in these cases, however the result may not be what
+		you want it to be (As a general rule, all casts are hazardous). 
+		
+		Ex 7:
+			void main() {
+				key k = "Bob":10;
+				var v = 10.0 + k;
+				println(k);
+				println(v);
+				key k2 = 5 + k;
+				k = 5 + k;
+				println(k2);
+				println(k);
+			}
+			
+			Output
+			Bob:10
+			20.0
+			null:15
+			Bob:15
+			
+			notice the implicit cast of output of the two 5 + k expressions. The first one only gets the var
+			from the add operation, whereas the second already has the key "Bob" and as such it keeps the key. 
+			
+	4.3 Block:
+		Blocks are segments of code surrounded by {}, typically seen in conjunction with functions, if statements
+		and while loops, though they can be on there own. Variables declared inside a block do not have scope
+		outside that block. 
+		
+	4.4 If Statement:	
+		Standard issue if statements, take a conditional and execute the code if it is true, and the optional else
+		block if false. 
+		
+		Ex If:
+			var main() {
+				var x = "Bob";
+				if (true) {
+					println(x);
+				}
+				if (false) {
+					x = 10;
+				} else {
+					println(x);
+				}
+				return 0;
+			}
+			
+			Output
+			Bob
+			Bob
 	
-					return 0;
+	4.5 While:
+		While loops work here like they work pretty much everywhere else, iterate over a block of code until a break
+		is hit or the condition fails. 
+		
+		Ex While:
+			var main() {
+				var x = 0;
+				while (x < 10) {
+					x = x + 1;
 				}
-				
-				Output:
-				false
-				true
-				true
-				true
-				false
-				true
-				true
-				false
-				true
-				false
-				true
-			
-		Concatenation:
-			Quite simply, stick stuff together
-			
-			Ex Concat:
-				void main() {
-					var string = "Bob";
-					var number = 10;
-					println(string <- "bie");
-					println(number <- " " <- string <- "s");
+				println(x);
+				x = 0;
+				while (x < 10) {
+					if (x == 5) {
+						break;
+					} else {
+						x = x + 1;
+					}
 				}
-				
-				Ouput:
-				Bobbie
-				10 Bobs
-				
-				note it will happily concatenate numbers and strings. As mentioned in the types section,
-				Impera doesn't really care what it is, so longer as it can make sense of it in context
-				
-		Get:
-			Gets the value of the key in a key variable
+				println(x);
+				return 0;
+			}
 			
-			Ex 4: 
-				void main() {
-					key k = "foo":"bar";
-					println(k);
-					println(%k);
-					println((var)k);
-				}
-				
-				Output:
-				foo:bar
-				foo
-				bar
-				
-		Negative/Positive:
-			Unary negative and positive. 
+			Output:
+			10
+			5
 			
-			Ex 5:
-				void main() {
-					var n = -2;
-					var p = 5;
-					println(+n);
-					println(-n);
-					println(-p);
-					println(+p);
-				}
-				
-				Output:
-				2
-				2
-				-5
-				5
-				
-				Note the positive operator might more accurately be called the absolute value operator, unlike
-				the trivial operator found in some other languages. 
+			notice how the break in the second loop prematurely exits the loop. Continue is also supported in
+			Impera and is used in the same way as other languages. 
+			
+	4.6 Print/Println:
+		printing is done using the print and println built in functions. 
+		keys are printed with colon separated values for the key and value
+		arrays are printed with common separated values inside brackets, ex. [1,2,3]
+		
+		TO-DO: add code examples once arrays are implemented
+		
+	4.7 Set:
+		Sets the key in a key variable. 
+		
+		Ex 8:
+			void main() {
+				key k = 10;
+				println(k);
+				k := "Bob";
+				println(k);
+			}
+			
+			Output:
+			null:10
+			Bob:10
+
+5. Functions:
+	Functions in Impera are standard issue to what you might expect. can be called as an expression or as a statement
+	for now, argument types must match exactly, there is no implicit casting. TO-DO
+	Also, there is recursion in Impera like elsewhere.
 	
-	Statements:
-	
-	Functions:
-	
-	Errors:
+	Ex Recursive:
+		void main() {
+			println(rec(0, 5));
+		}
+			var rec(var i, var target) {
+			if (i == target) {
+				return i;
+			} else {
+				return rec(inc(i), target);
+			}
+		}
+			var inc(var v) {
+			return v + 1;
+		}
+		
+		Output
+		5
+		
+		The most verbose way of counting to 5. notice the println functions are being called as statements and the
+		inc and rec functions are being called as expressions. 
+		
+		UNDER THE HOOD:
+		print and println are not actually proper functions at all, they just look like them. They are implemented
+		as their own statement, unlike user defined ones which utilize the Call or StatCall nodes in the execution
+		tree
+
+	5.1 Return:
+		Again, pretty standard issue. It passes the value of the expression up to the caller, unless no expression is 
+		given, at which point a void type is returned with null value. 
+
+Errors:
+	TO-DO

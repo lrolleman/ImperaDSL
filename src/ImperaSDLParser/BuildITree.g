@@ -4,6 +4,8 @@ options {
   language = Java;
   tokenVocab = Impera;
   ASTLabelType = CommonTree;
+  backtrack = false;
+  memoize = false;
 }
 
 @header {
@@ -54,6 +56,7 @@ declaration returns [Statement decl]
   
 statement returns [Statement stat]
   : assignment {$stat = $assignment.assig;}
+  | declaration {$stat = $declaration.decl;}
   | printstatement {$stat = $printstatement.pstat;}
   | returnstatement {$stat = $returnstatement.stat;}
   | statcall {$stat = $statcall.stat;}
@@ -91,13 +94,12 @@ printstatement returns [Statement pstat]
   
 block returns [Block block]
 @init {
-  ArrayList<Statement> decl = new ArrayList<Statement>();
   ArrayList<Statement> stats = new ArrayList<Statement>();
 }
 @after {
-  $block = new Block(decl, stats);
+  $block = new Block(stats);
 }
-  : ^(BLOCK (d=declaration {decl.add($d.decl);})* (s=statement {stats.add($s.stat);})*)
+  : ^(BLOCK (s=statement {stats.add($s.stat);})*)
   ;
   
 assignment returns [Statement assig]
