@@ -178,6 +178,9 @@ expr returns [Expression expression]
   | TRUE {$expression = new Atom(new VarValue($TRUE.text));}
   | FALSE {$expression = new Atom(new VarValue($FALSE.text));}
   | STRING {$expression = new Atom(new VarValue($STRING.text));}
+  | ^(ARRAY {ArrayList<Expression> exprs = new ArrayList<Expression>();}
+    (e=expr {exprs.add($e.expression);})*) {$expression = new ArrayConstructor(exprs);}
+  | ^(INDEX ID e=expr) {$expression = new Index(errtree, new Identifier(errtree, $ID.text), $e.expression);}
   | ID {$expression = new Identifier(errtree, $ID.text);}
   ;
 

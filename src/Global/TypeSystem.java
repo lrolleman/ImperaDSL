@@ -2,6 +2,7 @@ package Global;
 
 import ImperaExceptions.ImperaException;
 import ImperaExceptions.TypeCastException;
+import SymbolTable.ArrayValue;
 import SymbolTable.KeyValue;
 import SymbolTable.TypeSymbol;
 import SymbolTable.Value;
@@ -62,6 +63,14 @@ public class TypeSystem {
 			return (KeyValue) val;
 		} catch (ClassCastException cce) {
 			return new KeyValue(null, val.getType(), val);
+		}
+	}
+	
+	public static ArrayValue getAsArray(Value val) {
+		try {
+			return (ArrayValue) val;
+		} catch (ClassCastException cce) {
+			throw new TypeCastException("illegal cast to array");
 		}
 	}
 }

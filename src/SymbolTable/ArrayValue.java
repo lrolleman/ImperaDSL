@@ -8,13 +8,13 @@ public class ArrayValue implements Value {
 	ArrayList<Value> array;
 	TypeSymbol arrtype;
 	
-	public ArrayValue(ArrayList<Value> array, TypeSymbol arrtype) {
-		this.arrtype = arrtype;
+	public ArrayValue(ArrayList<Value> array) {
+		this.arrtype = array.get(0).getType();
 		this.array = array;
 		
 		for (Value element : array) {
 			if (!element.getType().getName().equals(arrtype.getName())) {
-				System.out.println("Error: All elements of an array must be of all the same base type");
+				System.err.println("Error: All elements of an array must be of all the same base type");
 				System.exit(-1);
 			}
 		}

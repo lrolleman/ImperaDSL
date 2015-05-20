@@ -53,6 +53,9 @@ public class Declaration implements Statement {
 					throw tce;
 				}
 				break;
+			case "array":
+				vs.setValue(ret.value);
+				break;
 			default:
 				throw new ImperaException();
 			}

@@ -132,14 +132,29 @@ There are 5 data types in Impera:
 			
 			note how the add operation implicitly casts the keys to a var
 		
-		See Get in Expressions and Set, assignments and declarations in statements
-		for more info on how to use keys. 
+		See Get in Expressions and Set, assignments and declarations in statements for more info on how to use keys. 
 		
 		Once vectors are implemented, I plan on adding the ability to get and return a vector of all keys
 		that are currently in scope with the specified name. 
 		
 	2.3 Array:
-		not yet implemented TO-DO
+		Arrays are pretty standard issue as well (for now), a simple sequences of same type values
+		All array values must be of the same type (may change later)
+		
+		Ex Arrays:
+			void main() {
+				array a = [1,2,3];
+				println(a);
+				println(a[1]);
+			}
+			
+			output:
+			[1, 2, 3]
+			2
+			
+			Notice that the print statement is perfectly capable of printing out an array without forcing
+			the user to manually do it with a loop. This is only needed if a custom format is desired
+			
 	2.4 Vector:
 		not yet implemented TO-DO
 	2.5 Object:
@@ -464,7 +479,7 @@ There are 5 data types in Impera:
 				return rec(inc(i), target);
 			}
 		}
-			var inc(var v) {
+		var inc(var v) {
 			return v + 1;
 		}
 		

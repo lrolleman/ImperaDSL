@@ -46,7 +46,7 @@ public class Concat implements Expression {
 	}
 	private Expr_Return concat(ArrayValue av1, ArrayValue av2) {
 		av1.getValue().addAll(av2.getValue());
-		ArrayValue ret = new ArrayValue(av1.getValue(), av1.getArrayType());
+		ArrayValue ret = new ArrayValue(av1.getValue());
 		return new Expr_Return(ret.getType(), ret);
 	}
 }

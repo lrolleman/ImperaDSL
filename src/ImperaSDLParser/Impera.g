@@ -18,6 +18,8 @@ tokens {
   CALL;
   ARGS;
   CAST;
+  ARRAY;
+  INDEX;
 }
 
 @header {
@@ -139,6 +141,8 @@ catom
 atom
   : LP! expr RP!
   | LP type RP e=expr -> ^(CAST type $e)
+  | LB expr (COMMA expr)* RB -> ^(ARRAY expr*)
+  | ID LB expr RB -> ^(INDEX ID expr)
   | exprcall
   | NUMBER
   | FPNUMBER
