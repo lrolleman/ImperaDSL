@@ -20,9 +20,11 @@ import ImperaExceptions.*;
 
 @members {
   SymbolTable symtab;
-  public BuildITree(TreeNodeStream input, SymbolTable symtab) {
+  ArrayList<Value> mainargs;
+  public BuildITree(TreeNodeStream input, SymbolTable symtab, ArrayList<Value> mainargs) {
     this(input);
     this.symtab = symtab;
+    this.mainargs = mainargs;
     PersistentData.scopestack.push(symtab.getGlobalScope());
   }
   private CommonTree getErrorHeader() {
@@ -32,7 +34,7 @@ import ImperaExceptions.*;
 
 program returns [Root root]
 @after {
-  $root = new Root($g.gdecl);
+  $root = new Root($g.gdecl, new ArrayValue(mainargs));
 }
   : ^(PROGRAM g=globals)
   ;

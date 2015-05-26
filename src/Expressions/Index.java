@@ -27,6 +27,6 @@ public class Index implements Expression {
 		if (index == null)
 			throw new IllegalIndexException(errtree, "An index must be an integer");
 		ArrayValue av = TypeSystem.getAsArray(idret.value);
-		return new Expr_Return(av.getArrayType(), av.get(index));
+		return new Expr_Return(av.get(index).getType(), av.get(index));
 	}
 }

@@ -6,6 +6,7 @@ import java.io.FileReader;
 import java.io.FilenameFilter;
 import java.io.IOException;
 import java.io.PrintStream;
+import java.util.ArrayList;
 import java.util.Formatter;
 
 import org.antlr.runtime.RecognitionException;
@@ -24,6 +25,8 @@ public class Impera {
 	public static void main(String[] args) throws RecognitionException, ImperaException, IOException {
 		//System.out.println(new ImperaRig("test.imp").getDOTGraph());
 		PersistentData.initFlags();
+		String filename = "";
+		ArrayList<String> mainargs = new ArrayList<String>();
 		for (String arg : args) {
 			switch (arg) {
 			case "-v":
@@ -34,7 +37,7 @@ public class Impera {
 				PrintStream out = System.out;
 				System.setOut(new PrintStream(new ByteArrayOutputStream()));
 				ImperaRig impstartup = new ImperaRig("Tests\\startup.imptest");
-				Root testprogram = impstartup.getImperiTree();
+				Root testprogram = impstartup.getImperiTree(mainargs);
 				testprogram.execute();
 				System.setOut(out);
 				
@@ -68,7 +71,7 @@ public class Impera {
 					
 					long starttime = System.nanoTime();
 					ImperaRig imp = new ImperaRig("Tests\\" + tests[i].getName());
-					Root program = imp.getImperiTree();
+					Root program = imp.getImperiTree(mainargs);
 					long parseend = System.nanoTime();
 					Value testret = program.execute();
 					long endtime = System.nanoTime();
@@ -106,17 +109,22 @@ public class Impera {
 				break;
 			default:
 				if (arg.endsWith(".imp")) {
-					ImperaRig imp = new ImperaRig(arg);
-					//System.out.println(imp.getDOTGraph());
-					Root program = imp.getImperiTree();
-					Value ret = program.execute();
-					System.out.print("Program: " + arg + " terminated with return value: ");
-					if (ret == null)
-						System.out.println(ret);
-					else 
-						GlobalMethods.print(null, ret);
+					filename = arg;
+				} else {
+					mainargs.add(arg);
 				}
 			}
+		}
+		if (filename != "") {
+			ImperaRig imp = new ImperaRig(filename);
+			//System.out.println(imp.getDOTGraph());
+			Root program = imp.getImperiTree(mainargs);
+			Value ret = program.execute();
+			System.out.print("Program: " + filename + " terminated with return value: ");
+			if (ret == null)
+				System.out.println(ret);
+			else 
+				GlobalMethods.print(null, ret);
 		}
 	}
 

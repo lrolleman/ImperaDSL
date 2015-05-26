@@ -1,6 +1,7 @@
 package ImperaSDLParser;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import org.antlr.runtime.ANTLRFileStream;
 import org.antlr.runtime.CommonTokenStream;
@@ -13,6 +14,8 @@ import org.antlr.stringtemplate.StringTemplate;
 
 import Global.*;
 import SymbolTable.SymbolTable;
+import SymbolTable.Value;
+import SymbolTable.VarValue;
 
 
 
@@ -45,11 +48,14 @@ public class ImperaRig {
 		return st;
 	}
 	
-	public Root getImperiTree() throws RecognitionException {
+	public Root getImperiTree(ArrayList<String> mainargs) throws RecognitionException {
 		PersistentData.initPersistentData();
+		ArrayList<Value> args = new ArrayList<Value>();
+		for (String arg : mainargs) 
+			args.add(new VarValue(arg));
 		CommonTreeNodeStream nodes = new CommonTreeNodeStream(getAST());
 		nodes.setTokenStream(tokenStream);
 		SymbolTable symtab = PersistentData.symtab;
-		return new BuildITree(nodes, symtab).program();
+		return new BuildITree(nodes, symtab, args).program();
 	}
 }

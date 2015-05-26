@@ -26,4 +26,5 @@ public class Function {
 	public ArrayList<VariableSymbol> getParams() {return params;}
 	public Block getBlock() {return block;}
 	public ArrayList<Statement> getStatements() {return block.getStatements();}
+	public Integer numParams() {return params.size();}
 }

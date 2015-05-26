@@ -73,4 +73,17 @@ public class TypeSystem {
 			throw new TypeCastException("illegal cast to array");
 		}
 	}
+	
+	public static Value promote(Value val, TypeSymbol type) {
+		switch (type.getName()) {
+		case "var":
+			return getAsVar(val);
+		case "key":
+			return getAsKey(val);
+		case "array":
+			return getAsArray(val);
+		default:
+			throw new ImperaException();
+		}
+	}
 }

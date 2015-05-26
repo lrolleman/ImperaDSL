@@ -9,6 +9,7 @@ import java.util.ArrayList;
 
 
 
+
 import org.antlr.runtime.tree.CommonTree;
 
 import ImperaExceptions.MismatchedArgumentsException;
@@ -20,6 +21,7 @@ import SymbolTable.VariableSymbol;
 import Expressions.Expression;
 import Global.Expr_Return;
 import Global.PersistentData;
+import Global.TypeSystem;
 
 public class StatCall implements Statement {
 	String id;
@@ -39,7 +41,8 @@ public class StatCall implements Statement {
 	}
 	
 	public void execute() {
-		Function function = PersistentData.scopestack.peek().resolveFunction(id);
+		ArrayList<Expr_Return> argres = execute(args);
+		Function function = PersistentData.scopestack.peek().resolveFunction(id, argres);
 		ArrayList<VariableSymbol> params = function.getParams();
 		
 		Scope es = PersistentData.symtab.getGlobalScope();
@@ -48,13 +51,9 @@ public class StatCall implements Statement {
 		if (args.size() != params.size())
 			throw new MismatchedArgumentsException(errtree);
 		for (int i=0; i<args.size(); i++) {
-			VariableSymbol vs = params.get(i);
-			Expr_Return exp = args.get(i).execute();
-			if (!vs.getType().equals(exp.type))
-				throw new TypeMismatchException(errtree, "Mismatched types, expected " + exp.type.getName() + "but got " +
-						vs.getType().getName());
+			VariableSymbol vs = params.get(i);			
 			
-			vs.setValue(exp.value);
+			vs.setValue(TypeSystem.promote(argres.get(i).value, vs.getType()));
 			
 			ns.define(vs);
 		}
@@ -67,5 +66,12 @@ public class StatCall implements Statement {
 		}
 		
 		PersistentData.scopestack.pop();
+	}
+	
+	private ArrayList<Expr_Return> execute(ArrayList<Expression> args) {
+		ArrayList<Expr_Return> res = new ArrayList<Expr_Return>();
+		for (Expression arg : args) 
+			res.add(arg.execute());
+		return res;
 	}
 }

@@ -36,6 +36,7 @@ Table of Contents:
 		4.7 Set
 	5. Functions
 		5.1 Return
+		5.2 Overloading
 	6. Errors
 		TO-DO
 
@@ -465,7 +466,24 @@ There are 5 data types in Impera:
 
 5. Functions:
 	Functions in Impera are standard issue to what you might expect. can be called as an expression or as a statement
-	for now, argument types must match exactly, there is no implicit casting. TO-DO
+	
+	Impera will implicitly cast an argument to match the function definition. 
+	
+	Ex promote:
+		void main() {
+			var v = 10;
+			println(key_echo(v));
+		}
+
+		key key_echo(key k) {
+			return k;
+		}
+		
+		output:
+		null:10
+		
+		the var v at the call site is promoted to a key in order to match the function definition
+	
 	Also, there is recursion in Impera like elsewhere.
 	
 	Ex Recursive:
@@ -497,6 +515,38 @@ There are 5 data types in Impera:
 	5.1 Return:
 		Again, pretty standard issue. It passes the value of the expression up to the caller, unless no expression is 
 		given, at which point a void type is returned with null value. 
+		
+	5.2 Overloaded functions:
+		Impera supports function overloading, that is, in the case of multiple functions of the same name, it will 
+		determine which to execute using the argument types
+		
+		Ex overload:
+			void main() {
+				println(func(10));
+				println(func("foo":10));
+			}
+
+			var func(var x) {
+				return x;
+			}
+
+			key func(key k) {
+				return k;
+			}
+			
+			output:
+			10
+			foo:10
+			
+			notice the function func has the same name, but different parameters. Impera will use these in order to 
+			determine which to call. 
+			
+			Note: the interpretor will check for exact matches before it attempts to do any promotion of the arguments
+			
+			UNDER THE HOOD:
+			The system works by creating groups of functions with the same name (unique function names will just be alone
+			in its group) which is then checked to find the correct function. This is NOT a free operation, so use this
+			feature sparingly. 
 
 Errors:
 	TO-DO

@@ -12,6 +12,7 @@ import ImperaExceptions.TypeMismatchException;
 import Global.Expr_Return;
 import Global.GlobalMethods;
 import Global.PersistentData;
+import Global.TypeSystem;
 import Statements.Function;
 import Statements.Statement;
 import SymbolTable.Scope;
@@ -35,23 +36,20 @@ public class Call implements Expression {
 	}
 	
 	public Expr_Return execute() {
-		Function function = PersistentData.scopestack.peek().resolveFunction(id);
+		ArrayList<Expr_Return> argres = execute(args);
+		Function function = PersistentData.scopestack.peek().resolveFunction(id, argres);
+		
 		ArrayList<VariableSymbol> params = function.getParams();
 		
 		Scope es = PersistentData.symtab.getGlobalScope();
 		Scope ns = new Scope(es);
-		//PersistentData.scopestack.peek().printVars();
+		
 		if (args.size() != params.size())
 			throw new MismatchedArgumentsException(errtree);
 		for (int i=0; i<args.size(); i++) {
-			VariableSymbol vs = params.get(i);
+			VariableSymbol vs = params.get(i);			
 			
-			Expr_Return exp = args.get(i).execute();
-			if (!vs.getType().equals(exp.type))
-				throw new TypeMismatchException(errtree, "Mismatched types, expected " + exp.type.getName() + "but got " +
-						vs.getType().getName());
-			
-			vs.setValue(exp.value);
+			vs.setValue(TypeSystem.promote(argres.get(i).value, vs.getType()));
 			
 			ns.define(vs);
 		}
@@ -69,5 +67,12 @@ public class Call implements Expression {
 		}
 		//PersistentData.scopestack.pop();
 		throw new ImperaException();
+	}
+	
+	private ArrayList<Expr_Return> execute(ArrayList<Expression> args) {
+		ArrayList<Expr_Return> res = new ArrayList<Expr_Return>();
+		for (Expression arg : args) 
+			res.add(arg.execute());
+		return res;
 	}
 }
