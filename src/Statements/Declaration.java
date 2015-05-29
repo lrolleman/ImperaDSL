@@ -54,6 +54,7 @@ public class Declaration implements Statement {
 				}
 				break;
 			case "array":
+			case "object":
 				vs.setValue(ret.value);
 				break;
 			default:

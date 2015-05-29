@@ -3,6 +3,7 @@ package Statements;
 import org.antlr.runtime.tree.CommonTree;
 
 import Expressions.*;
+import ImperaExceptions.IllegalIndexException;
 import ImperaExceptions.ImperaException;
 import ImperaExceptions.TypeCastException;
 import ImperaExceptions.TypeMismatchException;
@@ -10,7 +11,9 @@ import ImperaExceptions.UndefinedIdentifierException;
 import Global.Expr_Return;
 import Global.PersistentData;
 import Global.TypeSystem;
+import SymbolTable.ArrayValue;
 import SymbolTable.KeyValue;
+import SymbolTable.ObjectValue;
 import SymbolTable.TypeSymbol;
 import SymbolTable.Value;
 import SymbolTable.VarValue;
@@ -19,12 +22,20 @@ import SymbolTable.VariableSymbol;
 public class Assignment implements Statement {
 	//TypeSymbol type;
 	String id;
+	String ref;
 	Expression expr;
+	Expression index;
 	CommonTree errtree;
 	
 	public Assignment(CommonTree errtree, String id, Expression expr) throws UndefinedIdentifierException {
+		this(errtree, id, null, expr, null);
+	}
+	
+	public Assignment (CommonTree errtree, String id, String ref, Expression expr, Expression index) {
 		this.id = id;
+		this.ref = ref;
 		this.expr = expr;
+		this.index = index;
 		this.errtree = errtree;
 	}
 	
@@ -37,35 +48,102 @@ public class Assignment implements Statement {
 		
 		switch (vs.getType().getName()) {
 		case "var":
-			Boolean predv = TypeSystem.promoteLookup(ret.type, vs.getType());
-			if (predv == null)
-				throw new TypeMismatchException(errtree, "The variable " + vs.getName() + " cannot be assigned type " + ret.type.getName());
-			
-			try {
-				vs.setValue(TypeSystem.getAsVar(ret.value));
-			} catch (TypeCastException tce) {
-				//TO-DO add stuff to error
-				throw tce;
-			}
+			assigVar(ret, vs);
 			break;
 		case "key":
-			Boolean predk = TypeSystem.promoteLookup(ret.type, vs.getType());
-			if (predk == null)
-				throw new TypeMismatchException(errtree, "The variable " + vs.getName() + " cannot be assigned type " + ret.type.getName());
-			
-			try {
-				KeyValue kv = TypeSystem.getAsKey(ret.value);
-				KeyValue vsk = TypeSystem.getAsKey(vs.getValue());
-				if (kv.getKey() == null)
-					kv.setKey(vsk.getKey());
-				vs.setValue(kv);
-			} catch (TypeCastException tce) {
-				//TO-DO add stuff to error
-				throw tce;
-			}
+			assigKey(ret, vs);
+			break;
+		case "array":
+			assigArray(ret, vs);
+			break;
+		case "object":
+			assigObject(ret, vs);
 			break;
 		default:
 			throw new ImperaException();
+		}
+	}
+	
+	private void assigVar(Expr_Return ret, VariableSymbol vs) {
+		if (TypeSystem.promoteLookup(ret.type, vs.getType()) == null)
+			throw new TypeMismatchException(errtree, "The variable " + vs.getName() + " cannot be assigned type " + ret.type.getName());
+		
+		try {
+			vs.setValue(TypeSystem.getAsVar(ret.value));
+		} catch (TypeCastException tce) {
+			//TO-DO add stuff to error
+			throw tce;
+		}
+	}
+	private void assigKey(Expr_Return ret, VariableSymbol vs) {
+		if (TypeSystem.promoteLookup(ret.type, vs.getType()) == null)
+			throw new TypeMismatchException(errtree, "The variable " + vs.getName() + " cannot be assigned type " + ret.type.getName());
+		
+		try {
+			KeyValue kv = TypeSystem.getAsKey(ret.value);
+			KeyValue vsk = TypeSystem.getAsKey(vs.getValue());
+			if (kv.getKey() == null)
+				kv.setKey(vsk.getKey());
+			vs.setValue(kv);
+		} catch (TypeCastException tce) {
+			//TO-DO add stuff to error
+			throw tce;
+		}
+	}
+	private void assigArray(Expr_Return ret, VariableSymbol vs) {
+		if (index == null) {
+			if (TypeSystem.promoteLookup(ret.type, vs.getType()) == null)
+				throw new TypeMismatchException(errtree, "The variable " + vs.getName() + " cannot be assigned type " + ret.type.getName());
+			try {
+				vs.setValue(TypeSystem.getAsArray(ret.value));
+			} catch (TypeCastException tce) {
+				//TO-DO add stuff to error
+				throw tce;
+			}
+		} else {
+			try {
+				ArrayValue av = TypeSystem.getAsArray(vs.getValue());
+				VarValue vindex = TypeSystem.getAsVar(index.execute().value);
+				Integer i = vindex.getInteger();
+				if (i == null)
+					throw new IllegalIndexException(errtree, "Index must be an integer");
+				av.set(i, ret.value);
+			} catch (TypeCastException tce) {
+				throw tce;
+			}
+		}
+	}
+	private void assigObject(Expr_Return ret, VariableSymbol vs) {
+		if (ref != null) {
+			ObjectValue ov = TypeSystem.getAsObject(vs.getValue());
+			vs = ov.get(ref);
+		}
+		if (TypeSystem.promoteLookup(ret.type, vs.getType()) == null)
+			throw new TypeMismatchException(errtree, "The variable " + vs.getName() + " cannot be assigned type " + ret.type.getName());
+		try {
+			if (ref == null) {
+				vs.setValue(TypeSystem.getAsObject(ret.value));
+			} else {
+				switch (vs.getType().getName()) {
+				case "var":
+					assigVar(ret, vs);
+					break;
+				case "key":
+					assigKey(ret, vs);
+					break;
+				case "array":
+					assigArray(ret, vs);
+					break;
+				case "object":
+					assigObject(ret, vs);
+					break;
+				default:
+					throw new ImperaException();
+				}
+			}
+		} catch (TypeCastException tce) {
+			//TO-DO add stuff to error
+			throw tce;
 		}
 	}
 }

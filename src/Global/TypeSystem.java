@@ -4,6 +4,7 @@ import ImperaExceptions.ImperaException;
 import ImperaExceptions.TypeCastException;
 import SymbolTable.ArrayValue;
 import SymbolTable.KeyValue;
+import SymbolTable.ObjectValue;
 import SymbolTable.TypeSymbol;
 import SymbolTable.Value;
 import SymbolTable.VarValue;
@@ -74,6 +75,14 @@ public class TypeSystem {
 		}
 	}
 	
+	public static ObjectValue getAsObject(Value val) {
+		try {
+			return (ObjectValue) val;
+		} catch (ClassCastException cce) {
+			throw new TypeCastException("illegal cast to object");
+		}
+	}
+	
 	public static Value promote(Value val, TypeSymbol type) {
 		switch (type.getName()) {
 		case "var":
@@ -82,6 +91,8 @@ public class TypeSystem {
 			return getAsKey(val);
 		case "array":
 			return getAsArray(val);
+		case "object":
+			return getAsObject(val);
 		default:
 			throw new ImperaException();
 		}

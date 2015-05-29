@@ -109,6 +109,8 @@ assignment returns [Statement assig]
   CommonTree errtree = getErrorHeader();
 }
   : ^(EQUAL ID expr) {$assig = new Assignment(errtree, $ID.text, $expr.expression);}
+  | ^(OBJ_ASSIG obj=ID ref=ID expr) {$assig = new Assignment(errtree, $obj.text, $ref.text, $expr.expression, null);}
+  | ^(ARRAY_ASSIG ID index=expr e=expr) {$assig = new Assignment(errtree, $ID.text, null, $e.expression, $index.expression);}
   | ^(SET ID expr) {$assig = new Set(errtree, $ID.text, $expr.expression);}
   ;
   
@@ -175,6 +177,8 @@ expr returns [Expression expression]
   | ^(GET e=expr) {$expression = new Get(errtree, $e.expression);}
   | ^(CAST type e=expr) {$expression = new Cast(errtree, $type.type, $e.expression);}
   | exprcall {$expression = $exprcall.expr;}
+  | ^(OBJECT_CONSTRUCTOR params) {$expression = new ObjectConstructor($params.params);}
+  | ^(OBJ_REF obj=ID ref=ID) {$expression = new ObjectReference(errtree, new Identifier(errtree, $obj.text), $ref.text);}
   | NUMBER {$expression = new Atom(new VarValue($NUMBER.text));}
   | FPNUMBER {$expression = new Atom(new VarValue($FPNUMBER.text));}
   | TRUE {$expression = new Atom(new VarValue($TRUE.text));}

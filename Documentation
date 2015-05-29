@@ -156,10 +156,42 @@ There are 5 data types in Impera:
 			Notice that the print statement is perfectly capable of printing out an array without forcing
 			the user to manually do it with a loop. This is only needed if a custom format is desired
 			
+		you can also assign to a specific element in an array in normal C style
+		
+		Ex 9:
+			void main() {
+				array a = [1,2,3];
+				a[1] = 4;
+				println(a);
+			}
+			
+			output:
+			[1, 4, 3]
+			
 	2.4 Vector:
 		not yet implemented TO-DO
 	2.5 Object:
-		not yet implemented TO-DO
+		Objects in Impera are more like C structs than objects you find in an object oriented language, so don't let the
+		name confuse you. 
+		The fields and the field types are created using the object constructor expression <type id, ...> and then accessed
+		using the dot operator. 
+		
+		Ex 10:
+			void main() {
+				object o = <var v1, var v2>;
+				o.v1 = 5;
+				o.v2 = 10;
+				println(o.v1);
+				println(o.v2);
+			}
+			
+			output:
+			5
+			10
+			
+			Note, you cannot assig variables in the constructor, only declare the fields themselves. This may change later
+			Also note that objects cannot be printed by the print and println functions, you must manually do it. Again, 
+			this may change later. 
 		
 	2.6 Type Casts:
 		Impera supports explicit type casts, however these are there for a matter of convenience and do not

@@ -20,6 +20,10 @@ tokens {
   CAST;
   ARRAY;
   INDEX;
+  OBJECT_CONSTRUCTOR;
+  OBJ_REF;
+  OBJ_ASSIG;
+  ARRAY_ASSIG;
 }
 
 @header {
@@ -77,7 +81,9 @@ block
   ;
   
 assignment
-  : ID EQUAL expr SC -> ^(EQUAL ID expr)
+  : obj=ID DOT ref=ID EQUAL expr SC -> ^(OBJ_ASSIG $obj $ref expr)
+  | ID LB index=expr RB EQUAL value=expr SC -> ^(ARRAY_ASSIG ID $index $value)
+  | ID EQUAL expr SC -> ^(EQUAL ID expr)
   | ID SET expr SC -> ^(SET ID expr)
   ;
   
@@ -143,6 +149,8 @@ atom
   | LP type RP e=expr -> ^(CAST type $e)
   | LB expr (COMMA expr)* RB -> ^(ARRAY expr*)
   | ID LB expr RB -> ^(INDEX ID expr)
+  | obj=ID DOT ref=ID -> ^(OBJ_REF $obj $ref)
+  | LTHAN params GTHAN -> ^(OBJECT_CONSTRUCTOR params)
   | exprcall
   | NUMBER
   | FPNUMBER
