@@ -1,13 +1,17 @@
 package Global;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Set;
 
 import org.antlr.runtime.tree.CommonTree;
 
 import ImperaExceptions.PrintException;
 import SymbolTable.KeyValue;
+import SymbolTable.ObjectValue;
 import SymbolTable.Value;
 import SymbolTable.VarValue;
+import SymbolTable.VariableSymbol;
 
 public class GlobalMethods {
 	@SuppressWarnings("unchecked")
@@ -39,6 +43,21 @@ public class GlobalMethods {
 			KeyValue key = (KeyValue) val;
 			System.out.print(key.getKey() + ":");
 			print(tree, key.getValue(), "");
+			break;
+		case "object":
+			ObjectValue ov = TypeSystem.getAsObject(val);
+			HashMap<String, VariableSymbol> obj = (HashMap<String, VariableSymbol>) ov.getValue();
+			Set<String> keyset = obj.keySet();
+			int i = 0;
+			for (String okey : keyset) {
+				if (i == 0)
+					System.out.print("<");
+				if (i == keyset.size()-1)
+					print(tree, obj.get(okey).getValue(), ">");
+				else
+					print(tree, obj.get(okey).getValue(), ", ");
+				i++;
+			}
 			break;
 		default:
 			throw new PrintException(tree, "This value is not printable");

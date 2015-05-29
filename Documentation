@@ -175,6 +175,7 @@ There are 5 data types in Impera:
 		name confuse you. 
 		The fields and the field types are created using the object constructor expression <type id, ...> and then accessed
 		using the dot operator. 
+		There must be at least one field. They can be of any type, even other objects. 
 		
 		Ex 10:
 			void main() {
@@ -183,15 +184,17 @@ There are 5 data types in Impera:
 				o.v2 = 10;
 				println(o.v1);
 				println(o.v2);
+				println(o);
 			}
 			
 			output:
 			5
 			10
+			<5, 10>
 			
-			Note, you cannot assig variables in the constructor, only declare the fields themselves. This may change later
-			Also note that objects cannot be printed by the print and println functions, you must manually do it. Again, 
-			this may change later. 
+			Note, you cannot assign variables in the constructor, only declare the fields themselves. This may change later
+			Like arrays, objects can be printed out directly, though if a different format is desired it must be done 
+			manually
 		
 	2.6 Type Casts:
 		Impera supports explicit type casts, however these are there for a matter of convenience and do not

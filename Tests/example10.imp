@@ -4,4 +4,5 @@ void main() {
 	o.v2 = 10;
 	println(o.v1);
 	println(o.v2);
+	println(o);
 }
