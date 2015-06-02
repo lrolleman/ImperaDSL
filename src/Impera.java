@@ -16,6 +16,7 @@ import ImperaSDLParser.ImperaRig;
 import Global.GlobalMethods;
 import Global.PersistentData;
 import Global.Root;
+import Global.Stats;
 import SymbolTable.Value;
 import SymbolTable.VarValue;
 
@@ -31,6 +32,10 @@ public class Impera {
 			switch (arg) {
 			case "-v":
 				PersistentData.verbose = true;
+				break;
+			case "-s":
+				PersistentData.collect_stats = true;
+				Stats.initStats();
 				break;
 			case "-runtests":
 				//Run an initial startup program so all tests are running on a "warmed up" environment
@@ -64,6 +69,7 @@ public class Impera {
 				
 				
 				for (int i=0; i<tests.length; i++) {
+					Stats.initStats();
 					ByteArrayOutputStream baos = new ByteArrayOutputStream();
 					PrintStream ps = new PrintStream(baos);
 					
@@ -96,9 +102,13 @@ public class Impera {
 						} else
 							System.err.println(tests[i].getName() + ": " + "Test Failed");
 						if (PersistentData.verbose)
-							System.err.format("\t%-15s %10d\n\t%-15s %10d\n\t%-15s %10d\n",
-									"Parse Time:", parseend-starttime, "Run Time:", endtime-parseend, "Total:",
-									 endtime-starttime);
+							System.err.format("\t%-15s %10d\n\t%-15s %10d\n\t%-15s %10d\n\t%-15s %10d\n\t%-15s %10d\n\t%-15s %10d\n",
+									"Parse Time:", parseend-starttime,
+									"Run Time:", endtime-parseend,
+									"Total:", endtime-starttime,
+									"Arith Time: ", Stats.arithmetic_time,
+									"Logic Time: ", Stats.logic_time,
+									"Compare Time: ", Stats.compare_time);
 					} else {
 						System.err.println("Something went wrong in the tests");
 						System.exit(-1);

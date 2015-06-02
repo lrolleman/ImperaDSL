@@ -4,6 +4,7 @@ import org.antlr.runtime.tree.CommonTree;
 
 import Global.Expr_Return;
 import Global.PersistentData;
+import Global.Stats;
 import ImperaExceptions.LogicalTypeMismatchException;
 import ImperaExceptions.TypeMismatchException;
 import SymbolTable.KeyValue;
@@ -22,7 +23,9 @@ public class Not implements Expression{
 	public Expr_Return execute() {
 		Expr_Return ret = expr.execute();
 		Value v;
-		
+		long starttime = 0;
+		if (PersistentData.collect_stats)
+			starttime = System.nanoTime();
 		if (ret.type.getName().equals("var") || ret.type.getName().equals("key"))
 			v = (Value) ret.value.getValue();
 		else 
@@ -33,7 +36,10 @@ public class Not implements Expression{
 			
 			Boolean res = !vv.getBool();
 			
-			return new Expr_Return(PersistentData.symtab.resolveType("var"), new VarValue(res.toString()));
+			Expr_Return ret1 = new Expr_Return(PersistentData.symtab.resolveType("var"), new VarValue(res.toString()));
+			if (PersistentData.collect_stats)
+				Stats.logic_time += System.nanoTime() - starttime;
+			return ret1;
 		} catch (ClassCastException cce) {
 			throw new TypeMismatchException(errtree, "This operation requires both operands to be boolean");
 		} catch (NullPointerException npe) {

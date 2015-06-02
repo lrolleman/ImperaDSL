@@ -5,6 +5,7 @@ import org.antlr.runtime.tree.CommonTree;
 import Global.ErrorHandlers;
 import Global.Expr_Return;
 import Global.PersistentData;
+import Global.Stats;
 import Global.TypeSystem;
 import ImperaExceptions.ImperaException;
 import ImperaExceptions.LogicalTypeMismatchException;
@@ -28,7 +29,9 @@ public class Equal implements Expression {
 	public Expr_Return execute() {
 		Expr_Return ret1 = e1.execute();
 		Expr_Return ret2 = e2.execute();
-		
+		long starttime = 0;
+		if (PersistentData.collect_stats)
+			starttime = System.nanoTime();
 		try {
 			VarValue vv1 = TypeSystem.getAsVar(ret1.value);
 			VarValue vv2 = TypeSystem.getAsVar(ret2.value);
@@ -39,7 +42,10 @@ public class Equal implements Expression {
 				res = vv1.getString().equals(vv2.getString());
 			}
 			
-			return new Expr_Return(PersistentData.symtab.resolveType("var"), new VarValue(res.toString()));
+			Expr_Return ret = new Expr_Return(PersistentData.symtab.resolveType("var"), new VarValue(res.toString()));
+			if (PersistentData.collect_stats)
+				Stats.compare_time += System.nanoTime() - starttime;
+			return ret;
 		} catch (TypeCastException cce) {
 			ErrorHandlers.reportLogicalTypeError(errtree, ret1, ret2);
 		} catch (NullPointerException npe) {

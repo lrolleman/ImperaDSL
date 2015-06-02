@@ -179,10 +179,10 @@ expr returns [Expression expression]
   | exprcall {$expression = $exprcall.expr;}
   | ^(OBJECT_CONSTRUCTOR params) {$expression = new ObjectConstructor($params.params);}
   | ^(OBJ_REF obj=ID ref=ID) {$expression = new ObjectReference(errtree, new Identifier(errtree, $obj.text), $ref.text);}
-  | NUMBER {$expression = new Atom(new VarValue($NUMBER.text));}
-  | FPNUMBER {$expression = new Atom(new VarValue($FPNUMBER.text));}
-  | TRUE {$expression = new Atom(new VarValue($TRUE.text));}
-  | FALSE {$expression = new Atom(new VarValue($FALSE.text));}
+  | NUMBER {$expression = new Atom(new VarValue(Integer.parseInt($NUMBER.text)));}
+  | FPNUMBER {$expression = new Atom(new VarValue(Double.parseDouble($FPNUMBER.text)));}
+  | TRUE {$expression = new Atom(new VarValue(true));}
+  | FALSE {$expression = new Atom(new VarValue(false));}
   | STRING {$expression = new Atom(new VarValue($STRING.text));}
   | ^(ARRAY {ArrayList<Expression> exprs = new ArrayList<Expression>();}
     (e=expr {exprs.add($e.expression);})*) {$expression = new ArrayConstructor(exprs);}

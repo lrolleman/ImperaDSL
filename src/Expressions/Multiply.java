@@ -4,6 +4,8 @@ import org.antlr.runtime.tree.CommonTree;
 
 import Global.ErrorHandlers;
 import Global.Expr_Return;
+import Global.PersistentData;
+import Global.Stats;
 import Global.TypeSystem;
 import ImperaExceptions.ArithmeticTypeMismatchException;
 import ImperaExceptions.ImperaException;
@@ -26,9 +28,14 @@ public class Multiply implements Expression {
 	public Expr_Return execute() {
 		Expr_Return ret1 = e1.execute();
 		Expr_Return ret2 = e2.execute();
-		
+		long starttime = 0;
+		if (PersistentData.collect_stats)
+			starttime = System.nanoTime();
 		try {
-			return multiply(TypeSystem.getAsVar(ret1.value), TypeSystem.getAsVar(ret2.value));
+			Expr_Return ret = execute(TypeSystem.getAsVar(ret1.value), TypeSystem.getAsVar(ret2.value));
+			if (PersistentData.collect_stats)
+				Stats.arithmetic_time += System.nanoTime() - starttime;
+			return ret;
 		} catch (ClassCastException cce) {
 			ErrorHandlers.reportArithmeticTypeError(errtree, ret1, ret2);
 		}
@@ -38,7 +45,7 @@ public class Multiply implements Expression {
 	}
 	
 	
-	private Expr_Return multiply(VarValue vv1, VarValue vv2) throws NotANumberException {
+	private Expr_Return execute(VarValue vv1, VarValue vv2) throws NotANumberException {
 		Integer i1 = vv1.getInteger();
 		Integer i2 = vv2.getInteger();
 		VarValue rv;
@@ -46,12 +53,12 @@ public class Multiply implements Expression {
 			Double d1 = vv1.getFloatingPoint();
 			Double d2 = vv2.getFloatingPoint();
 			try {
-			rv = new VarValue(new Double(d1 * d2).toString());
+			rv = new VarValue(new Double(d1 * d2));
 			} catch (NullPointerException npe) {
 				throw new NotANumberException(errtree);
 			}
 		} else {
-			rv = new VarValue(new Integer(i1 * i2).toString());
+			rv = new VarValue(new Integer(i1 * i2));
 		}
 		
 		return new Expr_Return(rv.getType(), rv);

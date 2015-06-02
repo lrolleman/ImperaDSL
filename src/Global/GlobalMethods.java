@@ -18,9 +18,7 @@ public class GlobalMethods {
 	public static void print(CommonTree tree, Value val) {
 		print(tree, val, "");
 	}
-	/*public static String sprint(Value val) {
-		return sprint("", val, "");
-	}*/
+	
 	private static void print(CommonTree tree, Value val, String delim) {
 		switch (val.getType().getName()) {
 		case "var":
@@ -63,32 +61,5 @@ public class GlobalMethods {
 			throw new PrintException(tree, "This value is not printable");
 		}
 	}
-	/*private static String sprint(String sval, Value val, String delim) {
-		switch (val.getType().getName()) {
-		case "var":
-			VarValue vv1 = (VarValue) val;
-			String st = (String) vv1.getString();
-			sval = sval + st + delim;
-			break;
-		case "array":
-			ArrayList<Value> arr = (ArrayList<Value>) val.getValue();
-			for (int i=0; i<arr.size(); i++) {
-				if (i == 0) 
-					sval = sval + "[";
-				if (i == arr.size()-1)
-					sval = sprint(sval, arr.get(i), "]");
-				else 
-					sval = sprint(sval, arr.get(i), ", ");
-			}
-			break;
-		case "key":
-			KeyValue key = (KeyValue) val;
-			sval = key.getKey() + ":";
-			sval = sprint(sval, key.getValue(), "");
-			break;
-		default:
-			throw new PrintException("This value is not printable");
-		}
-		return sval;
-	}*/
+	
 }

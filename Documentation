@@ -193,7 +193,7 @@ There are 5 data types in Impera:
 			<5, 10>
 			
 			Note, you cannot assign variables in the constructor, only declare the fields themselves. This may change later
-			Like arrays, objects can be printed out directly, though if a different format is desired it must be done 
+			Like keys and arrays, objects can be printed out directly, though if a different format is desired it must be done 
 			manually
 		
 	2.6 Type Casts:

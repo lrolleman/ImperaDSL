@@ -19,18 +19,10 @@ public class Identifier implements Expression{
 	
 	public Expr_Return execute() {
 		VariableSymbol vs = (VariableSymbol) PersistentData.scopestack.peek().resolve(id);
-		//System.out.println(id);
-		//PersistentData.scopestack.peek().printVars();
-		
-			
+					
 		try {
 			return new Expr_Return(vs.getType(), vs.getValue());
-		} catch (NullPointerException npe) {
-			/*for (Scope scope : PersistentData.scopestack) {
-				scope.printVars();
-				System.out.println();
-			}*/
-			
+		} catch (NullPointerException npe) {		
 			throw new NullIdentifierException(errtree);
 		}
 	}
