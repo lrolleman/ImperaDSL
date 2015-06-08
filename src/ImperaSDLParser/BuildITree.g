@@ -195,5 +195,6 @@ type returns [TypeSymbol type]
   | KEY {$type = symtab.resolveType("key");}
   | OBJECT {$type = symtab.resolveType("object");}
   | ARRAY {$type = symtab.resolveType("array");}
+  | VECTOR {$type = symtab.resolveType("vector");}
   | VOID {$type = symtab.resolveType("void");}
   ;

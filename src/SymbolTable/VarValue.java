@@ -53,6 +53,7 @@ public class VarValue implements Value {
 	
 	public Value getValue() {return this;}
 	public TypeSymbol getType() {return type;}
+	public VarValue getIdentity() {return new VarValue(0);}
 	public String getString() {return value;}
 	public Integer getInteger() {
 		if (internaltype == FP)

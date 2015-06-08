@@ -18,6 +18,7 @@ import SymbolTable.TypeSymbol;
 import SymbolTable.Value;
 import SymbolTable.VarValue;
 import SymbolTable.VariableSymbol;
+import SymbolTable.VectorValue;
 
 public class Assignment implements Statement {
 	//TypeSymbol type;
@@ -58,6 +59,9 @@ public class Assignment implements Statement {
 			break;
 		case "object":
 			assigObject(ret, vs);
+			break;
+		case "vector":
+			assigVector(ret, vs);
 			break;
 		default:
 			throw new ImperaException();
@@ -144,6 +148,30 @@ public class Assignment implements Statement {
 		} catch (TypeCastException tce) {
 			//TO-DO add stuff to error
 			throw tce;
+		}
+	}
+	
+	private void assigVector(Expr_Return ret, VariableSymbol vs) {
+		if (index == null) {
+			if (TypeSystem.promoteLookup(ret.type, vs.getType()) == null)
+				throw new TypeMismatchException(errtree, "The variable " + vs.getName() + " cannot be assigned type " + ret.type.getName());
+			try {
+				vs.setValue(TypeSystem.getAsVector(ret.value));
+			} catch (TypeCastException tce) {
+				//TO-DO add stuff to error
+				throw tce;
+			}
+		} else {
+			try {
+				VectorValue av = TypeSystem.getAsVector(vs.getValue());
+				VarValue vindex = TypeSystem.getAsVar(index.execute().value);
+				Integer i = vindex.getInteger();
+				if (i == null)
+					throw new IllegalIndexException(errtree, "Index must be an integer");
+				av.set(i, ret.value);
+			} catch (TypeCastException tce) {
+				throw tce;
+			}
 		}
 	}
 }

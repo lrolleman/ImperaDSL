@@ -33,16 +33,7 @@ public class Equal implements Expression {
 		if (PersistentData.collect_stats)
 			starttime = System.nanoTime();
 		try {
-			VarValue vv1 = TypeSystem.getAsVar(ret1.value);
-			VarValue vv2 = TypeSystem.getAsVar(ret2.value);
-			Boolean res = null;
-			try {
-				res = vv1.getFloatingPoint().equals(vv2.getFloatingPoint());
-			} catch (NullPointerException npe) {
-				res = vv1.getString().equals(vv2.getString());
-			}
-			
-			Expr_Return ret = new Expr_Return(PersistentData.symtab.resolveType("var"), new VarValue(res.toString()));
+			Expr_Return ret = execute(TypeSystem.getAsVar(ret1.value), TypeSystem.getAsVar(ret2.value));
 			if (PersistentData.collect_stats)
 				Stats.compare_time += System.nanoTime() - starttime;
 			return ret;
@@ -54,5 +45,16 @@ public class Equal implements Expression {
 		
 		//should never execute
 		throw new ImperaException();
+	}
+	
+	private Expr_Return execute(VarValue vv1, VarValue vv2) {
+		Boolean res = null;
+		try {
+			res = vv1.getFloatingPoint().equals(vv2.getFloatingPoint());
+		} catch (NullPointerException npe) {
+			res = vv1.getString().equals(vv2.getString());
+		}
+		
+		return new Expr_Return(PersistentData.symtab.resolveType("var"), new VarValue(res));
 	}
 }

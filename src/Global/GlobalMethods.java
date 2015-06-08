@@ -12,6 +12,7 @@ import SymbolTable.ObjectValue;
 import SymbolTable.Value;
 import SymbolTable.VarValue;
 import SymbolTable.VariableSymbol;
+import SymbolTable.VectorValue;
 
 public class GlobalMethods {
 	@SuppressWarnings("unchecked")
@@ -37,10 +38,21 @@ public class GlobalMethods {
 					print(tree, arr.get(i), ", ");
 			}
 			break;
+		case "vector":
+			ArrayList<Value> vec = (ArrayList<Value>) val.getValue();
+			for (int i=0; i<vec.size(); i++) {
+				if (i == 0) 
+					System.out.print("vec[");
+				if (i == vec.size()-1)
+					print(tree, vec.get(i), "]");
+				else 
+					print(tree, vec.get(i), ", ");
+			}
+			break;
 		case "key":
 			KeyValue key = (KeyValue) val;
 			System.out.print(key.getKey() + ":");
-			print(tree, key.getValue(), "");
+			print(tree, key.getValue(), delim);
 			break;
 		case "object":
 			ObjectValue ov = TypeSystem.getAsObject(val);
@@ -62,4 +74,16 @@ public class GlobalMethods {
 		}
 	}
 	
+	public static VectorValue extend(Value val, Integer size) {
+		VectorValue vv = TypeSystem.getAsVector(val);
+		if (val.getType().getName().equals("vector")) {
+			VectorValue padding = vv.getIdentity();
+			for (int i=vv.getSize(); i<size; i++) 
+				vv.getValue().add(padding.get(0));
+		} else {
+			for (int i=1; i<size; i++) 
+				vv.getValue().add(vv.get(0));
+		}
+		return vv;
+	}
 }

@@ -22,6 +22,10 @@ public class SymbolTable {
 		reserve("false");
 		reserve("and");
 		reserve("or");
+		reserve("xor");
+		reserve("print");
+		reserve("println");
+		reserve("function");
 		reserve("null");
 	}
 	

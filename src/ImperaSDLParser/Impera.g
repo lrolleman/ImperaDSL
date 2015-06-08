@@ -168,6 +168,7 @@ type
   | KEY
   | OBJECT
   | ARRAY
+  | VECTOR
   | VOID
   ;
 
@@ -202,6 +203,7 @@ VAR: 'var';
 KEY: 'key';
 OBJECT: 'object';
 ARRAY: 'array';
+VECTOR: 'vector';
 VOID: 'void';
 
 SET: ':=';

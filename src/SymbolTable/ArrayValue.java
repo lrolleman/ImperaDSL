@@ -13,6 +13,7 @@ public class ArrayValue implements Value {
 	
 	public ArrayList<Value> getValue() {return array;}
 	public TypeSymbol getType() {return PersistentData.symtab.resolveType("array");}
+	public ArrayValue getIdentity() {return new ArrayValue(new ArrayList<Value>());}
 	public Value get(Integer index) {return array.get(index);}
 	public void set(Integer index, Value val) {array.set(index, val);}
 	public void add(Value value) {

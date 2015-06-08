@@ -4,8 +4,10 @@ import org.antlr.runtime.tree.CommonTree;
 
 import Global.ErrorHandlers;
 import Global.Expr_Return;
+import Global.TypeSystem;
 import ImperaExceptions.ArithmeticTypeMismatchException;
 import ImperaExceptions.ImperaException;
+import ImperaExceptions.TypeCastException;
 import SymbolTable.ArrayValue;
 import SymbolTable.TypeSymbol;
 import SymbolTable.Value;
@@ -27,11 +29,11 @@ public class Concat implements Expression {
 		Expr_Return ret2 = e2.execute();
 		
 		try {
-			return concat((VarValue) ret1.value.getValue(), (VarValue) ret2.value.getValue());
-		} catch (ClassCastException cce) {
+			return concat(TypeSystem.getAsVar(ret1.value), TypeSystem.getAsVar(ret2.value));
+		} catch (TypeCastException cce) {
 			try {
-				concat((ArrayValue) ret1.value.getValue(), (ArrayValue) ret2.value.getValue());
-			} catch (ClassCastException cce2) {
+				return concat(TypeSystem.getAsArray(ret1.value), TypeSystem.getAsArray(ret2.value));
+			} catch (TypeCastException cce2) {
 				ErrorHandlers.reportArrayTypeError(errtree, ret1, ret2);
 			}
 		}
@@ -46,7 +48,7 @@ public class Concat implements Expression {
 	}
 	private Expr_Return concat(ArrayValue av1, ArrayValue av2) {
 		av1.getValue().addAll(av2.getValue());
-		ArrayValue ret = new ArrayValue(av1.getValue());
-		return new Expr_Return(ret.getType(), ret);
+		
+		return new Expr_Return(av1.getType(), av1);
 	}
 }

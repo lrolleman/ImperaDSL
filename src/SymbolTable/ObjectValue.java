@@ -15,5 +15,8 @@ public class ObjectValue implements Value {
 	
 	public Map<String, VariableSymbol> getValue() {return members;}
 	public TypeSymbol getType() {return PersistentData.symtab.resolveType("object");}
+	public ObjectValue getIdentity() {
+		return new ObjectValue(new HashMap<String, VariableSymbol>());
+	}
 	public VariableSymbol get(String key) {return members.get(key);}
 }

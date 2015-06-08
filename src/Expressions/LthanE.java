@@ -30,16 +30,11 @@ public class LthanE implements Expression {
 		if (PersistentData.collect_stats)
 			starttime = System.nanoTime();
 		try {
-			VarValue vv1 = TypeSystem.getAsVar(ret1.value);
-			VarValue vv2 = TypeSystem.getAsVar(ret2.value);
-			
-			Boolean res = vv1.getFloatingPoint() <= vv2.getFloatingPoint();
-			
-			Expr_Return ret = new Expr_Return(PersistentData.symtab.resolveType("var"), new VarValue(res.toString()));
+			Expr_Return ret = execute(TypeSystem.getAsVar(ret1.value), TypeSystem.getAsVar(ret2.value));
 			if (PersistentData.collect_stats)
 				Stats.compare_time += System.nanoTime() - starttime;
 			return ret;
-		} catch (TypeCastException tce) {
+		} catch (TypeCastException cce) {
 			ErrorHandlers.reportLogicalTypeError(errtree, ret1, ret2);
 		} catch (NullPointerException npe) {
 			ErrorHandlers.reportLogicalTypeError(errtree, ret1, ret2);
@@ -47,5 +42,11 @@ public class LthanE implements Expression {
 		
 		//should never execute
 		throw new ImperaException();
+	}
+	
+	private Expr_Return execute(VarValue vv1, VarValue vv2) {
+		Boolean res = vv1.getFloatingPoint() <= vv2.getFloatingPoint();
+		
+		return new Expr_Return(PersistentData.symtab.resolveType("var"), new VarValue(res));
 	}
 }

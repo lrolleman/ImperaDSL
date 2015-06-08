@@ -5,6 +5,7 @@ import org.antlr.runtime.tree.CommonTree;
 import Global.Expr_Return;
 import Global.TypeSystem;
 import ImperaExceptions.NotANumberException;
+import ImperaExceptions.TypeCastException;
 import SymbolTable.KeyValue;
 import SymbolTable.VarValue;
 
@@ -19,22 +20,25 @@ public class Pos implements Expression {
 	
 	public Expr_Return execute() {
 		Expr_Return ex = expr.execute();
-		VarValue v = TypeSystem.getAsVar(ex.value);
+		try {
+			return execute(TypeSystem.getAsVar(ex.value));
+		} catch (TypeCastException tce) {
+			throw tce;
+		}
+	}
+	
+	private Expr_Return execute(VarValue v) {
 		Integer i = v.getInteger();
-		
 		if (i == null) {
 			
 			Double d = v.getFloatingPoint();
 			if (d == null)
 				throw new NotANumberException(errtree);
-			//d = +d;
 			d = Math.abs(d);
-			v = new VarValue(d.toString());
+			v = new VarValue(d);
 		} else {
-			//i = +i;
 			i = Math.abs(i);
-			//System.err.println(i);
-			v = new VarValue(i.toString());
+			v = new VarValue(i);
 		}
 		
 		return new Expr_Return(v.getType(), v);

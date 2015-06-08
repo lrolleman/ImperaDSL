@@ -5,7 +5,9 @@ import org.antlr.runtime.tree.CommonTree;
 import Global.Expr_Return;
 import Global.PersistentData;
 import Global.Stats;
+import Global.TypeSystem;
 import ImperaExceptions.LogicalTypeMismatchException;
+import ImperaExceptions.TypeCastException;
 import ImperaExceptions.TypeMismatchException;
 import SymbolTable.KeyValue;
 import SymbolTable.Value;
@@ -26,24 +28,23 @@ public class Not implements Expression{
 		long starttime = 0;
 		if (PersistentData.collect_stats)
 			starttime = System.nanoTime();
-		if (ret.type.getName().equals("var") || ret.type.getName().equals("key"))
-			v = (Value) ret.value.getValue();
-		else 
-			throw new LogicalTypeMismatchException(errtree, "Cannot perform this operation on an " + ret.type.getName());
-		
 		try {
-			VarValue vv = (VarValue) v;
-			
-			Boolean res = !vv.getBool();
-			
-			Expr_Return ret1 = new Expr_Return(PersistentData.symtab.resolveType("var"), new VarValue(res.toString()));
+			Expr_Return ret1 = execute(TypeSystem.getAsVar(ret.value));
 			if (PersistentData.collect_stats)
 				Stats.logic_time += System.nanoTime() - starttime;
 			return ret1;
 		} catch (ClassCastException cce) {
-			throw new TypeMismatchException(errtree, "This operation requires both operands to be boolean");
+			throw new TypeMismatchException(errtree, "This operation requires the operand to be boolean");
 		} catch (NullPointerException npe) {
-			throw new TypeMismatchException(errtree, "This operation requires both operands to be boolean");
+			throw new TypeMismatchException(errtree, "This operation requires the operand to be boolean");
+		} catch (TypeCastException tce) {
+			throw tce;
 		}
+	}
+	
+	private Expr_Return execute(VarValue vv) {
+		Boolean res = !vv.getBool();
+		
+		return new Expr_Return(PersistentData.symtab.resolveType("var"), new VarValue(res.toString()));
 	}
 }

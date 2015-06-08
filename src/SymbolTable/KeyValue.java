@@ -15,6 +15,9 @@ public class KeyValue implements Value {
 	
 	public Value getValue() {return value;}
 	public String getKey() {return key;}
+	public KeyValue getIdentity() {
+		return new KeyValue("null", keytype, value.getIdentity());
+	}
 	public void setKey(String key) {this.key = key;}
 	public TypeSymbol getType() {return PersistentData.symtab.resolveType("key");}
 	public TypeSymbol getValueType() {return keytype;} 

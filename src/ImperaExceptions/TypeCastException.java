@@ -15,6 +15,6 @@ public class TypeCastException extends ImperaException {
 		super(tree, message);
 	}
 	public TypeCastException(String message) {
-		this(null, message);
+		super(message);
 	}
 }

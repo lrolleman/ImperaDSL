@@ -169,7 +169,44 @@ There are 5 data types in Impera:
 			[1, 4, 3]
 			
 	2.4 Vector:
-		not yet implemented TO-DO
+		Vector's are very similar to arrays. There are two main differences, vectors are homogenous, so every element must
+		be of the same type, and vectors can be used in most expressions, the result being the result of the operation being
+		performed on the individual elements
+		
+		Ex vecarith:
+			void main() {
+				vector v1 = [1, 2, 3];
+				vector v2 = [10, 11, 12];
+				vector v3 = [1, 2];
+				println(v1 + v2);
+				println(v1 + v3);
+				println(v1 + 10);
+			}
+			
+			Note how vectors are built in the same way as arrays (and can be indexed like them too)
+			
+			output:
+			vec[11, 13, 15]
+			vec[2, 4, 3]
+			vec[11, 12, 13]
+			
+			When two vectors have an arithmetic operation performed on them, it performs that operation on each element
+			When the vectors are of different sizes, the smaller vector is padded with an identity value based on the 
+			vector type. 
+				var: 0
+				key: null:<identity>
+				array: [] //empty array
+				object: <> //empty object
+				vector: vec[<identity>] 
+				where <identity> is the identity value of the variable being extended
+				so if you have a vector: vec["bob":5, "foo":10] padded up to size 3, you'll get 
+				vec["bob":5, "foo":10, null:0]
+			when a scalar and vector are involved, the scalar is turned into a vector of that scalar value at the size of
+			the vector. 
+			
+			It should be noted that using keys, one can bypass the homogenous restriction of vectors, however doing so would
+			nullify any advantage of using a vector and should never be done. Use an array instead. 
+			
 	2.5 Object:
 		Objects in Impera are more like C structs than objects you find in an object oriented language, so don't let the
 		name confuse you. 

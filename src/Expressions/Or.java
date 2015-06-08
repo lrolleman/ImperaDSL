@@ -33,12 +33,7 @@ public class Or implements Expression {
 		if (PersistentData.collect_stats)
 			starttime = System.nanoTime();
 		try {
-			VarValue vv1 = TypeSystem.getAsVar(ret1.value);
-			VarValue vv2 = TypeSystem.getAsVar(ret2.value);
-			
-			Boolean res = vv1.getBool() || vv2.getBool();
-			
-			Expr_Return ret = new Expr_Return(PersistentData.symtab.resolveType("var"), new VarValue(res.toString()));
+			Expr_Return ret = execute(TypeSystem.getAsVar(ret1.value), TypeSystem.getAsVar(ret2.value));
 			if (PersistentData.collect_stats)
 				Stats.logic_time += System.nanoTime() - starttime;
 			return ret;
@@ -50,5 +45,11 @@ public class Or implements Expression {
 		
 		//should never execute
 		throw new ImperaException();
+	}
+	
+	private Expr_Return execute(VarValue vv1, VarValue vv2) {		
+		Boolean res = vv1.getBool() || vv2.getBool();
+		
+		return new Expr_Return(PersistentData.symtab.resolveType("var"), new VarValue(res));
 	}
 }

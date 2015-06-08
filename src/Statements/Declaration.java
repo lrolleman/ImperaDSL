@@ -57,6 +57,9 @@ public class Declaration implements Statement {
 			case "object":
 				vs.setValue(ret.value);
 				break;
+			case "vector":
+				vs.setValue(TypeSystem.getAsVector(ret.value));
+				break;
 			default:
 				throw new ImperaException();
 			}
