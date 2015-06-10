@@ -1,13 +1,19 @@
 package Expressions;
 
+import java.util.ArrayList;
+
 import org.antlr.runtime.tree.CommonTree;
 
 import Global.Expr_Return;
+import Global.PersistentData;
 import Global.TypeSystem;
+import ImperaExceptions.ImperaException;
 import ImperaExceptions.NotANumberException;
 import ImperaExceptions.TypeCastException;
 import SymbolTable.KeyValue;
+import SymbolTable.Value;
 import SymbolTable.VarValue;
+import SymbolTable.VectorValue;
 
 public class Pos implements Expression {
 	Expression expr;
@@ -20,11 +26,27 @@ public class Pos implements Expression {
 	
 	public Expr_Return execute() {
 		Expr_Return ex = expr.execute();
+		return execute(ex.value);
+	}
+	
+	private Expr_Return execute(Value v) {
 		try {
-			return execute(TypeSystem.getAsVar(ex.value));
+			return execute(TypeSystem.getAsVar(v));
 		} catch (TypeCastException tce) {
-			throw tce;
+			try {
+				return execute(TypeSystem.getAsVector(v));
+			} catch (ImperaException ie) {
+				throw tce;
+			}
 		}
+	}
+	
+	private Expr_Return execute(VectorValue vv) {
+		ArrayList<Value> result = new ArrayList<Value>();
+		for (int i=0; i<vv.getSize(); i++) {
+			result.add(execute(vv.get(i)).value);
+		}
+		return new Expr_Return(PersistentData.symtab.resolveType("vector"), new VectorValue(result));
 	}
 	
 	private Expr_Return execute(VarValue v) {

@@ -1,17 +1,21 @@
 package Expressions;
 
+import java.util.ArrayList;
+
 import org.antlr.runtime.tree.CommonTree;
 
 import Global.Expr_Return;
 import Global.PersistentData;
 import Global.Stats;
 import Global.TypeSystem;
+import ImperaExceptions.ImperaException;
 import ImperaExceptions.LogicalTypeMismatchException;
 import ImperaExceptions.TypeCastException;
 import ImperaExceptions.TypeMismatchException;
 import SymbolTable.KeyValue;
 import SymbolTable.Value;
 import SymbolTable.VarValue;
+import SymbolTable.VectorValue;
 
 public class Not implements Expression{
 	Expression expr;
@@ -24,22 +28,38 @@ public class Not implements Expression{
 	
 	public Expr_Return execute() {
 		Expr_Return ret = expr.execute();
-		Value v;
+		
+		return execute(ret.value);
+	}
+	
+	public Expr_Return execute(Value v) {
 		long starttime = 0;
 		if (PersistentData.collect_stats)
 			starttime = System.nanoTime();
 		try {
-			Expr_Return ret1 = execute(TypeSystem.getAsVar(ret.value));
+			Expr_Return ret1 = execute(TypeSystem.getAsVar(v));
 			if (PersistentData.collect_stats)
 				Stats.logic_time += System.nanoTime() - starttime;
 			return ret1;
-		} catch (ClassCastException cce) {
-			throw new TypeMismatchException(errtree, "This operation requires the operand to be boolean");
 		} catch (NullPointerException npe) {
 			throw new TypeMismatchException(errtree, "This operation requires the operand to be boolean");
 		} catch (TypeCastException tce) {
-			throw tce;
+			try {
+				Expr_Return ret1 = execute(TypeSystem.getAsVector(v));
+				if (PersistentData.collect_stats)
+					Stats.logic_time += System.nanoTime() - starttime;
+				return ret1;
+			} catch (ImperaException ie) {
+				throw new TypeMismatchException(errtree, "This operation requires the operand to be boolean");
+			}
 		}
+	}
+	
+	private Expr_Return execute(VectorValue vv) {
+		ArrayList<Value> result = new ArrayList<Value>();
+		for (int i=0; i<vv.getSize(); i++) 
+			result.add(execute(vv.get(i)).value);
+		return new Expr_Return(vv.getType(), new VectorValue(result));
 	}
 	
 	private Expr_Return execute(VarValue vv) {

@@ -5,4 +5,7 @@ void main() {
 	println(v1 + v2);
 	println(v1 + v3);
 	println(v1 + 10);
+	vector v4 = -v1;
+	println(v4);
+	println(+v4);
 }

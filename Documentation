@@ -181,6 +181,9 @@ There are 5 data types in Impera:
 				println(v1 + v2);
 				println(v1 + v3);
 				println(v1 + 10);
+				vector v4 = -v1;
+				println(v4);
+				println(+v4);
 			}
 			
 			Note how vectors are built in the same way as arrays (and can be indexed like them too)
@@ -189,16 +192,18 @@ There are 5 data types in Impera:
 			vec[11, 13, 15]
 			vec[2, 4, 3]
 			vec[11, 12, 13]
+			vec[-1, -2, -3]
+			vec[1, 2, 3]
 			
 			When two vectors have an arithmetic operation performed on them, it performs that operation on each element
 			When the vectors are of different sizes, the smaller vector is padded with an identity value based on the 
 			vector type. 
-				var: 0
-				key: null:<identity>
+				var: 0, 0.0, false, "" //depends on what the var actually is.
+				key: null:identity
 				array: [] //empty array
 				object: <> //empty object
-				vector: vec[<identity>] 
-				where <identity> is the identity value of the variable being extended
+				vector: vec[identity] 
+				where identity is the identity value of the variable being extended
 				so if you have a vector: vec["bob":5, "foo":10] padded up to size 3, you'll get 
 				vec["bob":5, "foo":10, null:0]
 			when a scalar and vector are involved, the scalar is turned into a vector of that scalar value at the size of
@@ -206,6 +211,48 @@ There are 5 data types in Impera:
 			
 			It should be noted that using keys, one can bypass the homogenous restriction of vectors, however doing so would
 			nullify any advantage of using a vector and should never be done. Use an array instead. 
+			
+		Ex veclogic:
+			void main() {
+				vector v1 = [true, true, false];
+				vector v2 = [true, false];
+				vector v3 = [false, true, true];
+				println(v1 or v3);
+				println(v1 and v3);
+				println(v1 and v2);
+				vector v4 = v2 and v3;
+				println(v4);
+				println(!v4);
+			}
+			
+			output:
+			vec[true, true, true]
+			vec[false, true, false]
+			vec[true, false, false]
+			vec[false, false, false]
+			vec[true, true, true]
+			
+		Ex veccompare:
+			void main() {
+				vector v1 = [1, 2];
+				vector v2 = [2, 1];
+				vector v3 = [2, 2];
+				println(v1 > v2);
+				println(v1 < v2);
+				println(v1 == v3);
+				println(v3 == 2);
+				println(v3 == [2,2]);
+			}
+			
+			output:
+			vec[false, true]
+			vec[true, false]
+			false
+			false
+			true
+			
+			note here, the == (and !=) operators don't return a vector, they perform the element-wise comparison and
+			returns true only if all elements are equal (!= obviously just the negation of this)
 			
 	2.5 Object:
 		Objects in Impera are more like C structs than objects you find in an object oriented language, so don't let the
