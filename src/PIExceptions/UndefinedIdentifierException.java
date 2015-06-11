@@ -1,8 +1,8 @@
-package ImperaExceptions;
+package PIExceptions;
 
 import org.antlr.runtime.tree.CommonTree;
 
-public class UndefinedIdentifierException extends ImperaException {
+public class UndefinedIdentifierException extends PIException {
 	/**
 	 * 
 	 */

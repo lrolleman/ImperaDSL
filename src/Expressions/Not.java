@@ -8,10 +8,10 @@ import Global.Expr_Return;
 import Global.PersistentData;
 import Global.Stats;
 import Global.TypeSystem;
-import ImperaExceptions.ImperaException;
-import ImperaExceptions.LogicalTypeMismatchException;
-import ImperaExceptions.TypeCastException;
-import ImperaExceptions.TypeMismatchException;
+import PIExceptions.PIException;
+import PIExceptions.LogicalTypeMismatchException;
+import PIExceptions.TypeCastException;
+import PIExceptions.TypeMismatchException;
 import SymbolTable.KeyValue;
 import SymbolTable.Value;
 import SymbolTable.VarValue;
@@ -49,7 +49,7 @@ public class Not implements Expression{
 				if (PersistentData.collect_stats)
 					Stats.logic_time += System.nanoTime() - starttime;
 				return ret1;
-			} catch (ImperaException ie) {
+			} catch (PIException ie) {
 				throw new TypeMismatchException(errtree, "This operation requires the operand to be boolean");
 			}
 		}

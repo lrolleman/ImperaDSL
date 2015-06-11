@@ -1,8 +1,8 @@
-package ImperaExceptions;
+package PIExceptions;
 
 import org.antlr.runtime.tree.CommonTree;
 
-public class LogicalTypeMismatchException extends ImperaException {
+public class LogicalTypeMismatchException extends PIException {
 	/**
 	 * 
 	 */

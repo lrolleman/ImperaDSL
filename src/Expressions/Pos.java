@@ -7,9 +7,9 @@ import org.antlr.runtime.tree.CommonTree;
 import Global.Expr_Return;
 import Global.PersistentData;
 import Global.TypeSystem;
-import ImperaExceptions.ImperaException;
-import ImperaExceptions.NotANumberException;
-import ImperaExceptions.TypeCastException;
+import PIExceptions.PIException;
+import PIExceptions.NotANumberException;
+import PIExceptions.TypeCastException;
 import SymbolTable.KeyValue;
 import SymbolTable.Value;
 import SymbolTable.VarValue;
@@ -35,7 +35,7 @@ public class Pos implements Expression {
 		} catch (TypeCastException tce) {
 			try {
 				return execute(TypeSystem.getAsVector(v));
-			} catch (ImperaException ie) {
+			} catch (PIException ie) {
 				throw tce;
 			}
 		}

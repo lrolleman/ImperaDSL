@@ -10,8 +10,8 @@ import Global.GlobalMethods;
 import Global.PersistentData;
 import Global.Stats;
 import Global.TypeSystem;
-import ImperaExceptions.ImperaException;
-import ImperaExceptions.TypeCastException;
+import PIExceptions.PIException;
+import PIExceptions.TypeCastException;
 import SymbolTable.KeyValue;
 import SymbolTable.Value;
 import SymbolTable.VarValue;
@@ -56,14 +56,14 @@ public class LthanE implements Expression {
 				if (PersistentData.collect_stats)
 					Stats.compare_time += System.nanoTime() - starttime;
 				return ret;
-			} catch (ImperaException ie) {
+			} catch (PIException ie) {
 				ErrorHandlers.reportLogicalTypeError(errtree,
 						new Expr_Return(val1.getType(), val2), new Expr_Return(val2.getType(), val2));
 			}
 		}
 		
 		//should never execute
-		throw new ImperaException();
+		throw new PIException();
 	}
 	
 	private Expr_Return execute(VectorValue vv1, VectorValue vv2) {

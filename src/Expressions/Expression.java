@@ -1,8 +1,8 @@
 package Expressions;
 
 import Global.Expr_Return;
-import ImperaExceptions.ImperaException;
+import PIExceptions.PIException;
 
 public interface Expression {
-	public Expr_Return execute() throws ImperaException ;
+	public Expr_Return execute() throws PIException ;
 }

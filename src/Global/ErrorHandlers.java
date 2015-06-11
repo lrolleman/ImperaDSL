@@ -2,11 +2,11 @@ package Global;
 
 import org.antlr.runtime.tree.CommonTree;
 
-import ImperaExceptions.ArithmeticTypeMismatchException;
-import ImperaExceptions.ImperaException;
-import ImperaExceptions.LogicalTypeMismatchException;
-import ImperaExceptions.NotANumberException;
-import ImperaExceptions.TypeMismatchException;
+import PIExceptions.ArithmeticTypeMismatchException;
+import PIExceptions.PIException;
+import PIExceptions.LogicalTypeMismatchException;
+import PIExceptions.NotANumberException;
+import PIExceptions.TypeMismatchException;
 
 public class ErrorHandlers {
 	public static void reportArithmeticTypeError(CommonTree tree, Expr_Return ret1, Expr_Return ret2) {
@@ -25,7 +25,7 @@ public class ErrorHandlers {
 		if (ret1.type.getName().equals("object") || ret2.type.getName().equals("object"))
 			throw new TypeMismatchException(tree, "Cannot concat objects");
 		else {
-			throw new ImperaException();
+			throw new PIException();
 		}
 	}
 	

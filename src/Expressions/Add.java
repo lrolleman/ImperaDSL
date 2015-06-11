@@ -10,10 +10,10 @@ import Global.GlobalMethods;
 import Global.PersistentData;
 import Global.Stats;
 import Global.TypeSystem;
-import ImperaExceptions.ArithmeticTypeMismatchException;
-import ImperaExceptions.ImperaException;
-import ImperaExceptions.NotANumberException;
-import ImperaExceptions.TypeCastException;
+import PIExceptions.ArithmeticTypeMismatchException;
+import PIExceptions.PIException;
+import PIExceptions.NotANumberException;
+import PIExceptions.TypeCastException;
 import SymbolTable.*;
 
 public class Add implements Expression {
@@ -21,7 +21,7 @@ public class Add implements Expression {
 	private Expression e2;
 	private CommonTree errtree;
 	
-	public Add(CommonTree errtree, Expression e1, Expression e2) throws ImperaException {
+	public Add(CommonTree errtree, Expression e1, Expression e2) throws PIException {
 		this.e1 = e1;
 		this.e2 = e2;
 		this.errtree = errtree;
@@ -55,14 +55,14 @@ public class Add implements Expression {
 				if (PersistentData.collect_stats)
 					Stats.arithmetic_time += System.nanoTime() - starttime;
 				return ret;
-			} catch (ImperaException ie) {
+			} catch (PIException ie) {
 				ErrorHandlers.reportArithmeticTypeError(errtree,
 						new Expr_Return(val1.getType(), val2), new Expr_Return(val2.getType(), val2));
 			}
 		}
 		
 		//should never execute
-		throw new ImperaException();
+		throw new PIException();
 	}
 	
 	private Expr_Return execute(VarValue vv1, VarValue vv2) throws NotANumberException {

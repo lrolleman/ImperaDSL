@@ -3,7 +3,7 @@ package SymbolTable;
 import java.util.ArrayList;
 
 import Global.PersistentData;
-import ImperaExceptions.VectorIntegrityException;
+import PIExceptions.VectorIntegrityException;
 
 public class VectorValue extends ArrayValue {
 	TypeSymbol vectortype;

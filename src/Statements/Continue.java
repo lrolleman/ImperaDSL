@@ -1,6 +1,6 @@
 package Statements;
 
-import ImperaExceptions.ContinueException;
+import PIExceptions.ContinueException;
 
 public class Continue implements Statement {
 

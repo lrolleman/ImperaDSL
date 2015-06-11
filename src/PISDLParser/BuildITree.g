@@ -2,20 +2,20 @@ tree grammar BuildITree;
 
 options {
   language = Java;
-  tokenVocab = Impera;
+  tokenVocab = PI;
   ASTLabelType = CommonTree;
   backtrack = false;
   memoize = false;
 }
 
 @header {
-package ImperaSDLParser;
+package PISDLParser;
 
 import Global.*;
 import Expressions.*;
 import Statements.*;
 import SymbolTable.*;
-import ImperaExceptions.*;
+import PIExceptions.*;
 }
 
 @members {

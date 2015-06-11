@@ -1,6 +1,6 @@
-package ImperaExceptions;
+package PIExceptions;
 
-public class BreakException extends ImperaException {
+public class BreakException extends PIException {
 
 	/**
 	 * 

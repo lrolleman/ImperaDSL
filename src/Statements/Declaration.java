@@ -2,13 +2,13 @@ package Statements;
 import org.antlr.runtime.tree.CommonTree;
 
 import Expressions.*;
-import ImperaExceptions.AlreadyDefinedException;
-import ImperaExceptions.ImperaException;
-import ImperaExceptions.TypeCastException;
-import ImperaExceptions.TypeMismatchException;
 import Global.Expr_Return;
 import Global.PersistentData;
 import Global.TypeSystem;
+import PIExceptions.AlreadyDefinedException;
+import PIExceptions.PIException;
+import PIExceptions.TypeCastException;
+import PIExceptions.TypeMismatchException;
 import SymbolTable.*;
 
 public class Declaration implements Statement {
@@ -27,7 +27,7 @@ public class Declaration implements Statement {
 			throw new AlreadyDefinedException(errtree, "the variable " + id + " is already defined");
 	}
 	
-	public void execute() throws ImperaException {
+	public void execute() throws PIException {
 		VariableSymbol vs = new VariableSymbol(id, type, null);
 		if (expr != null) {
 			Expr_Return ret = expr.execute();
@@ -61,7 +61,7 @@ public class Declaration implements Statement {
 				vs.setValue(TypeSystem.getAsVector(ret.value));
 				break;
 			default:
-				throw new ImperaException();
+				throw new PIException();
 			}
 		}
 		PersistentData.scopestack.peek().define(vs);

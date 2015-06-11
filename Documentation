@@ -1,6 +1,6 @@
-Impera DSL Documentation
+PI DSL Documentation
 
-Goal: The purpose of this language is to provide imperative support to mass creation and 
+Goal: The purpose of this language is to provide PItive support to mass creation and 
 editing of structured data files (json, xml etc), where the type system exists only to 
 facilitate this goal and provide no further restrictions. 
 
@@ -41,7 +41,7 @@ Table of Contents:
 		TO-DO
 
 OVERVIEW:
-	The Impera interpreter is an AST interpreter, which runs on an expanded version of the AST produced by ANTLR written
+	The PI interpreter is an AST interpreter, which runs on an expanded version of the AST produced by ANTLR written
 	entirely in Java. 
 	The main execution components of the system are divided into two main categories, Expressions and Statements. 
 	Every statement (ex. if statement, assignment) and every expression (ex. x + y, t and f, a <= b etc.) have their own
@@ -49,7 +49,7 @@ OVERVIEW:
 	making good use of Java's polymorphism when executing the tree. 
 	Other persistent data is kept in a separate package, such as the symbol table and global methods pertaining to the 
 	type system. 
-	All of the errors in Impera extend from a custom ImperaException, which takes the error message and adds line numbers
+	All of the errors in PI extend from a custom PIException, which takes the error message and adds line numbers
 	to it from the base AST
 	See "UNDER THE HOOD" segments in the rest of the documentation for further details
 
@@ -60,7 +60,7 @@ OVERVIEW:
 
 2. Types
 
-There are 5 data types in Impera:
+There are 5 data types in PI:
 	2.1 Var: 
 		Strings, integers, booleans and doubles. How it is interpreted depends entirely on how
 		you try and use it. 
@@ -255,7 +255,7 @@ There are 5 data types in Impera:
 			returns true only if all elements are equal (!= obviously just the negation of this)
 			
 	2.5 Object:
-		Objects in Impera are more like C structs than objects you find in an object oriented language, so don't let the
+		Objects in PI are more like C structs than objects you find in an object oriented language, so don't let the
 		name confuse you. 
 		The fields and the field types are created using the object constructor expression <type id, ...> and then accessed
 		using the dot operator. 
@@ -281,7 +281,7 @@ There are 5 data types in Impera:
 			manually
 		
 	2.6 Type Casts:
-		Impera supports explicit type casts, however these are there for a matter of convenience and do not
+		PI supports explicit type casts, however these are there for a matter of convenience and do not
 		provide any actual new functionality, and there are hazards involved with using them. As such they
 		should only be used rarely and with care. 
 		
@@ -410,7 +410,7 @@ There are 5 data types in Impera:
 			10 Bobs
 			
 			note it will happily concatenate numbers and strings. As mentioned in the types section,
-			Impera doesn't really care what it is, so longer as it can make sense of it in context
+			PI doesn't really care what it is, so longer as it can make sense of it in context
 			
 	3.5 Get:
 		Gets the value of the key in a key variable
@@ -479,7 +479,7 @@ There are 5 data types in Impera:
 			Output:
 			Bob
 			
-		Where caution must be taken is in the assignment of keys to vars and vice versa. Impera will
+		Where caution must be taken is in the assignment of keys to vars and vice versa. PI will
 		implicity cast the result of the expression in these cases, however the result may not be what
 		you want it to be (As a general rule, all casts are hazardous). 
 		
@@ -559,7 +559,7 @@ There are 5 data types in Impera:
 			5
 			
 			notice how the break in the second loop prematurely exits the loop. Continue is also supported in
-			Impera and is used in the same way as other languages. 
+			PI and is used in the same way as other languages. 
 			
 	4.6 Print/Println:
 		printing is done using the print and println built in functions. 
@@ -584,9 +584,9 @@ There are 5 data types in Impera:
 			Bob:10
 
 5. Functions:
-	Functions in Impera are standard issue to what you might expect. can be called as an expression or as a statement
+	Functions in PI are standard issue to what you might expect. can be called as an expression or as a statement
 	
-	Impera will implicitly cast an argument to match the function definition. 
+	PI will implicitly cast an argument to match the function definition. 
 	
 	Ex promote:
 		void main() {
@@ -603,7 +603,7 @@ There are 5 data types in Impera:
 		
 		the var v at the call site is promoted to a key in order to match the function definition
 	
-	Also, there is recursion in Impera like elsewhere.
+	Also, there is recursion in PI like elsewhere.
 	
 	Ex Recursive:
 		void main() {
@@ -636,7 +636,7 @@ There are 5 data types in Impera:
 		given, at which point a void type is returned with null value. 
 		
 	5.2 Overloaded functions:
-		Impera supports function overloading, that is, in the case of multiple functions of the same name, it will 
+		PI supports function overloading, that is, in the case of multiple functions of the same name, it will 
 		determine which to execute using the argument types
 		
 		Ex overload:
@@ -657,7 +657,7 @@ There are 5 data types in Impera:
 			10
 			foo:10
 			
-			notice the function func has the same name, but different parameters. Impera will use these in order to 
+			notice the function func has the same name, but different parameters. PI will use these in order to 
 			determine which to call. 
 			
 			Note: the interpretor will check for exact matches before it attempts to do any promotion of the arguments

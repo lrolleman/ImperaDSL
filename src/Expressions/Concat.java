@@ -5,9 +5,9 @@ import org.antlr.runtime.tree.CommonTree;
 import Global.ErrorHandlers;
 import Global.Expr_Return;
 import Global.TypeSystem;
-import ImperaExceptions.ArithmeticTypeMismatchException;
-import ImperaExceptions.ImperaException;
-import ImperaExceptions.TypeCastException;
+import PIExceptions.ArithmeticTypeMismatchException;
+import PIExceptions.PIException;
+import PIExceptions.TypeCastException;
 import SymbolTable.ArrayValue;
 import SymbolTable.TypeSymbol;
 import SymbolTable.Value;
@@ -39,7 +39,7 @@ public class Concat implements Expression {
 		}
 		
 		//should never execute
-		throw new ImperaException();
+		throw new PIException();
 	}
 	
 	private Expr_Return concat(VarValue vv1, VarValue vv2) {

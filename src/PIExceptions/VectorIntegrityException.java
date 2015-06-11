@@ -1,8 +1,8 @@
-package ImperaExceptions;
+package PIExceptions;
 
 import org.antlr.runtime.tree.CommonTree;
 
-public class VectorIntegrityException extends ImperaException {
+public class VectorIntegrityException extends PIException {
 
 	public VectorIntegrityException() {
 		// TODO Auto-generated constructor stub

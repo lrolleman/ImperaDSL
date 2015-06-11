@@ -2,8 +2,8 @@ package Global;
 
 import java.util.ArrayList;
 
-import ImperaExceptions.ImperaException;
-import ImperaExceptions.TypeCastException;
+import PIExceptions.PIException;
+import PIExceptions.TypeCastException;
 import SymbolTable.ArrayValue;
 import SymbolTable.KeyValue;
 import SymbolTable.ObjectValue;
@@ -115,7 +115,7 @@ public class TypeSystem {
 		case "vector":
 			return getAsVector(val);
 		default:
-			throw new ImperaException();
+			throw new PIException();
 		}
 	}
 }

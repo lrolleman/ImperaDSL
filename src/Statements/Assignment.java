@@ -3,14 +3,14 @@ package Statements;
 import org.antlr.runtime.tree.CommonTree;
 
 import Expressions.*;
-import ImperaExceptions.IllegalIndexException;
-import ImperaExceptions.ImperaException;
-import ImperaExceptions.TypeCastException;
-import ImperaExceptions.TypeMismatchException;
-import ImperaExceptions.UndefinedIdentifierException;
 import Global.Expr_Return;
 import Global.PersistentData;
 import Global.TypeSystem;
+import PIExceptions.IllegalIndexException;
+import PIExceptions.PIException;
+import PIExceptions.TypeCastException;
+import PIExceptions.TypeMismatchException;
+import PIExceptions.UndefinedIdentifierException;
 import SymbolTable.ArrayValue;
 import SymbolTable.KeyValue;
 import SymbolTable.ObjectValue;
@@ -40,7 +40,7 @@ public class Assignment implements Statement {
 		this.errtree = errtree;
 	}
 	
-	public void execute() throws ImperaException {
+	public void execute() throws PIException {
 		Expr_Return ret = expr.execute();
 		
 		VariableSymbol vs = (VariableSymbol) PersistentData.scopestack.peek().resolve(id);
@@ -64,7 +64,7 @@ public class Assignment implements Statement {
 			assigVector(ret, vs);
 			break;
 		default:
-			throw new ImperaException();
+			throw new PIException();
 		}
 	}
 	
@@ -142,7 +142,7 @@ public class Assignment implements Statement {
 					assigObject(ret, vs);
 					break;
 				default:
-					throw new ImperaException();
+					throw new PIException();
 				}
 			}
 		} catch (TypeCastException tce) {

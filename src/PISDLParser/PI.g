@@ -1,4 +1,4 @@
-grammar Impera;
+grammar PI;
 
 options {
   language = Java;
@@ -27,11 +27,11 @@ tokens {
 }
 
 @header {
-package ImperaSDLParser;
+package PISDLParser;
 }
 
 @lexer::header {
-package ImperaSDLParser;
+package PISDLParser;
 }
 
 program

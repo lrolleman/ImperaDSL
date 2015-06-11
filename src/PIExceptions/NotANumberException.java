@@ -1,8 +1,8 @@
-package ImperaExceptions;
+package PIExceptions;
 
 import org.antlr.runtime.tree.CommonTree;
 
-public class NotANumberException extends ImperaException {
+public class NotANumberException extends PIException {
 	/**
 	 * 
 	 */

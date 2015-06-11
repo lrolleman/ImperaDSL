@@ -4,8 +4,8 @@ import org.antlr.runtime.tree.CommonTree;
 
 import Expressions.Expression;
 import Global.Expr_Return;
-import ImperaExceptions.LogicalTypeMismatchException;
-import ImperaExceptions.TypeMismatchException;
+import PIExceptions.LogicalTypeMismatchException;
+import PIExceptions.TypeMismatchException;
 import SymbolTable.VarValue;
 
 public class IfStatement implements Statement {

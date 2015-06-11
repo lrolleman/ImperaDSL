@@ -1,6 +1,6 @@
-package ImperaExceptions;
+package PIExceptions;
 
-public class ContinueException extends ImperaException {
+public class ContinueException extends PIException {
 
 	/**
 	 * 

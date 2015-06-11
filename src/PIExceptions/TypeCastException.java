@@ -1,8 +1,8 @@
-package ImperaExceptions;
+package PIExceptions;
 
 import org.antlr.runtime.tree.CommonTree;
 
-public class TypeCastException extends ImperaException {
+public class TypeCastException extends PIException {
 	
 	/**
 	 * 

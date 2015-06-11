@@ -1,7 +1,7 @@
 package Statements;
 
-import ImperaExceptions.ImperaException;
+import PIExceptions.PIException;
 
 public interface Statement {
-	public void execute() throws ImperaException;
+	public void execute() throws PIException;
 }

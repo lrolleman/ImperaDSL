@@ -1,4 +1,4 @@
-package ImperaSDLParser;
+package PISDLParser;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -19,13 +19,13 @@ import SymbolTable.VarValue;
 
 
 
-public class ImperaRig {
-	ImperaLexer lexer;
-	ImperaParser parser;
-	ImperaParser.program_return entry;
+public class PIRig {
+	PILexer lexer;
+	PIParser parser;
+	PIParser.program_return entry;
 	TokenStream tokenStream;
 	
-	public ImperaRig(String src) {
+	public PIRig(String src) {
 		ANTLRFileStream input = null;
 		try {
 			input = new ANTLRFileStream(src);
@@ -33,9 +33,9 @@ public class ImperaRig {
 			e.printStackTrace();
 		}
 		
-		lexer = new ImperaLexer(input);
+		lexer = new PILexer(input);
 		tokenStream = new CommonTokenStream(lexer);
-		parser = new ImperaParser(tokenStream);
+		parser = new PIParser(tokenStream);
 	}
 
 	public CommonTree getAST() throws RecognitionException {

@@ -11,19 +11,19 @@ import java.util.Formatter;
 
 import org.antlr.runtime.RecognitionException;
 
-import ImperaExceptions.ImperaException;
-import ImperaSDLParser.ImperaRig;
 import Global.GlobalMethods;
 import Global.PersistentData;
 import Global.Root;
 import Global.Stats;
+import PIExceptions.PIException;
+import PISDLParser.PIRig;
 import SymbolTable.Value;
 import SymbolTable.VarValue;
 
 
-public class Impera {
+public class PI {
 
-	public static void main(String[] args) throws RecognitionException, ImperaException, IOException {
+	public static void main(String[] args) throws RecognitionException, PIException, IOException {
 		//System.out.println(new ImperaRig("test.imp").getDOTGraph());
 		PersistentData.initFlags();
 		String filename = "";
@@ -41,7 +41,7 @@ public class Impera {
 				//Run an initial startup program so all tests are running on a "warmed up" environment
 				PrintStream out = System.out;
 				System.setOut(new PrintStream(new ByteArrayOutputStream()));
-				ImperaRig impstartup = new ImperaRig("Tests\\startup.imptest");
+				PIRig impstartup = new PIRig("Tests\\startup.imptest");
 				Root testprogram = impstartup.getImperiTree(mainargs);
 				testprogram.execute();
 				System.setOut(out);
@@ -76,7 +76,7 @@ public class Impera {
 					System.setOut(ps);
 					
 					long starttime = System.nanoTime();
-					ImperaRig imp = new ImperaRig("Tests\\" + tests[i].getName());
+					PIRig imp = new PIRig("Tests\\" + tests[i].getName());
 					Root program = imp.getImperiTree(mainargs);
 					long parseend = System.nanoTime();
 					Value testret = program.execute();
@@ -126,7 +126,7 @@ public class Impera {
 			}
 		}
 		if (filename != "") {
-			ImperaRig imp = new ImperaRig(filename);
+			PIRig imp = new PIRig(filename);
 			//System.out.println(imp.getDOTGraph());
 			Root program = imp.getImperiTree(mainargs);
 			Value ret = program.execute();

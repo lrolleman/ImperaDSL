@@ -1,8 +1,8 @@
-package ImperaExceptions;
+package PIExceptions;
 
 import org.antlr.runtime.tree.CommonTree;
 
-public class IllegalKeyReferanceException extends ImperaException {
+public class IllegalKeyReferanceException extends PIException {
 
 	/**
 	 * 

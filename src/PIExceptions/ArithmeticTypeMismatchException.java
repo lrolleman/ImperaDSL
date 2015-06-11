@@ -1,8 +1,8 @@
-package ImperaExceptions;
+package PIExceptions;
 
 import org.antlr.runtime.tree.CommonTree;
 
-public class ArithmeticTypeMismatchException extends ImperaException {
+public class ArithmeticTypeMismatchException extends PIException {
 
 	/**
 	 * 

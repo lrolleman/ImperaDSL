@@ -1,20 +1,20 @@
-package ImperaExceptions;
+package PIExceptions;
 
 import org.antlr.runtime.tree.CommonTree;
 
-public class ImperaException extends RuntimeException {
+public class PIException extends RuntimeException {
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 7856805538921632534L;
 
-	public ImperaException() {
+	public PIException() {
 		this("Base Exception thrown, something fishy is going on");
 	}
-	protected ImperaException(String message) {
+	protected PIException(String message) {
 		super(message);
 	}
-	protected ImperaException(CommonTree tree, String message) {
+	protected PIException(CommonTree tree, String message) {
 		super(tree.getLine() + ": " + message);
 	}
 }

@@ -1,8 +1,8 @@
-package ImperaExceptions;
+package PIExceptions;
 
 import org.antlr.runtime.tree.CommonTree;
 
-public class AlreadyDefinedException extends ImperaException {
+public class AlreadyDefinedException extends PIException {
 	/**
 	 * 
 	 */

@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 import Global.Expr_Return;
 import Global.TypeSystem;
-import ImperaExceptions.ImperaException;
+import PIExceptions.PIException;
 import Statements.Function;
 
 public class FunctionGroup {
@@ -17,7 +17,7 @@ public class FunctionGroup {
 	protected String getID() {return id;}
 	protected void addFunction(Function func) {
 		if (!func.getID().equals(id))
-			throw new ImperaException();
+			throw new PIException();
 		functions.add(func);
 	}
 	protected Function resolve(ArrayList<Expr_Return> args) {
