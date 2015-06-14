@@ -1,6 +1,8 @@
-// $ANTLR 3.3 Nov 30, 2010 12:45:30 C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g 2015-06-11 13:05:49
+// $ANTLR 3.3 Nov 30, 2010 12:45:30 C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g 2015-06-14 10:58:41
 
 package PISDLParser;
+
+import Global.Root;
 
 
 import org.antlr.runtime.*;
@@ -26,64 +28,65 @@ public class PILexer extends Lexer {
     public static final int OBJ_REF=17;
     public static final int OBJ_ASSIG=18;
     public static final int ARRAY_ASSIG=19;
-    public static final int ID=20;
-    public static final int EQUAL=21;
-    public static final int SC=22;
-    public static final int BREAK=23;
-    public static final int CONTINUE=24;
-    public static final int WHILE=25;
-    public static final int LP=26;
-    public static final int RP=27;
-    public static final int IF=28;
-    public static final int ELSE=29;
-    public static final int RETURN=30;
-    public static final int PRINT=31;
-    public static final int PRINTLN=32;
-    public static final int LBRACE=33;
-    public static final int RBRACE=34;
-    public static final int DOT=35;
-    public static final int LB=36;
-    public static final int RB=37;
-    public static final int SET=38;
-    public static final int COMMA=39;
-    public static final int XOR=40;
-    public static final int OR=41;
-    public static final int AND=42;
-    public static final int EQUIV=43;
-    public static final int NOTEQ=44;
-    public static final int LTHAN=45;
-    public static final int GTHAN=46;
-    public static final int LTHANE=47;
-    public static final int GTHANE=48;
-    public static final int PLUS=49;
-    public static final int MINUS=50;
-    public static final int CONCAT=51;
-    public static final int MULT=52;
-    public static final int DIV=53;
-    public static final int POW=54;
-    public static final int NOT=55;
-    public static final int GET=56;
-    public static final int KVPAIR=57;
-    public static final int NUMBER=58;
-    public static final int FPNUMBER=59;
-    public static final int TRUE=60;
-    public static final int FALSE=61;
-    public static final int STRING=62;
-    public static final int QUOTE=63;
-    public static final int VAR=64;
-    public static final int KEY=65;
-    public static final int OBJECT=66;
-    public static final int VECTOR=67;
-    public static final int VOID=68;
-    public static final int MULTILINE_COMMENT=69;
-    public static final int COMMENT=70;
-    public static final int NULL=71;
-    public static final int US=72;
-    public static final int BSLASH=73;
-    public static final int AS=74;
-    public static final int PRED=75;
-    public static final int WS=76;
-    public static final int DIGIT=77;
+    public static final int INCLUDE=20;
+    public static final int STRING=21;
+    public static final int ID=22;
+    public static final int EQUAL=23;
+    public static final int SC=24;
+    public static final int BREAK=25;
+    public static final int CONTINUE=26;
+    public static final int WHILE=27;
+    public static final int LP=28;
+    public static final int RP=29;
+    public static final int IF=30;
+    public static final int ELSE=31;
+    public static final int RETURN=32;
+    public static final int PRINT=33;
+    public static final int PRINTLN=34;
+    public static final int LBRACE=35;
+    public static final int RBRACE=36;
+    public static final int DOT=37;
+    public static final int LB=38;
+    public static final int RB=39;
+    public static final int SET=40;
+    public static final int COMMA=41;
+    public static final int XOR=42;
+    public static final int OR=43;
+    public static final int AND=44;
+    public static final int EQUIV=45;
+    public static final int NOTEQ=46;
+    public static final int LTHAN=47;
+    public static final int GTHAN=48;
+    public static final int LTHANE=49;
+    public static final int GTHANE=50;
+    public static final int PLUS=51;
+    public static final int MINUS=52;
+    public static final int CONCAT=53;
+    public static final int MULT=54;
+    public static final int DIV=55;
+    public static final int POW=56;
+    public static final int NOT=57;
+    public static final int GET=58;
+    public static final int KVPAIR=59;
+    public static final int NUMBER=60;
+    public static final int FPNUMBER=61;
+    public static final int TRUE=62;
+    public static final int FALSE=63;
+    public static final int QUOTE=64;
+    public static final int VAR=65;
+    public static final int KEY=66;
+    public static final int OBJECT=67;
+    public static final int VECTOR=68;
+    public static final int VOID=69;
+    public static final int MULTILINE_COMMENT=70;
+    public static final int COMMENT=71;
+    public static final int NULL=72;
+    public static final int US=73;
+    public static final int BSLASH=74;
+    public static final int AS=75;
+    public static final int PRED=76;
+    public static final int WS=77;
+    public static final int DIGIT=78;
 
     // delegates
     // delegators
@@ -103,12 +106,12 @@ public class PILexer extends Lexer {
         try {
             int _type = MULTILINE_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:175:19: ( '/*' ( . )* '*/' )
-            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:175:21: '/*' ( . )* '*/'
+            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:192:19: ( '/*' ( . )* '*/' )
+            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:192:21: '/*' ( . )* '*/'
             {
             match("/*"); 
 
-            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:175:26: ( . )*
+            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:192:26: ( . )*
             loop1:
             do {
                 int alt1=2;
@@ -133,7 +136,7 @@ public class PILexer extends Lexer {
 
                 switch (alt1) {
             	case 1 :
-            	    // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:175:26: .
+            	    // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:192:26: .
             	    {
             	    matchAny(); 
 
@@ -164,12 +167,12 @@ public class PILexer extends Lexer {
         try {
             int _type = COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:176:9: ( '//' ( . )* ( '\\n' | '\\r' ) )
-            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:176:11: '//' ( . )* ( '\\n' | '\\r' )
+            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:193:9: ( '//' ( . )* ( '\\n' | '\\r' ) )
+            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:193:11: '//' ( . )* ( '\\n' | '\\r' )
             {
             match("//"); 
 
-            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:176:16: ( . )*
+            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:193:16: ( . )*
             loop2:
             do {
                 int alt2=2;
@@ -185,7 +188,7 @@ public class PILexer extends Lexer {
 
                 switch (alt2) {
             	case 1 :
-            	    // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:176:16: .
+            	    // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:193:16: .
             	    {
             	    matchAny(); 
 
@@ -223,8 +226,8 @@ public class PILexer extends Lexer {
         try {
             int _type = LBRACE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:177:7: ( '{' )
-            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:177:9: '{'
+            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:194:7: ( '{' )
+            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:194:9: '{'
             {
             match('{'); 
 
@@ -243,8 +246,8 @@ public class PILexer extends Lexer {
         try {
             int _type = RBRACE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:178:7: ( '}' )
-            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:178:9: '}'
+            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:195:7: ( '}' )
+            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:195:9: '}'
             {
             match('}'); 
 
@@ -263,8 +266,8 @@ public class PILexer extends Lexer {
         try {
             int _type = LP;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:179:3: ( '(' )
-            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:179:5: '('
+            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:196:3: ( '(' )
+            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:196:5: '('
             {
             match('('); 
 
@@ -283,8 +286,8 @@ public class PILexer extends Lexer {
         try {
             int _type = RP;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:180:3: ( ')' )
-            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:180:5: ')'
+            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:197:3: ( ')' )
+            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:197:5: ')'
             {
             match(')'); 
 
@@ -303,8 +306,8 @@ public class PILexer extends Lexer {
         try {
             int _type = LB;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:181:3: ( '[' )
-            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:181:5: '['
+            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:198:3: ( '[' )
+            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:198:5: '['
             {
             match('['); 
 
@@ -323,8 +326,8 @@ public class PILexer extends Lexer {
         try {
             int _type = RB;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:182:3: ( ']' )
-            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:182:5: ']'
+            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:199:3: ( ']' )
+            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:199:5: ']'
             {
             match(']'); 
 
@@ -343,8 +346,8 @@ public class PILexer extends Lexer {
         try {
             int _type = DOT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:183:4: ( '.' )
-            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:183:6: '.'
+            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:200:4: ( '.' )
+            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:200:6: '.'
             {
             match('.'); 
 
@@ -363,8 +366,8 @@ public class PILexer extends Lexer {
         try {
             int _type = COMMA;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:184:6: ( ',' )
-            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:184:8: ','
+            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:201:6: ( ',' )
+            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:201:8: ','
             {
             match(','); 
 
@@ -383,8 +386,8 @@ public class PILexer extends Lexer {
         try {
             int _type = QUOTE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:185:6: ( '\"' )
-            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:185:8: '\"'
+            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:202:6: ( '\"' )
+            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:202:8: '\"'
             {
             match('\"'); 
 
@@ -403,8 +406,8 @@ public class PILexer extends Lexer {
         try {
             int _type = SC;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:186:3: ( ';' )
-            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:186:5: ';'
+            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:203:3: ( ';' )
+            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:203:5: ';'
             {
             match(';'); 
 
@@ -423,8 +426,8 @@ public class PILexer extends Lexer {
         try {
             int _type = TRUE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:187:5: ( 'true' )
-            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:187:7: 'true'
+            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:204:5: ( 'true' )
+            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:204:7: 'true'
             {
             match("true"); 
 
@@ -444,8 +447,8 @@ public class PILexer extends Lexer {
         try {
             int _type = FALSE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:188:6: ( 'false' )
-            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:188:8: 'false'
+            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:205:6: ( 'false' )
+            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:205:8: 'false'
             {
             match("false"); 
 
@@ -465,8 +468,8 @@ public class PILexer extends Lexer {
         try {
             int _type = NULL;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:189:5: ( 'null' )
-            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:189:7: 'null'
+            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:206:5: ( 'null' )
+            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:206:7: 'null'
             {
             match("null"); 
 
@@ -486,8 +489,8 @@ public class PILexer extends Lexer {
         try {
             int _type = US;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:190:3: ( '_' )
-            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:190:5: '_'
+            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:207:3: ( '_' )
+            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:207:5: '_'
             {
             match('_'); 
 
@@ -506,8 +509,8 @@ public class PILexer extends Lexer {
         try {
             int _type = BSLASH;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:191:7: ( '\\\\' )
-            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:191:9: '\\\\'
+            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:208:7: ( '\\\\' )
+            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:208:9: '\\\\'
             {
             match('\\'); 
 
@@ -526,8 +529,8 @@ public class PILexer extends Lexer {
         try {
             int _type = PRINTLN;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:192:8: ( 'println' )
-            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:192:10: 'println'
+            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:209:8: ( 'println' )
+            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:209:10: 'println'
             {
             match("println"); 
 
@@ -547,8 +550,8 @@ public class PILexer extends Lexer {
         try {
             int _type = PRINT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:193:6: ( 'print' )
-            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:193:8: 'print'
+            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:210:6: ( 'print' )
+            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:210:8: 'print'
             {
             match("print"); 
 
@@ -568,8 +571,8 @@ public class PILexer extends Lexer {
         try {
             int _type = RETURN;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:194:7: ( 'return' )
-            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:194:9: 'return'
+            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:211:7: ( 'return' )
+            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:211:9: 'return'
             {
             match("return"); 
 
@@ -589,8 +592,8 @@ public class PILexer extends Lexer {
         try {
             int _type = IF;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:195:3: ( 'if' )
-            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:195:5: 'if'
+            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:212:3: ( 'if' )
+            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:212:5: 'if'
             {
             match("if"); 
 
@@ -610,8 +613,8 @@ public class PILexer extends Lexer {
         try {
             int _type = ELSE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:196:5: ( 'else' )
-            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:196:7: 'else'
+            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:213:5: ( 'else' )
+            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:213:7: 'else'
             {
             match("else"); 
 
@@ -631,8 +634,8 @@ public class PILexer extends Lexer {
         try {
             int _type = WHILE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:197:6: ( 'while' )
-            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:197:8: 'while'
+            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:214:6: ( 'while' )
+            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:214:8: 'while'
             {
             match("while"); 
 
@@ -652,8 +655,8 @@ public class PILexer extends Lexer {
         try {
             int _type = BREAK;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:198:6: ( 'break' )
-            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:198:8: 'break'
+            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:215:6: ( 'break' )
+            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:215:8: 'break'
             {
             match("break"); 
 
@@ -673,8 +676,8 @@ public class PILexer extends Lexer {
         try {
             int _type = CONTINUE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:199:9: ( 'continue' )
-            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:199:11: 'continue'
+            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:216:9: ( 'continue' )
+            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:216:11: 'continue'
             {
             match("continue"); 
 
@@ -694,8 +697,8 @@ public class PILexer extends Lexer {
         try {
             int _type = AS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:200:3: ( 'as' )
-            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:200:5: 'as'
+            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:217:3: ( 'as' )
+            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:217:5: 'as'
             {
             match("as"); 
 
@@ -710,13 +713,34 @@ public class PILexer extends Lexer {
     }
     // $ANTLR end "AS"
 
+    // $ANTLR start "INCLUDE"
+    public final void mINCLUDE() throws RecognitionException {
+        try {
+            int _type = INCLUDE;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:218:8: ( 'include' )
+            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:218:10: 'include'
+            {
+            match("include"); 
+
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        }
+    }
+    // $ANTLR end "INCLUDE"
+
     // $ANTLR start "VAR"
     public final void mVAR() throws RecognitionException {
         try {
             int _type = VAR;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:202:4: ( 'var' )
-            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:202:6: 'var'
+            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:220:4: ( 'var' )
+            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:220:6: 'var'
             {
             match("var"); 
 
@@ -736,8 +760,8 @@ public class PILexer extends Lexer {
         try {
             int _type = KEY;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:203:4: ( 'key' )
-            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:203:6: 'key'
+            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:221:4: ( 'key' )
+            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:221:6: 'key'
             {
             match("key"); 
 
@@ -757,8 +781,8 @@ public class PILexer extends Lexer {
         try {
             int _type = OBJECT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:204:7: ( 'object' )
-            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:204:9: 'object'
+            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:222:7: ( 'object' )
+            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:222:9: 'object'
             {
             match("object"); 
 
@@ -778,8 +802,8 @@ public class PILexer extends Lexer {
         try {
             int _type = ARRAY;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:205:6: ( 'array' )
-            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:205:8: 'array'
+            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:223:6: ( 'array' )
+            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:223:8: 'array'
             {
             match("array"); 
 
@@ -799,8 +823,8 @@ public class PILexer extends Lexer {
         try {
             int _type = VECTOR;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:206:7: ( 'vector' )
-            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:206:9: 'vector'
+            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:224:7: ( 'vector' )
+            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:224:9: 'vector'
             {
             match("vector"); 
 
@@ -820,8 +844,8 @@ public class PILexer extends Lexer {
         try {
             int _type = VOID;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:207:5: ( 'void' )
-            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:207:7: 'void'
+            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:225:5: ( 'void' )
+            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:225:7: 'void'
             {
             match("void"); 
 
@@ -841,8 +865,8 @@ public class PILexer extends Lexer {
         try {
             int _type = SET;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:209:4: ( ':=' )
-            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:209:6: ':='
+            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:227:4: ( ':=' )
+            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:227:6: ':='
             {
             match(":="); 
 
@@ -862,8 +886,8 @@ public class PILexer extends Lexer {
         try {
             int _type = GET;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:210:4: ( '%' )
-            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:210:6: '%'
+            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:228:4: ( '%' )
+            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:228:6: '%'
             {
             match('%'); 
 
@@ -882,8 +906,8 @@ public class PILexer extends Lexer {
         try {
             int _type = CONCAT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:211:7: ( '<-' )
-            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:211:9: '<-'
+            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:229:7: ( '<-' )
+            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:229:9: '<-'
             {
             match("<-"); 
 
@@ -903,8 +927,8 @@ public class PILexer extends Lexer {
         try {
             int _type = EQUIV;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:212:6: ( '==' )
-            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:212:8: '=='
+            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:230:6: ( '==' )
+            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:230:8: '=='
             {
             match("=="); 
 
@@ -924,8 +948,8 @@ public class PILexer extends Lexer {
         try {
             int _type = EQUAL;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:213:6: ( '=' )
-            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:213:8: '='
+            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:231:6: ( '=' )
+            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:231:8: '='
             {
             match('='); 
 
@@ -944,8 +968,8 @@ public class PILexer extends Lexer {
         try {
             int _type = LTHAN;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:214:6: ( '<' )
-            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:214:8: '<'
+            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:232:6: ( '<' )
+            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:232:8: '<'
             {
             match('<'); 
 
@@ -964,8 +988,8 @@ public class PILexer extends Lexer {
         try {
             int _type = GTHAN;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:215:6: ( '>' )
-            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:215:8: '>'
+            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:233:6: ( '>' )
+            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:233:8: '>'
             {
             match('>'); 
 
@@ -984,8 +1008,8 @@ public class PILexer extends Lexer {
         try {
             int _type = LTHANE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:216:7: ( '<=' )
-            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:216:9: '<='
+            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:234:7: ( '<=' )
+            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:234:9: '<='
             {
             match("<="); 
 
@@ -1005,8 +1029,8 @@ public class PILexer extends Lexer {
         try {
             int _type = GTHANE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:217:7: ( '>=' )
-            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:217:9: '>='
+            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:235:7: ( '>=' )
+            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:235:9: '>='
             {
             match(">="); 
 
@@ -1026,8 +1050,8 @@ public class PILexer extends Lexer {
         try {
             int _type = NOT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:218:4: ( '!' )
-            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:218:6: '!'
+            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:236:4: ( '!' )
+            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:236:6: '!'
             {
             match('!'); 
 
@@ -1046,8 +1070,8 @@ public class PILexer extends Lexer {
         try {
             int _type = NOTEQ;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:219:6: ( '!=' )
-            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:219:8: '!='
+            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:237:6: ( '!=' )
+            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:237:8: '!='
             {
             match("!="); 
 
@@ -1067,8 +1091,8 @@ public class PILexer extends Lexer {
         try {
             int _type = PLUS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:220:5: ( '+' )
-            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:220:7: '+'
+            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:238:5: ( '+' )
+            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:238:7: '+'
             {
             match('+'); 
 
@@ -1087,8 +1111,8 @@ public class PILexer extends Lexer {
         try {
             int _type = MINUS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:221:6: ( '-' )
-            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:221:8: '-'
+            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:239:6: ( '-' )
+            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:239:8: '-'
             {
             match('-'); 
 
@@ -1107,8 +1131,8 @@ public class PILexer extends Lexer {
         try {
             int _type = MULT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:222:5: ( '*' )
-            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:222:7: '*'
+            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:240:5: ( '*' )
+            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:240:7: '*'
             {
             match('*'); 
 
@@ -1127,8 +1151,8 @@ public class PILexer extends Lexer {
         try {
             int _type = DIV;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:223:4: ( '/' )
-            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:223:6: '/'
+            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:241:4: ( '/' )
+            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:241:6: '/'
             {
             match('/'); 
 
@@ -1147,8 +1171,8 @@ public class PILexer extends Lexer {
         try {
             int _type = PRED;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:224:5: ( '|' )
-            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:224:7: '|'
+            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:242:5: ( '|' )
+            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:242:7: '|'
             {
             match('|'); 
 
@@ -1167,8 +1191,8 @@ public class PILexer extends Lexer {
         try {
             int _type = OR;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:225:3: ( 'or' )
-            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:225:5: 'or'
+            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:243:3: ( 'or' )
+            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:243:5: 'or'
             {
             match("or"); 
 
@@ -1188,8 +1212,8 @@ public class PILexer extends Lexer {
         try {
             int _type = XOR;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:226:4: ( 'xor' )
-            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:226:6: 'xor'
+            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:244:4: ( 'xor' )
+            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:244:6: 'xor'
             {
             match("xor"); 
 
@@ -1209,8 +1233,8 @@ public class PILexer extends Lexer {
         try {
             int _type = AND;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:227:4: ( 'and' )
-            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:227:6: 'and'
+            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:245:4: ( 'and' )
+            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:245:6: 'and'
             {
             match("and"); 
 
@@ -1230,8 +1254,8 @@ public class PILexer extends Lexer {
         try {
             int _type = POW;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:228:4: ( '^' )
-            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:228:6: '^'
+            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:246:4: ( '^' )
+            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:246:6: '^'
             {
             match('^'); 
 
@@ -1250,8 +1274,8 @@ public class PILexer extends Lexer {
         try {
             int _type = KVPAIR;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:229:7: ( ':' )
-            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:229:9: ':'
+            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:247:7: ( ':' )
+            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:247:9: ':'
             {
             match(':'); 
 
@@ -1270,8 +1294,8 @@ public class PILexer extends Lexer {
         try {
             int _type = WS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:232:3: ( ( ' ' | '\\t' | '\\n' | '\\r' ) )
-            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:232:5: ( ' ' | '\\t' | '\\n' | '\\r' )
+            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:250:3: ( ( ' ' | '\\t' | '\\n' | '\\r' ) )
+            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:250:5: ( ' ' | '\\t' | '\\n' | '\\r' )
             {
             if ( (input.LA(1)>='\t' && input.LA(1)<='\n')||input.LA(1)=='\r'||input.LA(1)==' ' ) {
                 input.consume();
@@ -1297,8 +1321,8 @@ public class PILexer extends Lexer {
     // $ANTLR start "DIGIT"
     public final void mDIGIT() throws RecognitionException {
         try {
-            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:238:15: ( '0' .. '9' )
-            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:238:17: '0' .. '9'
+            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:256:15: ( '0' .. '9' )
+            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:256:17: '0' .. '9'
             {
             matchRange('0','9'); 
 
@@ -1315,8 +1339,8 @@ public class PILexer extends Lexer {
         try {
             int _type = ID;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:240:3: ( ( 'A' .. 'Z' | 'a' .. 'z' | '_' ) ( 'A' .. 'Z' | 'a' .. 'z' | '_' | DIGIT )* )
-            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:240:5: ( 'A' .. 'Z' | 'a' .. 'z' | '_' ) ( 'A' .. 'Z' | 'a' .. 'z' | '_' | DIGIT )*
+            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:258:3: ( ( 'A' .. 'Z' | 'a' .. 'z' | '_' ) ( 'A' .. 'Z' | 'a' .. 'z' | '_' | DIGIT )* )
+            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:258:5: ( 'A' .. 'Z' | 'a' .. 'z' | '_' ) ( 'A' .. 'Z' | 'a' .. 'z' | '_' | DIGIT )*
             {
             if ( (input.LA(1)>='A' && input.LA(1)<='Z')||input.LA(1)=='_'||(input.LA(1)>='a' && input.LA(1)<='z') ) {
                 input.consume();
@@ -1327,7 +1351,7 @@ public class PILexer extends Lexer {
                 recover(mse);
                 throw mse;}
 
-            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:240:33: ( 'A' .. 'Z' | 'a' .. 'z' | '_' | DIGIT )*
+            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:258:33: ( 'A' .. 'Z' | 'a' .. 'z' | '_' | DIGIT )*
             loop3:
             do {
                 int alt3=2;
@@ -1376,10 +1400,10 @@ public class PILexer extends Lexer {
         try {
             int _type = NUMBER;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:242:7: ( ( DIGIT )+ )
-            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:242:9: ( DIGIT )+
+            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:260:7: ( ( DIGIT )+ )
+            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:260:9: ( DIGIT )+
             {
-            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:242:9: ( DIGIT )+
+            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:260:9: ( DIGIT )+
             int cnt4=0;
             loop4:
             do {
@@ -1393,7 +1417,7 @@ public class PILexer extends Lexer {
 
                 switch (alt4) {
             	case 1 :
-            	    // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:242:9: DIGIT
+            	    // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:260:9: DIGIT
             	    {
             	    mDIGIT(); 
 
@@ -1425,10 +1449,10 @@ public class PILexer extends Lexer {
         try {
             int _type = FPNUMBER;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:243:9: ( ( DIGIT )+ DOT ( DIGIT )+ )
-            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:243:11: ( DIGIT )+ DOT ( DIGIT )+
+            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:261:9: ( ( DIGIT )+ DOT ( DIGIT )+ )
+            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:261:11: ( DIGIT )+ DOT ( DIGIT )+
             {
-            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:243:11: ( DIGIT )+
+            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:261:11: ( DIGIT )+
             int cnt5=0;
             loop5:
             do {
@@ -1442,7 +1466,7 @@ public class PILexer extends Lexer {
 
                 switch (alt5) {
             	case 1 :
-            	    // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:243:11: DIGIT
+            	    // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:261:11: DIGIT
             	    {
             	    mDIGIT(); 
 
@@ -1459,7 +1483,7 @@ public class PILexer extends Lexer {
             } while (true);
 
             mDOT(); 
-            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:243:22: ( DIGIT )+
+            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:261:22: ( DIGIT )+
             int cnt6=0;
             loop6:
             do {
@@ -1473,7 +1497,7 @@ public class PILexer extends Lexer {
 
                 switch (alt6) {
             	case 1 :
-            	    // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:243:22: DIGIT
+            	    // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:261:22: DIGIT
             	    {
             	    mDIGIT(); 
 
@@ -1505,11 +1529,11 @@ public class PILexer extends Lexer {
         try {
             int _type = STRING;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:244:7: ( QUOTE ( . )* QUOTE )
-            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:244:9: QUOTE ( . )* QUOTE
+            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:262:7: ( QUOTE ( . )* QUOTE )
+            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:262:9: QUOTE ( . )* QUOTE
             {
             mQUOTE(); 
-            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:244:15: ( . )*
+            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:262:15: ( . )*
             loop7:
             do {
                 int alt7=2;
@@ -1525,7 +1549,7 @@ public class PILexer extends Lexer {
 
                 switch (alt7) {
             	case 1 :
-            	    // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:244:15: .
+            	    // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:262:15: .
             	    {
             	    matchAny(); 
 
@@ -1550,8 +1574,8 @@ public class PILexer extends Lexer {
     // $ANTLR end "STRING"
 
     public void mTokens() throws RecognitionException {
-        // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:1:8: ( MULTILINE_COMMENT | COMMENT | LBRACE | RBRACE | LP | RP | LB | RB | DOT | COMMA | QUOTE | SC | TRUE | FALSE | NULL | US | BSLASH | PRINTLN | PRINT | RETURN | IF | ELSE | WHILE | BREAK | CONTINUE | AS | VAR | KEY | OBJECT | ARRAY | VECTOR | VOID | SET | GET | CONCAT | EQUIV | EQUAL | LTHAN | GTHAN | LTHANE | GTHANE | NOT | NOTEQ | PLUS | MINUS | MULT | DIV | PRED | OR | XOR | AND | POW | KVPAIR | WS | ID | NUMBER | FPNUMBER | STRING )
-        int alt8=58;
+        // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:1:8: ( MULTILINE_COMMENT | COMMENT | LBRACE | RBRACE | LP | RP | LB | RB | DOT | COMMA | QUOTE | SC | TRUE | FALSE | NULL | US | BSLASH | PRINTLN | PRINT | RETURN | IF | ELSE | WHILE | BREAK | CONTINUE | AS | INCLUDE | VAR | KEY | OBJECT | ARRAY | VECTOR | VOID | SET | GET | CONCAT | EQUIV | EQUAL | LTHAN | GTHAN | LTHANE | GTHANE | NOT | NOTEQ | PLUS | MINUS | MULT | DIV | PRED | OR | XOR | AND | POW | KVPAIR | WS | ID | NUMBER | FPNUMBER | STRING )
+        int alt8=59;
         alt8 = dfa8.predict(input);
         switch (alt8) {
             case 1 :
@@ -1737,224 +1761,231 @@ public class PILexer extends Lexer {
                 }
                 break;
             case 27 :
-                // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:1:160: VAR
+                // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:1:160: INCLUDE
+                {
+                mINCLUDE(); 
+
+                }
+                break;
+            case 28 :
+                // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:1:168: VAR
                 {
                 mVAR(); 
 
                 }
                 break;
-            case 28 :
-                // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:1:164: KEY
+            case 29 :
+                // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:1:172: KEY
                 {
                 mKEY(); 
 
                 }
                 break;
-            case 29 :
-                // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:1:168: OBJECT
+            case 30 :
+                // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:1:176: OBJECT
                 {
                 mOBJECT(); 
 
                 }
                 break;
-            case 30 :
-                // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:1:175: ARRAY
+            case 31 :
+                // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:1:183: ARRAY
                 {
                 mARRAY(); 
 
                 }
                 break;
-            case 31 :
-                // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:1:181: VECTOR
+            case 32 :
+                // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:1:189: VECTOR
                 {
                 mVECTOR(); 
 
                 }
                 break;
-            case 32 :
-                // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:1:188: VOID
+            case 33 :
+                // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:1:196: VOID
                 {
                 mVOID(); 
 
                 }
                 break;
-            case 33 :
-                // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:1:193: SET
+            case 34 :
+                // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:1:201: SET
                 {
                 mSET(); 
 
                 }
                 break;
-            case 34 :
-                // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:1:197: GET
+            case 35 :
+                // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:1:205: GET
                 {
                 mGET(); 
 
                 }
                 break;
-            case 35 :
-                // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:1:201: CONCAT
+            case 36 :
+                // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:1:209: CONCAT
                 {
                 mCONCAT(); 
 
                 }
                 break;
-            case 36 :
-                // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:1:208: EQUIV
+            case 37 :
+                // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:1:216: EQUIV
                 {
                 mEQUIV(); 
 
                 }
                 break;
-            case 37 :
-                // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:1:214: EQUAL
+            case 38 :
+                // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:1:222: EQUAL
                 {
                 mEQUAL(); 
 
                 }
                 break;
-            case 38 :
-                // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:1:220: LTHAN
+            case 39 :
+                // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:1:228: LTHAN
                 {
                 mLTHAN(); 
 
                 }
                 break;
-            case 39 :
-                // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:1:226: GTHAN
+            case 40 :
+                // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:1:234: GTHAN
                 {
                 mGTHAN(); 
 
                 }
                 break;
-            case 40 :
-                // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:1:232: LTHANE
+            case 41 :
+                // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:1:240: LTHANE
                 {
                 mLTHANE(); 
 
                 }
                 break;
-            case 41 :
-                // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:1:239: GTHANE
+            case 42 :
+                // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:1:247: GTHANE
                 {
                 mGTHANE(); 
 
                 }
                 break;
-            case 42 :
-                // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:1:246: NOT
+            case 43 :
+                // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:1:254: NOT
                 {
                 mNOT(); 
 
                 }
                 break;
-            case 43 :
-                // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:1:250: NOTEQ
+            case 44 :
+                // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:1:258: NOTEQ
                 {
                 mNOTEQ(); 
 
                 }
                 break;
-            case 44 :
-                // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:1:256: PLUS
+            case 45 :
+                // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:1:264: PLUS
                 {
                 mPLUS(); 
 
                 }
                 break;
-            case 45 :
-                // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:1:261: MINUS
+            case 46 :
+                // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:1:269: MINUS
                 {
                 mMINUS(); 
 
                 }
                 break;
-            case 46 :
-                // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:1:267: MULT
+            case 47 :
+                // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:1:275: MULT
                 {
                 mMULT(); 
 
                 }
                 break;
-            case 47 :
-                // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:1:272: DIV
+            case 48 :
+                // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:1:280: DIV
                 {
                 mDIV(); 
 
                 }
                 break;
-            case 48 :
-                // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:1:276: PRED
+            case 49 :
+                // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:1:284: PRED
                 {
                 mPRED(); 
 
                 }
                 break;
-            case 49 :
-                // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:1:281: OR
+            case 50 :
+                // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:1:289: OR
                 {
                 mOR(); 
 
                 }
                 break;
-            case 50 :
-                // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:1:284: XOR
+            case 51 :
+                // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:1:292: XOR
                 {
                 mXOR(); 
 
                 }
                 break;
-            case 51 :
-                // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:1:288: AND
+            case 52 :
+                // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:1:296: AND
                 {
                 mAND(); 
 
                 }
                 break;
-            case 52 :
-                // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:1:292: POW
+            case 53 :
+                // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:1:300: POW
                 {
                 mPOW(); 
 
                 }
                 break;
-            case 53 :
-                // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:1:296: KVPAIR
+            case 54 :
+                // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:1:304: KVPAIR
                 {
                 mKVPAIR(); 
 
                 }
                 break;
-            case 54 :
-                // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:1:303: WS
+            case 55 :
+                // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:1:311: WS
                 {
                 mWS(); 
 
                 }
                 break;
-            case 55 :
-                // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:1:306: ID
+            case 56 :
+                // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:1:314: ID
                 {
                 mID(); 
 
                 }
                 break;
-            case 56 :
-                // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:1:309: NUMBER
+            case 57 :
+                // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:1:317: NUMBER
                 {
                 mNUMBER(); 
 
                 }
                 break;
-            case 57 :
-                // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:1:316: FPNUMBER
+            case 58 :
+                // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:1:324: FPNUMBER
                 {
                 mFPNUMBER(); 
 
                 }
                 break;
-            case 58 :
-                // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:1:325: STRING
+            case 59 :
+                // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:1:333: STRING
                 {
                 mSTRING(); 
 
@@ -1968,52 +1999,54 @@ public class PILexer extends Lexer {
 
     protected DFA8 dfa8 = new DFA8(this);
     static final String DFA8_eotS =
-        "\1\uffff\1\55\10\uffff\1\56\1\uffff\3\51\1\63\1\uffff\13\51\1\105"+
-        "\1\uffff\1\110\1\112\1\114\1\116\4\uffff\1\51\3\uffff\1\120\5\uffff"+
-        "\3\51\1\uffff\2\51\1\127\4\51\1\134\7\51\1\144\13\uffff\1\51\2\uffff"+
-        "\5\51\1\uffff\4\51\1\uffff\1\51\1\160\1\161\2\51\1\164\1\51\1\uffff"+
-        "\1\166\1\167\1\51\1\171\2\51\1\174\4\51\2\uffff\1\51\1\u0082\1\uffff"+
-        "\1\51\2\uffff\1\u0084\1\uffff\1\u0086\1\51\1\uffff\1\u0088\1\u0089"+
-        "\1\51\1\u008b\1\51\1\uffff\1\51\1\uffff\1\51\1\uffff\1\u008f\2\uffff"+
-        "\1\51\1\uffff\1\u0091\1\u0092\1\u0093\1\uffff\1\51\3\uffff\1\u0095"+
-        "\1\uffff";
+        "\1\uffff\1\55\10\uffff\1\56\1\uffff\3\51\1\63\1\uffff\13\51\1\106"+
+        "\1\uffff\1\111\1\113\1\115\1\117\4\uffff\1\51\3\uffff\1\121\5\uffff"+
+        "\3\51\1\uffff\2\51\1\130\5\51\1\136\7\51\1\146\13\uffff\1\51\2\uffff"+
+        "\5\51\1\uffff\5\51\1\uffff\1\51\1\163\1\164\2\51\1\167\1\51\1\uffff"+
+        "\1\171\1\172\1\51\1\174\3\51\1\u0080\4\51\2\uffff\1\51\1\u0086\1"+
+        "\uffff\1\51\2\uffff\1\u0088\1\uffff\1\u008a\2\51\1\uffff\1\u008d"+
+        "\1\u008e\1\51\1\u0090\1\51\1\uffff\1\51\1\uffff\1\51\1\uffff\1\u0094"+
+        "\1\51\2\uffff\1\51\1\uffff\1\u0097\1\u0098\1\u0099\1\uffff\1\u009a"+
+        "\1\51\4\uffff\1\u009c\1\uffff";
     static final String DFA8_eofS =
-        "\u0096\uffff";
+        "\u009d\uffff";
     static final String DFA8_minS =
         "\1\11\1\52\10\uffff\1\0\1\uffff\1\162\1\141\1\165\1\60\1\uffff"+
         "\1\162\1\145\1\146\1\154\1\150\1\162\1\157\1\156\1\141\1\145\1\142"+
         "\1\75\1\uffff\1\55\3\75\4\uffff\1\157\3\uffff\1\56\5\uffff\1\165"+
-        "\2\154\1\uffff\1\151\1\164\1\60\1\163\1\151\1\145\1\156\1\60\1\162"+
-        "\1\144\1\162\1\143\1\151\1\171\1\152\1\60\13\uffff\1\162\2\uffff"+
-        "\1\145\1\163\1\154\1\156\1\165\1\uffff\1\145\1\154\1\141\1\164\1"+
-        "\uffff\1\141\2\60\1\164\1\144\1\60\1\145\1\uffff\2\60\1\145\1\60"+
-        "\1\164\1\162\1\60\1\145\1\153\1\151\1\171\2\uffff\1\157\1\60\1\uffff"+
-        "\1\143\2\uffff\1\60\1\uffff\1\60\1\156\1\uffff\2\60\1\156\1\60\1"+
-        "\162\1\uffff\1\164\1\uffff\1\156\1\uffff\1\60\2\uffff\1\165\1\uffff"+
-        "\3\60\1\uffff\1\145\3\uffff\1\60\1\uffff";
+        "\2\154\1\uffff\1\151\1\164\1\60\1\143\1\163\1\151\1\145\1\156\1"+
+        "\60\1\162\1\144\1\162\1\143\1\151\1\171\1\152\1\60\13\uffff\1\162"+
+        "\2\uffff\1\145\1\163\1\154\1\156\1\165\1\uffff\1\154\1\145\1\154"+
+        "\1\141\1\164\1\uffff\1\141\2\60\1\164\1\144\1\60\1\145\1\uffff\2"+
+        "\60\1\145\1\60\1\164\1\162\1\165\1\60\1\145\1\153\1\151\1\171\2"+
+        "\uffff\1\157\1\60\1\uffff\1\143\2\uffff\1\60\1\uffff\1\60\1\156"+
+        "\1\144\1\uffff\2\60\1\156\1\60\1\162\1\uffff\1\164\1\uffff\1\156"+
+        "\1\uffff\1\60\1\145\2\uffff\1\165\1\uffff\3\60\1\uffff\1\60\1\145"+
+        "\4\uffff\1\60\1\uffff";
     static final String DFA8_maxS =
         "\1\175\1\57\10\uffff\1\uffff\1\uffff\1\162\1\141\1\165\1\172\1"+
-        "\uffff\1\162\1\145\1\146\1\154\1\150\1\162\1\157\1\163\1\157\1\145"+
+        "\uffff\1\162\1\145\1\156\1\154\1\150\1\162\1\157\1\163\1\157\1\145"+
         "\1\162\1\75\1\uffff\4\75\4\uffff\1\157\3\uffff\1\71\5\uffff\1\165"+
-        "\2\154\1\uffff\1\151\1\164\1\172\1\163\1\151\1\145\1\156\1\172\1"+
-        "\162\1\144\1\162\1\143\1\151\1\171\1\152\1\172\13\uffff\1\162\2"+
-        "\uffff\1\145\1\163\1\154\1\156\1\165\1\uffff\1\145\1\154\1\141\1"+
-        "\164\1\uffff\1\141\2\172\1\164\1\144\1\172\1\145\1\uffff\2\172\1"+
-        "\145\1\172\1\164\1\162\1\172\1\145\1\153\1\151\1\171\2\uffff\1\157"+
-        "\1\172\1\uffff\1\143\2\uffff\1\172\1\uffff\1\172\1\156\1\uffff\2"+
-        "\172\1\156\1\172\1\162\1\uffff\1\164\1\uffff\1\156\1\uffff\1\172"+
-        "\2\uffff\1\165\1\uffff\3\172\1\uffff\1\145\3\uffff\1\172\1\uffff";
+        "\2\154\1\uffff\1\151\1\164\1\172\1\143\1\163\1\151\1\145\1\156\1"+
+        "\172\1\162\1\144\1\162\1\143\1\151\1\171\1\152\1\172\13\uffff\1"+
+        "\162\2\uffff\1\145\1\163\1\154\1\156\1\165\1\uffff\1\154\1\145\1"+
+        "\154\1\141\1\164\1\uffff\1\141\2\172\1\164\1\144\1\172\1\145\1\uffff"+
+        "\2\172\1\145\1\172\1\164\1\162\1\165\1\172\1\145\1\153\1\151\1\171"+
+        "\2\uffff\1\157\1\172\1\uffff\1\143\2\uffff\1\172\1\uffff\1\172\1"+
+        "\156\1\144\1\uffff\2\172\1\156\1\172\1\162\1\uffff\1\164\1\uffff"+
+        "\1\156\1\uffff\1\172\1\145\2\uffff\1\165\1\uffff\3\172\1\uffff\1"+
+        "\172\1\145\4\uffff\1\172\1\uffff";
     static final String DFA8_acceptS =
         "\2\uffff\1\3\1\4\1\5\1\6\1\7\1\10\1\11\1\12\1\uffff\1\14\4\uffff"+
-        "\1\21\14\uffff\1\42\4\uffff\1\54\1\55\1\56\1\60\1\uffff\1\64\1\66"+
-        "\1\67\1\uffff\1\1\1\2\1\57\1\13\1\72\3\uffff\1\20\20\uffff\1\41"+
-        "\1\65\1\43\1\50\1\46\1\44\1\45\1\51\1\47\1\53\1\52\1\uffff\1\70"+
-        "\1\71\5\uffff\1\25\4\uffff\1\32\7\uffff\1\61\13\uffff\1\63\1\33"+
-        "\2\uffff\1\34\1\uffff\1\62\1\15\1\uffff\1\17\2\uffff\1\26\5\uffff"+
-        "\1\40\1\uffff\1\16\1\uffff\1\23\1\uffff\1\27\1\30\1\uffff\1\36\3"+
-        "\uffff\1\24\1\uffff\1\37\1\35\1\22\1\uffff\1\31";
+        "\1\21\14\uffff\1\43\4\uffff\1\55\1\56\1\57\1\61\1\uffff\1\65\1\67"+
+        "\1\70\1\uffff\1\1\1\2\1\60\1\13\1\73\3\uffff\1\20\21\uffff\1\42"+
+        "\1\66\1\44\1\51\1\47\1\45\1\46\1\52\1\50\1\54\1\53\1\uffff\1\71"+
+        "\1\72\5\uffff\1\25\5\uffff\1\32\7\uffff\1\62\14\uffff\1\64\1\34"+
+        "\2\uffff\1\35\1\uffff\1\63\1\15\1\uffff\1\17\3\uffff\1\26\5\uffff"+
+        "\1\41\1\uffff\1\16\1\uffff\1\23\2\uffff\1\27\1\30\1\uffff\1\37\3"+
+        "\uffff\1\24\2\uffff\1\40\1\36\1\22\1\33\1\uffff\1\31";
     static final String DFA8_specialS =
-        "\12\uffff\1\0\u008b\uffff}>";
+        "\12\uffff\1\0\u0092\uffff}>";
     static final String[] DFA8_transitionS = {
             "\2\50\2\uffff\1\50\22\uffff\1\50\1\41\1\12\2\uffff\1\35\2\uffff"+
             "\1\4\1\5\1\44\1\42\1\11\1\43\1\10\1\1\12\52\1\34\1\13\1\36\1"+
@@ -2039,54 +2072,55 @@ public class PILexer extends Lexer {
             "",
             "\1\64",
             "\1\65",
-            "\1\66",
-            "\1\67",
+            "\1\66\7\uffff\1\67",
             "\1\70",
             "\1\71",
             "\1\72",
-            "\1\75\3\uffff\1\74\1\73",
-            "\1\76\3\uffff\1\77\11\uffff\1\100",
-            "\1\101",
-            "\1\102\17\uffff\1\103",
-            "\1\104",
+            "\1\73",
+            "\1\76\3\uffff\1\75\1\74",
+            "\1\77\3\uffff\1\100\11\uffff\1\101",
+            "\1\102",
+            "\1\103\17\uffff\1\104",
+            "\1\105",
             "",
-            "\1\106\17\uffff\1\107",
-            "\1\111",
-            "\1\113",
-            "\1\115",
-            "",
-            "",
-            "",
-            "",
-            "\1\117",
-            "",
-            "",
-            "",
-            "\1\121\1\uffff\12\52",
+            "\1\107\17\uffff\1\110",
+            "\1\112",
+            "\1\114",
+            "\1\116",
             "",
             "",
             "",
             "",
+            "\1\120",
             "",
-            "\1\122",
+            "",
+            "",
+            "\1\122\1\uffff\12\52",
+            "",
+            "",
+            "",
+            "",
+            "",
             "\1\123",
             "\1\124",
-            "",
             "\1\125",
+            "",
             "\1\126",
+            "\1\127",
             "\12\51\7\uffff\32\51\4\uffff\1\51\1\uffff\32\51",
-            "\1\130",
             "\1\131",
             "\1\132",
             "\1\133",
-            "\12\51\7\uffff\32\51\4\uffff\1\51\1\uffff\32\51",
+            "\1\134",
             "\1\135",
-            "\1\136",
+            "\12\51\7\uffff\32\51\4\uffff\1\51\1\uffff\32\51",
             "\1\137",
             "\1\140",
             "\1\141",
             "\1\142",
             "\1\143",
+            "\1\144",
+            "\1\145",
             "\12\51\7\uffff\32\51\4\uffff\1\51\1\uffff\32\51",
             "",
             "",
@@ -2099,73 +2133,79 @@ public class PILexer extends Lexer {
             "",
             "",
             "",
-            "\1\145",
-            "",
-            "",
-            "\1\146",
             "\1\147",
+            "",
+            "",
             "\1\150",
             "\1\151",
             "\1\152",
-            "",
             "\1\153",
             "\1\154",
+            "",
             "\1\155",
             "\1\156",
-            "",
             "\1\157",
-            "\12\51\7\uffff\32\51\4\uffff\1\51\1\uffff\32\51",
-            "\12\51\7\uffff\32\51\4\uffff\1\51\1\uffff\32\51",
+            "\1\160",
+            "\1\161",
+            "",
             "\1\162",
-            "\1\163",
+            "\12\51\7\uffff\32\51\4\uffff\1\51\1\uffff\32\51",
             "\12\51\7\uffff\32\51\4\uffff\1\51\1\uffff\32\51",
             "\1\165",
+            "\1\166",
+            "\12\51\7\uffff\32\51\4\uffff\1\51\1\uffff\32\51",
+            "\1\170",
             "",
             "\12\51\7\uffff\32\51\4\uffff\1\51\1\uffff\32\51",
             "\12\51\7\uffff\32\51\4\uffff\1\51\1\uffff\32\51",
-            "\1\170",
-            "\12\51\7\uffff\32\51\4\uffff\1\51\1\uffff\32\51",
-            "\1\172",
             "\1\173",
             "\12\51\7\uffff\32\51\4\uffff\1\51\1\uffff\32\51",
             "\1\175",
             "\1\176",
             "\1\177",
-            "\1\u0080",
-            "",
-            "",
+            "\12\51\7\uffff\32\51\4\uffff\1\51\1\uffff\32\51",
             "\1\u0081",
-            "\12\51\7\uffff\32\51\4\uffff\1\51\1\uffff\32\51",
-            "",
+            "\1\u0082",
             "\1\u0083",
+            "\1\u0084",
             "",
             "",
+            "\1\u0085",
             "\12\51\7\uffff\32\51\4\uffff\1\51\1\uffff\32\51",
             "",
-            "\12\51\7\uffff\32\51\4\uffff\1\51\1\uffff\13\51\1\u0085\16"+
-            "\51",
             "\1\u0087",
             "",
+            "",
             "\12\51\7\uffff\32\51\4\uffff\1\51\1\uffff\32\51",
-            "\12\51\7\uffff\32\51\4\uffff\1\51\1\uffff\32\51",
-            "\1\u008a",
-            "\12\51\7\uffff\32\51\4\uffff\1\51\1\uffff\32\51",
+            "",
+            "\12\51\7\uffff\32\51\4\uffff\1\51\1\uffff\13\51\1\u0089\16"+
+            "\51",
+            "\1\u008b",
             "\1\u008c",
             "",
-            "\1\u008d",
-            "",
-            "\1\u008e",
-            "",
-            "\12\51\7\uffff\32\51\4\uffff\1\51\1\uffff\32\51",
-            "",
-            "",
-            "\1\u0090",
-            "",
             "\12\51\7\uffff\32\51\4\uffff\1\51\1\uffff\32\51",
             "\12\51\7\uffff\32\51\4\uffff\1\51\1\uffff\32\51",
+            "\1\u008f",
+            "\12\51\7\uffff\32\51\4\uffff\1\51\1\uffff\32\51",
+            "\1\u0091",
+            "",
+            "\1\u0092",
+            "",
+            "\1\u0093",
+            "",
+            "\12\51\7\uffff\32\51\4\uffff\1\51\1\uffff\32\51",
+            "\1\u0095",
+            "",
+            "",
+            "\1\u0096",
+            "",
+            "\12\51\7\uffff\32\51\4\uffff\1\51\1\uffff\32\51",
+            "\12\51\7\uffff\32\51\4\uffff\1\51\1\uffff\32\51",
             "\12\51\7\uffff\32\51\4\uffff\1\51\1\uffff\32\51",
             "",
-            "\1\u0094",
+            "\12\51\7\uffff\32\51\4\uffff\1\51\1\uffff\32\51",
+            "\1\u009b",
+            "",
             "",
             "",
             "",
@@ -2203,7 +2243,7 @@ public class PILexer extends Lexer {
             this.transition = DFA8_transition;
         }
         public String getDescription() {
-            return "1:1: Tokens : ( MULTILINE_COMMENT | COMMENT | LBRACE | RBRACE | LP | RP | LB | RB | DOT | COMMA | QUOTE | SC | TRUE | FALSE | NULL | US | BSLASH | PRINTLN | PRINT | RETURN | IF | ELSE | WHILE | BREAK | CONTINUE | AS | VAR | KEY | OBJECT | ARRAY | VECTOR | VOID | SET | GET | CONCAT | EQUIV | EQUAL | LTHAN | GTHAN | LTHANE | GTHANE | NOT | NOTEQ | PLUS | MINUS | MULT | DIV | PRED | OR | XOR | AND | POW | KVPAIR | WS | ID | NUMBER | FPNUMBER | STRING );";
+            return "1:1: Tokens : ( MULTILINE_COMMENT | COMMENT | LBRACE | RBRACE | LP | RP | LB | RB | DOT | COMMA | QUOTE | SC | TRUE | FALSE | NULL | US | BSLASH | PRINTLN | PRINT | RETURN | IF | ELSE | WHILE | BREAK | CONTINUE | AS | INCLUDE | VAR | KEY | OBJECT | ARRAY | VECTOR | VOID | SET | GET | CONCAT | EQUIV | EQUAL | LTHAN | GTHAN | LTHANE | GTHANE | NOT | NOTEQ | PLUS | MINUS | MULT | DIV | PRED | OR | XOR | AND | POW | KVPAIR | WS | ID | NUMBER | FPNUMBER | STRING );";
         }
         public int specialStateTransition(int s, IntStream _input) throws NoViableAltException {
             IntStream input = _input;

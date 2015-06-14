@@ -48,8 +48,7 @@ public class PIRig {
 		return st;
 	}
 	
-	public Root getImperiTree(ArrayList<String> mainargs) throws RecognitionException {
-		PersistentData.initPersistentData();
+	public Root getPITree(ArrayList<String> mainargs) throws RecognitionException {
 		ArrayList<Value> args = new ArrayList<Value>();
 		for (String arg : mainargs) 
 			args.add(new VarValue(arg));

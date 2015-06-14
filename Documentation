@@ -11,7 +11,9 @@ Current Status: The basic types (vars, keys) are in, as well as basic control fl
 Table of Contents:
 	Overview
 	
-	1. Comments
+	1. General
+		1.1 Comments
+		1.2 importing files
 	2. Types
 		2.1 Var
 		2.2 Key
@@ -40,7 +42,7 @@ Table of Contents:
 	6. Errors
 		TO-DO
 
-OVERVIEW:
+1. General
 	The PI interpreter is an AST interpreter, which runs on an expanded version of the AST produced by ANTLR written
 	entirely in Java. 
 	The main execution components of the system are divided into two main categories, Expressions and Statements. 
@@ -53,10 +55,23 @@ OVERVIEW:
 	to it from the base AST
 	See "UNDER THE HOOD" segments in the rest of the documentation for further details
 
-1. Comments:
-	Standard C/Java commenting
-	//comment out line
-	/*comment out everything inside*/
+
+	1.1 Comments
+		Standard C/Java commenting
+		//comment out line
+		/*comment out everything inside*/
+		
+	1.2 Importing Files
+		include "filepath.pi"
+		
+		void main() {
+			...
+		}
+		
+		Will parse and execute everything inside of the imported file before starting on the current one.
+		
+		IMPORTANT: global variables and functions in an imported file will be treated as if they were in the main file, 
+		so be careful when naming variables and functions to avoid conflicts. 
 
 2. Types
 

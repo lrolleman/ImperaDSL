@@ -28,14 +28,31 @@ tokens {
 
 @header {
 package PISDLParser;
+
+import Global.Root;
 }
 
 @lexer::header {
 package PISDLParser;
+
+import Global.Root;
 }
 
 program
-  : globals -> ^(PROGRAM globals)
+  : imports* globals -> ^(PROGRAM globals)
+  ;
+  
+imports
+  : INCLUDE STRING {
+    
+    String filename = $STRING.text;
+    PIRig imp = new PIRig(filename.substring(1, filename.length()-1));
+    //System.out.println(imp.getDOTGraph());
+    Root program = imp.getPITree(new ArrayList<String>());
+    try {
+      program.execute();
+    } catch (NullPointerException npe) {}
+  }
   ;
   
 globals
@@ -198,6 +215,7 @@ WHILE: 'while';
 BREAK: 'break';
 CONTINUE: 'continue';
 AS: 'as';
+INCLUDE: 'include';
 
 VAR: 'var';
 KEY: 'key';

@@ -42,7 +42,8 @@ public class PI {
 				PrintStream out = System.out;
 				System.setOut(new PrintStream(new ByteArrayOutputStream()));
 				PIRig impstartup = new PIRig("Tests\\startup.imptest");
-				Root testprogram = impstartup.getImperiTree(mainargs);
+				PersistentData.initPersistentData();
+				Root testprogram = impstartup.getPITree(mainargs);
 				testprogram.execute();
 				System.setOut(out);
 				
@@ -50,7 +51,7 @@ public class PI {
 				int numpassed = 0;
 				FilenameFilter testfilter = new FilenameFilter() {
 					public boolean accept(File dir, String name) {
-						if (name.endsWith(".imp"))
+						if (name.endsWith(".imp") || name.endsWith(".pi"))
 							return true;
 						else
 							return false;
@@ -77,7 +78,8 @@ public class PI {
 					
 					long starttime = System.nanoTime();
 					PIRig imp = new PIRig("Tests\\" + tests[i].getName());
-					Root program = imp.getImperiTree(mainargs);
+					PersistentData.initPersistentData();
+					Root program = imp.getPITree(mainargs);
 					long parseend = System.nanoTime();
 					Value testret = program.execute();
 					long endtime = System.nanoTime();
@@ -128,8 +130,15 @@ public class PI {
 		if (filename != "") {
 			PIRig imp = new PIRig(filename);
 			//System.out.println(imp.getDOTGraph());
-			Root program = imp.getImperiTree(mainargs);
-			Value ret = program.execute();
+			PersistentData.initPersistentData();
+			Root program = imp.getPITree(mainargs);
+			Value ret = null;
+			try {
+				ret = program.execute();
+			} catch (PIException ie) {
+				System.err.println(filename + ":" + ie.getMessage());
+				ie.printStackTrace();
+			}
 			System.out.print("Program: " + filename + " terminated with return value: ");
 			if (ret == null)
 				System.out.println(ret);
