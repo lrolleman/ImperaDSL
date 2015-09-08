@@ -33,7 +33,7 @@ public class GlobalMethods {
 				if (i == 0) 
 					System.out.print("[");
 				if (i == arr.size()-1)
-					print(tree, arr.get(i), "]");
+					print(tree, arr.get(i), "]" + delim);
 				else 
 					print(tree, arr.get(i), ", ");
 			}
@@ -44,7 +44,7 @@ public class GlobalMethods {
 				if (i == 0) 
 					System.out.print("vec[");
 				if (i == vec.size()-1)
-					print(tree, vec.get(i), "]");
+					print(tree, vec.get(i), "]" + delim);
 				else 
 					print(tree, vec.get(i), ", ");
 			}
@@ -63,7 +63,7 @@ public class GlobalMethods {
 				if (i == 0)
 					System.out.print("<");
 				if (i == keyset.size()-1)
-					print(tree, obj.get(okey).getValue(), ">");
+					print(tree, obj.get(okey).getValue(), ">" + delim);
 				else
 					print(tree, obj.get(okey).getValue(), ", ");
 				i++;
