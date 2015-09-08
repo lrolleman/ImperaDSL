@@ -120,7 +120,7 @@ public class PI {
 				System.err.println(numpassed + "/" + tests.length + " passed");
 				break;
 			default:
-				if (arg.endsWith(".imp")) {
+				if (arg.endsWith(".imp") || arg.endsWith(".pi")) {
 					filename = arg;
 				} else {
 					mainargs.add(arg);

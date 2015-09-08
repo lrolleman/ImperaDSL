@@ -76,6 +76,10 @@ public class TypeSystem {
 		try {
 			return (ArrayValue) val;
 		} catch (ClassCastException cce) {
+			if (val instanceof KeyValue) {
+				KeyValue kv = (KeyValue) val;
+				return getAsArray(kv.getValue());
+			}
 			throw new TypeCastException("illegal cast to array");
 		}
 	}
@@ -84,6 +88,10 @@ public class TypeSystem {
 		try {
 			return (ObjectValue) val;
 		} catch (ClassCastException cce) {
+			if (val instanceof KeyValue) {
+				KeyValue kv = (KeyValue) val;
+				return getAsObject(kv.getValue());
+			}
 			throw new TypeCastException("illegal cast to object");
 		}
 	}

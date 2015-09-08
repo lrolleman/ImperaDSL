@@ -12,6 +12,7 @@ import org.antlr.runtime.tree.DOTTreeGenerator;
 import org.antlr.stringtemplate.StringTemplate;
 
 import JSONTree.JSONTree;
+import SymbolTable.ArrayValue;
 
 
 public class JSONParseRig {
@@ -50,5 +51,10 @@ public class JSONParseRig {
 		JSONTreeConstruct walker = new JSONTreeConstruct(nodes, tree);
 		walker.jsonfile();
 		return tree;
+	}
+	public ArrayValue PIImport() throws RecognitionException {
+		CommonTreeNodeStream nodes = new CommonTreeNodeStream(getAST());
+		nodes.setTokenStream(tokenStream);
+		return new PIImporter(nodes).jsonfile();
 	}
 }

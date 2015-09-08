@@ -76,6 +76,10 @@ statement
   | CONTINUE SC!
   ;
   
+readfunction
+  : READ_JSON LP expr RP -> ^(READ_JSON expr)
+  ;
+  
 whilestatement
   : WHILE LP expr RP block -> ^(WHILE expr block)
   ;
@@ -118,7 +122,8 @@ statcall
   : ID LP args? RP SC -> ^(CALL ID args?)
   ;
 exprcall
-  : ID LP args? RP -> ^(CALL ID args?)
+  : readfunction
+  | ID LP args? RP -> ^(CALL ID args?)
   ;
 args
   : expr (COMMA expr)* -> ^(ARGS expr*)
@@ -216,6 +221,7 @@ BREAK: 'break';
 CONTINUE: 'continue';
 AS: 'as';
 INCLUDE: 'include';
+READ_JSON: 'read_json';
 
 VAR: 'var';
 KEY: 'key';

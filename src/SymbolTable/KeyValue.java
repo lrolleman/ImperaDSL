@@ -8,7 +8,10 @@ public class KeyValue implements Value {
 	TypeSymbol keytype;
 	
 	public KeyValue(String key, TypeSymbol keytype, Value value) {
-		this.key = key;
+		if (key.startsWith("\"") && key.endsWith("\""))
+			this.key = key.substring(1, key.length()-1);
+		else
+			this.key = key;
 		this.keytype = keytype;
 		this.value = value;
 	}

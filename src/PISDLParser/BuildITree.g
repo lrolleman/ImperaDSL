@@ -68,6 +68,13 @@ statement returns [Statement stat]
   | CONTINUE {$stat = new Continue();}
   ;
   
+readfunction returns [Expression expr]
+@init {
+  CommonTree errtree = getErrorHeader();
+}
+  : ^(READ_JSON expr) {$expr = new ReadJSON(errtree, $expr.expression);}
+  ;
+  
 whilestatement returns [Statement stat]
 @init {
   CommonTree errtree = getErrorHeader();
@@ -177,6 +184,7 @@ expr returns [Expression expression]
   | ^(GET e=expr) {$expression = new Get(errtree, $e.expression);}
   | ^(CAST type e=expr) {$expression = new Cast(errtree, $type.type, $e.expression);}
   | exprcall {$expression = $exprcall.expr;}
+  | readfunction {$expression = $readfunction.expr;}
   | ^(OBJECT_CONSTRUCTOR params) {$expression = new ObjectConstructor($params.params);}
   | ^(OBJ_REF obj=ID ref=ID) {$expression = new ObjectReference(errtree, new Identifier(errtree, $obj.text), $ref.text);}
   | NUMBER {$expression = new Atom(new VarValue(Integer.parseInt($NUMBER.text)));}

@@ -1,4 +1,4 @@
-// $ANTLR 3.3 Nov 30, 2010 12:45:30 C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g 2015-06-14 10:58:41
+// $ANTLR 3.3 Nov 30, 2010 12:50:56 C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g 2015-09-08 11:30:37
 
 package PISDLParser;
 
@@ -16,7 +16,7 @@ import org.antlr.runtime.tree.*;
 
 public class PIParser extends Parser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "PROGRAM", "DECL", "BLOCK", "FUNCTION", "PARAMS", "POS", "NEG", "CALL", "ARGS", "CAST", "ARRAY", "INDEX", "OBJECT_CONSTRUCTOR", "OBJ_REF", "OBJ_ASSIG", "ARRAY_ASSIG", "INCLUDE", "STRING", "ID", "EQUAL", "SC", "BREAK", "CONTINUE", "WHILE", "LP", "RP", "IF", "ELSE", "RETURN", "PRINT", "PRINTLN", "LBRACE", "RBRACE", "DOT", "LB", "RB", "SET", "COMMA", "XOR", "OR", "AND", "EQUIV", "NOTEQ", "LTHAN", "GTHAN", "LTHANE", "GTHANE", "PLUS", "MINUS", "CONCAT", "MULT", "DIV", "POW", "NOT", "GET", "KVPAIR", "NUMBER", "FPNUMBER", "TRUE", "FALSE", "QUOTE", "VAR", "KEY", "OBJECT", "VECTOR", "VOID", "MULTILINE_COMMENT", "COMMENT", "NULL", "US", "BSLASH", "AS", "PRED", "WS", "DIGIT"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "PROGRAM", "DECL", "BLOCK", "FUNCTION", "PARAMS", "POS", "NEG", "CALL", "ARGS", "CAST", "ARRAY", "INDEX", "OBJECT_CONSTRUCTOR", "OBJ_REF", "OBJ_ASSIG", "ARRAY_ASSIG", "INCLUDE", "STRING", "ID", "EQUAL", "SC", "BREAK", "CONTINUE", "READ_JSON", "LP", "RP", "WHILE", "IF", "ELSE", "RETURN", "PRINT", "PRINTLN", "LBRACE", "RBRACE", "DOT", "LB", "RB", "SET", "COMMA", "XOR", "OR", "AND", "EQUIV", "NOTEQ", "LTHAN", "GTHAN", "LTHANE", "GTHANE", "PLUS", "MINUS", "CONCAT", "MULT", "DIV", "POW", "NOT", "GET", "KVPAIR", "NUMBER", "FPNUMBER", "TRUE", "FALSE", "QUOTE", "VAR", "KEY", "OBJECT", "VECTOR", "VOID", "MULTILINE_COMMENT", "COMMENT", "NULL", "US", "BSLASH", "AS", "PRED", "WS", "DIGIT"
     };
     public static final int EOF=-1;
     public static final int PROGRAM=4;
@@ -42,58 +42,59 @@ public class PIParser extends Parser {
     public static final int SC=24;
     public static final int BREAK=25;
     public static final int CONTINUE=26;
-    public static final int WHILE=27;
+    public static final int READ_JSON=27;
     public static final int LP=28;
     public static final int RP=29;
-    public static final int IF=30;
-    public static final int ELSE=31;
-    public static final int RETURN=32;
-    public static final int PRINT=33;
-    public static final int PRINTLN=34;
-    public static final int LBRACE=35;
-    public static final int RBRACE=36;
-    public static final int DOT=37;
-    public static final int LB=38;
-    public static final int RB=39;
-    public static final int SET=40;
-    public static final int COMMA=41;
-    public static final int XOR=42;
-    public static final int OR=43;
-    public static final int AND=44;
-    public static final int EQUIV=45;
-    public static final int NOTEQ=46;
-    public static final int LTHAN=47;
-    public static final int GTHAN=48;
-    public static final int LTHANE=49;
-    public static final int GTHANE=50;
-    public static final int PLUS=51;
-    public static final int MINUS=52;
-    public static final int CONCAT=53;
-    public static final int MULT=54;
-    public static final int DIV=55;
-    public static final int POW=56;
-    public static final int NOT=57;
-    public static final int GET=58;
-    public static final int KVPAIR=59;
-    public static final int NUMBER=60;
-    public static final int FPNUMBER=61;
-    public static final int TRUE=62;
-    public static final int FALSE=63;
-    public static final int QUOTE=64;
-    public static final int VAR=65;
-    public static final int KEY=66;
-    public static final int OBJECT=67;
-    public static final int VECTOR=68;
-    public static final int VOID=69;
-    public static final int MULTILINE_COMMENT=70;
-    public static final int COMMENT=71;
-    public static final int NULL=72;
-    public static final int US=73;
-    public static final int BSLASH=74;
-    public static final int AS=75;
-    public static final int PRED=76;
-    public static final int WS=77;
-    public static final int DIGIT=78;
+    public static final int WHILE=30;
+    public static final int IF=31;
+    public static final int ELSE=32;
+    public static final int RETURN=33;
+    public static final int PRINT=34;
+    public static final int PRINTLN=35;
+    public static final int LBRACE=36;
+    public static final int RBRACE=37;
+    public static final int DOT=38;
+    public static final int LB=39;
+    public static final int RB=40;
+    public static final int SET=41;
+    public static final int COMMA=42;
+    public static final int XOR=43;
+    public static final int OR=44;
+    public static final int AND=45;
+    public static final int EQUIV=46;
+    public static final int NOTEQ=47;
+    public static final int LTHAN=48;
+    public static final int GTHAN=49;
+    public static final int LTHANE=50;
+    public static final int GTHANE=51;
+    public static final int PLUS=52;
+    public static final int MINUS=53;
+    public static final int CONCAT=54;
+    public static final int MULT=55;
+    public static final int DIV=56;
+    public static final int POW=57;
+    public static final int NOT=58;
+    public static final int GET=59;
+    public static final int KVPAIR=60;
+    public static final int NUMBER=61;
+    public static final int FPNUMBER=62;
+    public static final int TRUE=63;
+    public static final int FALSE=64;
+    public static final int QUOTE=65;
+    public static final int VAR=66;
+    public static final int KEY=67;
+    public static final int OBJECT=68;
+    public static final int VECTOR=69;
+    public static final int VOID=70;
+    public static final int MULTILINE_COMMENT=71;
+    public static final int COMMENT=72;
+    public static final int NULL=73;
+    public static final int US=74;
+    public static final int BSLASH=75;
+    public static final int AS=76;
+    public static final int PRED=77;
+    public static final int WS=78;
+    public static final int DIGIT=79;
 
     // delegates
     // delegators
@@ -104,7 +105,7 @@ public class PIParser extends Parser {
         }
         public PIParser(TokenStream input, RecognizerSharedState state) {
             super(input, state);
-            this.state.ruleMemo = new HashMap[93+1];
+            this.state.ruleMemo = new HashMap[95+1];
              
              
         }
@@ -504,7 +505,7 @@ public class PIParser extends Parser {
 
 
             // AST REWRITE
-            // elements: ID, type, EQUAL, expr
+            // elements: expr, EQUAL, ID, type
             // token labels: 
             // rule labels: retval
             // token list labels: 
@@ -525,13 +526,13 @@ public class PIParser extends Parser {
                 adaptor.addChild(root_1, stream_type.nextTree());
                 adaptor.addChild(root_1, stream_ID.nextNode());
                 // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:64:48: ( EQUAL expr )?
-                if ( stream_EQUAL.hasNext()||stream_expr.hasNext() ) {
+                if ( stream_expr.hasNext()||stream_EQUAL.hasNext() ) {
                     adaptor.addChild(root_1, stream_EQUAL.nextNode());
                     adaptor.addChild(root_1, stream_expr.nextTree());
 
                 }
-                stream_EQUAL.reset();
                 stream_expr.reset();
+                stream_EQUAL.reset();
 
                 adaptor.addChild(root_0, root_1);
                 }
@@ -754,61 +755,159 @@ public class PIParser extends Parser {
     }
     // $ANTLR end "statement"
 
+    public static class readfunction_return extends ParserRuleReturnScope {
+        Object tree;
+        public Object getTree() { return tree; }
+    };
+
+    // $ANTLR start "readfunction"
+    // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:79:1: readfunction : READ_JSON LP expr RP -> ^( READ_JSON expr ) ;
+    public final PIParser.readfunction_return readfunction() throws RecognitionException {
+        PIParser.readfunction_return retval = new PIParser.readfunction_return();
+        retval.start = input.LT(1);
+        int readfunction_StartIndex = input.index();
+        Object root_0 = null;
+
+        Token READ_JSON23=null;
+        Token LP24=null;
+        Token RP26=null;
+        PIParser.expr_return expr25 = null;
+
+
+        Object READ_JSON23_tree=null;
+        Object LP24_tree=null;
+        Object RP26_tree=null;
+        RewriteRuleTokenStream stream_READ_JSON=new RewriteRuleTokenStream(adaptor,"token READ_JSON");
+        RewriteRuleTokenStream stream_RP=new RewriteRuleTokenStream(adaptor,"token RP");
+        RewriteRuleTokenStream stream_LP=new RewriteRuleTokenStream(adaptor,"token LP");
+        RewriteRuleSubtreeStream stream_expr=new RewriteRuleSubtreeStream(adaptor,"rule expr");
+        try {
+            if ( state.backtracking>0 && alreadyParsedRule(input, 6) ) { return retval; }
+            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:80:3: ( READ_JSON LP expr RP -> ^( READ_JSON expr ) )
+            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:80:5: READ_JSON LP expr RP
+            {
+            READ_JSON23=(Token)match(input,READ_JSON,FOLLOW_READ_JSON_in_readfunction332); if (state.failed) return retval; 
+            if ( state.backtracking==0 ) stream_READ_JSON.add(READ_JSON23);
+
+            LP24=(Token)match(input,LP,FOLLOW_LP_in_readfunction334); if (state.failed) return retval; 
+            if ( state.backtracking==0 ) stream_LP.add(LP24);
+
+            pushFollow(FOLLOW_expr_in_readfunction336);
+            expr25=expr();
+
+            state._fsp--;
+            if (state.failed) return retval;
+            if ( state.backtracking==0 ) stream_expr.add(expr25.getTree());
+            RP26=(Token)match(input,RP,FOLLOW_RP_in_readfunction338); if (state.failed) return retval; 
+            if ( state.backtracking==0 ) stream_RP.add(RP26);
+
+
+
+            // AST REWRITE
+            // elements: READ_JSON, expr
+            // token labels: 
+            // rule labels: retval
+            // token list labels: 
+            // rule list labels: 
+            // wildcard labels: 
+            if ( state.backtracking==0 ) {
+            retval.tree = root_0;
+            RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
+
+            root_0 = (Object)adaptor.nil();
+            // 80:26: -> ^( READ_JSON expr )
+            {
+                // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:80:29: ^( READ_JSON expr )
+                {
+                Object root_1 = (Object)adaptor.nil();
+                root_1 = (Object)adaptor.becomeRoot(stream_READ_JSON.nextNode(), root_1);
+
+                adaptor.addChild(root_1, stream_expr.nextTree());
+
+                adaptor.addChild(root_0, root_1);
+                }
+
+            }
+
+            retval.tree = root_0;}
+            }
+
+            retval.stop = input.LT(-1);
+
+            if ( state.backtracking==0 ) {
+
+            retval.tree = (Object)adaptor.rulePostProcessing(root_0);
+            adaptor.setTokenBoundaries(retval.tree, retval.start, retval.stop);
+            }
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+    	retval.tree = (Object)adaptor.errorNode(input, retval.start, input.LT(-1), re);
+
+        }
+        finally {
+            if ( state.backtracking>0 ) { memoize(input, 6, readfunction_StartIndex); }
+        }
+        return retval;
+    }
+    // $ANTLR end "readfunction"
+
     public static class whilestatement_return extends ParserRuleReturnScope {
         Object tree;
         public Object getTree() { return tree; }
     };
 
     // $ANTLR start "whilestatement"
-    // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:79:1: whilestatement : WHILE LP expr RP block -> ^( WHILE expr block ) ;
+    // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:83:1: whilestatement : WHILE LP expr RP block -> ^( WHILE expr block ) ;
     public final PIParser.whilestatement_return whilestatement() throws RecognitionException {
         PIParser.whilestatement_return retval = new PIParser.whilestatement_return();
         retval.start = input.LT(1);
         int whilestatement_StartIndex = input.index();
         Object root_0 = null;
 
-        Token WHILE23=null;
-        Token LP24=null;
-        Token RP26=null;
-        PIParser.expr_return expr25 = null;
+        Token WHILE27=null;
+        Token LP28=null;
+        Token RP30=null;
+        PIParser.expr_return expr29 = null;
 
-        PIParser.block_return block27 = null;
+        PIParser.block_return block31 = null;
 
 
-        Object WHILE23_tree=null;
-        Object LP24_tree=null;
-        Object RP26_tree=null;
+        Object WHILE27_tree=null;
+        Object LP28_tree=null;
+        Object RP30_tree=null;
         RewriteRuleTokenStream stream_WHILE=new RewriteRuleTokenStream(adaptor,"token WHILE");
         RewriteRuleTokenStream stream_RP=new RewriteRuleTokenStream(adaptor,"token RP");
         RewriteRuleTokenStream stream_LP=new RewriteRuleTokenStream(adaptor,"token LP");
         RewriteRuleSubtreeStream stream_block=new RewriteRuleSubtreeStream(adaptor,"rule block");
         RewriteRuleSubtreeStream stream_expr=new RewriteRuleSubtreeStream(adaptor,"rule expr");
         try {
-            if ( state.backtracking>0 && alreadyParsedRule(input, 6) ) { return retval; }
-            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:80:3: ( WHILE LP expr RP block -> ^( WHILE expr block ) )
-            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:80:5: WHILE LP expr RP block
+            if ( state.backtracking>0 && alreadyParsedRule(input, 7) ) { return retval; }
+            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:84:3: ( WHILE LP expr RP block -> ^( WHILE expr block ) )
+            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:84:5: WHILE LP expr RP block
             {
-            WHILE23=(Token)match(input,WHILE,FOLLOW_WHILE_in_whilestatement332); if (state.failed) return retval; 
-            if ( state.backtracking==0 ) stream_WHILE.add(WHILE23);
+            WHILE27=(Token)match(input,WHILE,FOLLOW_WHILE_in_whilestatement361); if (state.failed) return retval; 
+            if ( state.backtracking==0 ) stream_WHILE.add(WHILE27);
 
-            LP24=(Token)match(input,LP,FOLLOW_LP_in_whilestatement334); if (state.failed) return retval; 
-            if ( state.backtracking==0 ) stream_LP.add(LP24);
+            LP28=(Token)match(input,LP,FOLLOW_LP_in_whilestatement363); if (state.failed) return retval; 
+            if ( state.backtracking==0 ) stream_LP.add(LP28);
 
-            pushFollow(FOLLOW_expr_in_whilestatement336);
-            expr25=expr();
-
-            state._fsp--;
-            if (state.failed) return retval;
-            if ( state.backtracking==0 ) stream_expr.add(expr25.getTree());
-            RP26=(Token)match(input,RP,FOLLOW_RP_in_whilestatement338); if (state.failed) return retval; 
-            if ( state.backtracking==0 ) stream_RP.add(RP26);
-
-            pushFollow(FOLLOW_block_in_whilestatement340);
-            block27=block();
+            pushFollow(FOLLOW_expr_in_whilestatement365);
+            expr29=expr();
 
             state._fsp--;
             if (state.failed) return retval;
-            if ( state.backtracking==0 ) stream_block.add(block27.getTree());
+            if ( state.backtracking==0 ) stream_expr.add(expr29.getTree());
+            RP30=(Token)match(input,RP,FOLLOW_RP_in_whilestatement367); if (state.failed) return retval; 
+            if ( state.backtracking==0 ) stream_RP.add(RP30);
+
+            pushFollow(FOLLOW_block_in_whilestatement369);
+            block31=block();
+
+            state._fsp--;
+            if (state.failed) return retval;
+            if ( state.backtracking==0 ) stream_block.add(block31.getTree());
 
 
             // AST REWRITE
@@ -823,9 +922,9 @@ public class PIParser extends Parser {
             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
             root_0 = (Object)adaptor.nil();
-            // 80:28: -> ^( WHILE expr block )
+            // 84:28: -> ^( WHILE expr block )
             {
-                // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:80:31: ^( WHILE expr block )
+                // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:84:31: ^( WHILE expr block )
                 {
                 Object root_1 = (Object)adaptor.nil();
                 root_1 = (Object)adaptor.becomeRoot(stream_WHILE.nextNode(), root_1);
@@ -856,7 +955,7 @@ public class PIParser extends Parser {
 
         }
         finally {
-            if ( state.backtracking>0 ) { memoize(input, 6, whilestatement_StartIndex); }
+            if ( state.backtracking>0 ) { memoize(input, 7, whilestatement_StartIndex); }
         }
         return retval;
     }
@@ -868,28 +967,28 @@ public class PIParser extends Parser {
     };
 
     // $ANTLR start "ifstatement"
-    // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:83:1: ifstatement : IF LP expr RP block ( ELSE block )? -> ^( IF expr block ( ELSE block )? ) ;
+    // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:87:1: ifstatement : IF LP expr RP block ( ELSE block )? -> ^( IF expr block ( ELSE block )? ) ;
     public final PIParser.ifstatement_return ifstatement() throws RecognitionException {
         PIParser.ifstatement_return retval = new PIParser.ifstatement_return();
         retval.start = input.LT(1);
         int ifstatement_StartIndex = input.index();
         Object root_0 = null;
 
-        Token IF28=null;
-        Token LP29=null;
-        Token RP31=null;
-        Token ELSE33=null;
-        PIParser.expr_return expr30 = null;
+        Token IF32=null;
+        Token LP33=null;
+        Token RP35=null;
+        Token ELSE37=null;
+        PIParser.expr_return expr34 = null;
 
-        PIParser.block_return block32 = null;
+        PIParser.block_return block36 = null;
 
-        PIParser.block_return block34 = null;
+        PIParser.block_return block38 = null;
 
 
-        Object IF28_tree=null;
-        Object LP29_tree=null;
-        Object RP31_tree=null;
-        Object ELSE33_tree=null;
+        Object IF32_tree=null;
+        Object LP33_tree=null;
+        Object RP35_tree=null;
+        Object ELSE37_tree=null;
         RewriteRuleTokenStream stream_RP=new RewriteRuleTokenStream(adaptor,"token RP");
         RewriteRuleTokenStream stream_IF=new RewriteRuleTokenStream(adaptor,"token IF");
         RewriteRuleTokenStream stream_ELSE=new RewriteRuleTokenStream(adaptor,"token ELSE");
@@ -897,32 +996,32 @@ public class PIParser extends Parser {
         RewriteRuleSubtreeStream stream_block=new RewriteRuleSubtreeStream(adaptor,"rule block");
         RewriteRuleSubtreeStream stream_expr=new RewriteRuleSubtreeStream(adaptor,"rule expr");
         try {
-            if ( state.backtracking>0 && alreadyParsedRule(input, 7) ) { return retval; }
-            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:84:3: ( IF LP expr RP block ( ELSE block )? -> ^( IF expr block ( ELSE block )? ) )
-            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:84:5: IF LP expr RP block ( ELSE block )?
+            if ( state.backtracking>0 && alreadyParsedRule(input, 8) ) { return retval; }
+            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:88:3: ( IF LP expr RP block ( ELSE block )? -> ^( IF expr block ( ELSE block )? ) )
+            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:88:5: IF LP expr RP block ( ELSE block )?
             {
-            IF28=(Token)match(input,IF,FOLLOW_IF_in_ifstatement365); if (state.failed) return retval; 
-            if ( state.backtracking==0 ) stream_IF.add(IF28);
+            IF32=(Token)match(input,IF,FOLLOW_IF_in_ifstatement394); if (state.failed) return retval; 
+            if ( state.backtracking==0 ) stream_IF.add(IF32);
 
-            LP29=(Token)match(input,LP,FOLLOW_LP_in_ifstatement367); if (state.failed) return retval; 
-            if ( state.backtracking==0 ) stream_LP.add(LP29);
+            LP33=(Token)match(input,LP,FOLLOW_LP_in_ifstatement396); if (state.failed) return retval; 
+            if ( state.backtracking==0 ) stream_LP.add(LP33);
 
-            pushFollow(FOLLOW_expr_in_ifstatement369);
-            expr30=expr();
-
-            state._fsp--;
-            if (state.failed) return retval;
-            if ( state.backtracking==0 ) stream_expr.add(expr30.getTree());
-            RP31=(Token)match(input,RP,FOLLOW_RP_in_ifstatement371); if (state.failed) return retval; 
-            if ( state.backtracking==0 ) stream_RP.add(RP31);
-
-            pushFollow(FOLLOW_block_in_ifstatement373);
-            block32=block();
+            pushFollow(FOLLOW_expr_in_ifstatement398);
+            expr34=expr();
 
             state._fsp--;
             if (state.failed) return retval;
-            if ( state.backtracking==0 ) stream_block.add(block32.getTree());
-            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:84:25: ( ELSE block )?
+            if ( state.backtracking==0 ) stream_expr.add(expr34.getTree());
+            RP35=(Token)match(input,RP,FOLLOW_RP_in_ifstatement400); if (state.failed) return retval; 
+            if ( state.backtracking==0 ) stream_RP.add(RP35);
+
+            pushFollow(FOLLOW_block_in_ifstatement402);
+            block36=block();
+
+            state._fsp--;
+            if (state.failed) return retval;
+            if ( state.backtracking==0 ) stream_block.add(block36.getTree());
+            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:88:25: ( ELSE block )?
             int alt6=2;
             int LA6_0 = input.LA(1);
 
@@ -931,17 +1030,17 @@ public class PIParser extends Parser {
             }
             switch (alt6) {
                 case 1 :
-                    // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:84:26: ELSE block
+                    // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:88:26: ELSE block
                     {
-                    ELSE33=(Token)match(input,ELSE,FOLLOW_ELSE_in_ifstatement376); if (state.failed) return retval; 
-                    if ( state.backtracking==0 ) stream_ELSE.add(ELSE33);
+                    ELSE37=(Token)match(input,ELSE,FOLLOW_ELSE_in_ifstatement405); if (state.failed) return retval; 
+                    if ( state.backtracking==0 ) stream_ELSE.add(ELSE37);
 
-                    pushFollow(FOLLOW_block_in_ifstatement378);
-                    block34=block();
+                    pushFollow(FOLLOW_block_in_ifstatement407);
+                    block38=block();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    if ( state.backtracking==0 ) stream_block.add(block34.getTree());
+                    if ( state.backtracking==0 ) stream_block.add(block38.getTree());
 
                     }
                     break;
@@ -962,16 +1061,16 @@ public class PIParser extends Parser {
             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
             root_0 = (Object)adaptor.nil();
-            // 84:39: -> ^( IF expr block ( ELSE block )? )
+            // 88:39: -> ^( IF expr block ( ELSE block )? )
             {
-                // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:84:42: ^( IF expr block ( ELSE block )? )
+                // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:88:42: ^( IF expr block ( ELSE block )? )
                 {
                 Object root_1 = (Object)adaptor.nil();
                 root_1 = (Object)adaptor.becomeRoot(stream_IF.nextNode(), root_1);
 
                 adaptor.addChild(root_1, stream_expr.nextTree());
                 adaptor.addChild(root_1, stream_block.nextTree());
-                // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:84:58: ( ELSE block )?
+                // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:88:58: ( ELSE block )?
                 if ( stream_ELSE.hasNext()||stream_block.hasNext() ) {
                     adaptor.addChild(root_1, stream_ELSE.nextNode());
                     adaptor.addChild(root_1, stream_block.nextTree());
@@ -1003,7 +1102,7 @@ public class PIParser extends Parser {
 
         }
         finally {
-            if ( state.backtracking>0 ) { memoize(input, 7, ifstatement_StartIndex); }
+            if ( state.backtracking>0 ) { memoize(input, 8, ifstatement_StartIndex); }
         }
         return retval;
     }
@@ -1015,56 +1114,56 @@ public class PIParser extends Parser {
     };
 
     // $ANTLR start "returnstatement"
-    // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:87:1: returnstatement : RETURN ( expr )? SC -> ^( RETURN ( expr )? ) ;
+    // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:91:1: returnstatement : RETURN ( expr )? SC -> ^( RETURN ( expr )? ) ;
     public final PIParser.returnstatement_return returnstatement() throws RecognitionException {
         PIParser.returnstatement_return retval = new PIParser.returnstatement_return();
         retval.start = input.LT(1);
         int returnstatement_StartIndex = input.index();
         Object root_0 = null;
 
-        Token RETURN35=null;
-        Token SC37=null;
-        PIParser.expr_return expr36 = null;
+        Token RETURN39=null;
+        Token SC41=null;
+        PIParser.expr_return expr40 = null;
 
 
-        Object RETURN35_tree=null;
-        Object SC37_tree=null;
+        Object RETURN39_tree=null;
+        Object SC41_tree=null;
         RewriteRuleTokenStream stream_SC=new RewriteRuleTokenStream(adaptor,"token SC");
         RewriteRuleTokenStream stream_RETURN=new RewriteRuleTokenStream(adaptor,"token RETURN");
         RewriteRuleSubtreeStream stream_expr=new RewriteRuleSubtreeStream(adaptor,"rule expr");
         try {
-            if ( state.backtracking>0 && alreadyParsedRule(input, 8) ) { return retval; }
-            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:88:3: ( RETURN ( expr )? SC -> ^( RETURN ( expr )? ) )
-            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:88:5: RETURN ( expr )? SC
+            if ( state.backtracking>0 && alreadyParsedRule(input, 9) ) { return retval; }
+            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:92:3: ( RETURN ( expr )? SC -> ^( RETURN ( expr )? ) )
+            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:92:5: RETURN ( expr )? SC
             {
-            RETURN35=(Token)match(input,RETURN,FOLLOW_RETURN_in_returnstatement411); if (state.failed) return retval; 
-            if ( state.backtracking==0 ) stream_RETURN.add(RETURN35);
+            RETURN39=(Token)match(input,RETURN,FOLLOW_RETURN_in_returnstatement440); if (state.failed) return retval; 
+            if ( state.backtracking==0 ) stream_RETURN.add(RETURN39);
 
-            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:88:12: ( expr )?
+            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:92:12: ( expr )?
             int alt7=2;
             int LA7_0 = input.LA(1);
 
-            if ( ((LA7_0>=STRING && LA7_0<=ID)||LA7_0==LP||LA7_0==LB||LA7_0==LTHAN||(LA7_0>=PLUS && LA7_0<=MINUS)||(LA7_0>=NOT && LA7_0<=GET)||(LA7_0>=NUMBER && LA7_0<=FALSE)) ) {
+            if ( ((LA7_0>=STRING && LA7_0<=ID)||(LA7_0>=READ_JSON && LA7_0<=LP)||LA7_0==LB||LA7_0==LTHAN||(LA7_0>=PLUS && LA7_0<=MINUS)||(LA7_0>=NOT && LA7_0<=GET)||(LA7_0>=NUMBER && LA7_0<=FALSE)) ) {
                 alt7=1;
             }
             switch (alt7) {
                 case 1 :
                     // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:0:0: expr
                     {
-                    pushFollow(FOLLOW_expr_in_returnstatement413);
-                    expr36=expr();
+                    pushFollow(FOLLOW_expr_in_returnstatement442);
+                    expr40=expr();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    if ( state.backtracking==0 ) stream_expr.add(expr36.getTree());
+                    if ( state.backtracking==0 ) stream_expr.add(expr40.getTree());
 
                     }
                     break;
 
             }
 
-            SC37=(Token)match(input,SC,FOLLOW_SC_in_returnstatement416); if (state.failed) return retval; 
-            if ( state.backtracking==0 ) stream_SC.add(SC37);
+            SC41=(Token)match(input,SC,FOLLOW_SC_in_returnstatement445); if (state.failed) return retval; 
+            if ( state.backtracking==0 ) stream_SC.add(SC41);
 
 
 
@@ -1080,14 +1179,14 @@ public class PIParser extends Parser {
             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
             root_0 = (Object)adaptor.nil();
-            // 88:21: -> ^( RETURN ( expr )? )
+            // 92:21: -> ^( RETURN ( expr )? )
             {
-                // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:88:24: ^( RETURN ( expr )? )
+                // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:92:24: ^( RETURN ( expr )? )
                 {
                 Object root_1 = (Object)adaptor.nil();
                 root_1 = (Object)adaptor.becomeRoot(stream_RETURN.nextNode(), root_1);
 
-                // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:88:33: ( expr )?
+                // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:92:33: ( expr )?
                 if ( stream_expr.hasNext() ) {
                     adaptor.addChild(root_1, stream_expr.nextTree());
 
@@ -1117,7 +1216,7 @@ public class PIParser extends Parser {
 
         }
         finally {
-            if ( state.backtracking>0 ) { memoize(input, 8, returnstatement_StartIndex); }
+            if ( state.backtracking>0 ) { memoize(input, 9, returnstatement_StartIndex); }
         }
         return retval;
     }
@@ -1129,34 +1228,34 @@ public class PIParser extends Parser {
     };
 
     // $ANTLR start "printstatement"
-    // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:91:1: printstatement : ( PRINT LP expr RP SC -> ^( PRINT expr ) | PRINTLN LP expr RP SC -> ^( PRINTLN expr ) );
+    // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:95:1: printstatement : ( PRINT LP expr RP SC -> ^( PRINT expr ) | PRINTLN LP expr RP SC -> ^( PRINTLN expr ) );
     public final PIParser.printstatement_return printstatement() throws RecognitionException {
         PIParser.printstatement_return retval = new PIParser.printstatement_return();
         retval.start = input.LT(1);
         int printstatement_StartIndex = input.index();
         Object root_0 = null;
 
-        Token PRINT38=null;
-        Token LP39=null;
-        Token RP41=null;
-        Token SC42=null;
-        Token PRINTLN43=null;
-        Token LP44=null;
-        Token RP46=null;
-        Token SC47=null;
-        PIParser.expr_return expr40 = null;
+        Token PRINT42=null;
+        Token LP43=null;
+        Token RP45=null;
+        Token SC46=null;
+        Token PRINTLN47=null;
+        Token LP48=null;
+        Token RP50=null;
+        Token SC51=null;
+        PIParser.expr_return expr44 = null;
 
-        PIParser.expr_return expr45 = null;
+        PIParser.expr_return expr49 = null;
 
 
-        Object PRINT38_tree=null;
-        Object LP39_tree=null;
-        Object RP41_tree=null;
-        Object SC42_tree=null;
-        Object PRINTLN43_tree=null;
-        Object LP44_tree=null;
-        Object RP46_tree=null;
-        Object SC47_tree=null;
+        Object PRINT42_tree=null;
+        Object LP43_tree=null;
+        Object RP45_tree=null;
+        Object SC46_tree=null;
+        Object PRINTLN47_tree=null;
+        Object LP48_tree=null;
+        Object RP50_tree=null;
+        Object SC51_tree=null;
         RewriteRuleTokenStream stream_SC=new RewriteRuleTokenStream(adaptor,"token SC");
         RewriteRuleTokenStream stream_RP=new RewriteRuleTokenStream(adaptor,"token RP");
         RewriteRuleTokenStream stream_PRINT=new RewriteRuleTokenStream(adaptor,"token PRINT");
@@ -1164,8 +1263,8 @@ public class PIParser extends Parser {
         RewriteRuleTokenStream stream_LP=new RewriteRuleTokenStream(adaptor,"token LP");
         RewriteRuleSubtreeStream stream_expr=new RewriteRuleSubtreeStream(adaptor,"rule expr");
         try {
-            if ( state.backtracking>0 && alreadyParsedRule(input, 9) ) { return retval; }
-            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:92:3: ( PRINT LP expr RP SC -> ^( PRINT expr ) | PRINTLN LP expr RP SC -> ^( PRINTLN expr ) )
+            if ( state.backtracking>0 && alreadyParsedRule(input, 10) ) { return retval; }
+            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:96:3: ( PRINT LP expr RP SC -> ^( PRINT expr ) | PRINTLN LP expr RP SC -> ^( PRINTLN expr ) )
             int alt8=2;
             int LA8_0 = input.LA(1);
 
@@ -1184,25 +1283,25 @@ public class PIParser extends Parser {
             }
             switch (alt8) {
                 case 1 :
-                    // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:92:5: PRINT LP expr RP SC
+                    // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:96:5: PRINT LP expr RP SC
                     {
-                    PRINT38=(Token)match(input,PRINT,FOLLOW_PRINT_in_printstatement440); if (state.failed) return retval; 
-                    if ( state.backtracking==0 ) stream_PRINT.add(PRINT38);
+                    PRINT42=(Token)match(input,PRINT,FOLLOW_PRINT_in_printstatement469); if (state.failed) return retval; 
+                    if ( state.backtracking==0 ) stream_PRINT.add(PRINT42);
 
-                    LP39=(Token)match(input,LP,FOLLOW_LP_in_printstatement442); if (state.failed) return retval; 
-                    if ( state.backtracking==0 ) stream_LP.add(LP39);
+                    LP43=(Token)match(input,LP,FOLLOW_LP_in_printstatement471); if (state.failed) return retval; 
+                    if ( state.backtracking==0 ) stream_LP.add(LP43);
 
-                    pushFollow(FOLLOW_expr_in_printstatement444);
-                    expr40=expr();
+                    pushFollow(FOLLOW_expr_in_printstatement473);
+                    expr44=expr();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    if ( state.backtracking==0 ) stream_expr.add(expr40.getTree());
-                    RP41=(Token)match(input,RP,FOLLOW_RP_in_printstatement446); if (state.failed) return retval; 
-                    if ( state.backtracking==0 ) stream_RP.add(RP41);
+                    if ( state.backtracking==0 ) stream_expr.add(expr44.getTree());
+                    RP45=(Token)match(input,RP,FOLLOW_RP_in_printstatement475); if (state.failed) return retval; 
+                    if ( state.backtracking==0 ) stream_RP.add(RP45);
 
-                    SC42=(Token)match(input,SC,FOLLOW_SC_in_printstatement448); if (state.failed) return retval; 
-                    if ( state.backtracking==0 ) stream_SC.add(SC42);
+                    SC46=(Token)match(input,SC,FOLLOW_SC_in_printstatement477); if (state.failed) return retval; 
+                    if ( state.backtracking==0 ) stream_SC.add(SC46);
 
 
 
@@ -1218,9 +1317,9 @@ public class PIParser extends Parser {
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                     root_0 = (Object)adaptor.nil();
-                    // 92:25: -> ^( PRINT expr )
+                    // 96:25: -> ^( PRINT expr )
                     {
-                        // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:92:28: ^( PRINT expr )
+                        // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:96:28: ^( PRINT expr )
                         {
                         Object root_1 = (Object)adaptor.nil();
                         root_1 = (Object)adaptor.becomeRoot(stream_PRINT.nextNode(), root_1);
@@ -1236,25 +1335,25 @@ public class PIParser extends Parser {
                     }
                     break;
                 case 2 :
-                    // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:93:5: PRINTLN LP expr RP SC
+                    // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:97:5: PRINTLN LP expr RP SC
                     {
-                    PRINTLN43=(Token)match(input,PRINTLN,FOLLOW_PRINTLN_in_printstatement462); if (state.failed) return retval; 
-                    if ( state.backtracking==0 ) stream_PRINTLN.add(PRINTLN43);
+                    PRINTLN47=(Token)match(input,PRINTLN,FOLLOW_PRINTLN_in_printstatement491); if (state.failed) return retval; 
+                    if ( state.backtracking==0 ) stream_PRINTLN.add(PRINTLN47);
 
-                    LP44=(Token)match(input,LP,FOLLOW_LP_in_printstatement464); if (state.failed) return retval; 
-                    if ( state.backtracking==0 ) stream_LP.add(LP44);
+                    LP48=(Token)match(input,LP,FOLLOW_LP_in_printstatement493); if (state.failed) return retval; 
+                    if ( state.backtracking==0 ) stream_LP.add(LP48);
 
-                    pushFollow(FOLLOW_expr_in_printstatement466);
-                    expr45=expr();
+                    pushFollow(FOLLOW_expr_in_printstatement495);
+                    expr49=expr();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    if ( state.backtracking==0 ) stream_expr.add(expr45.getTree());
-                    RP46=(Token)match(input,RP,FOLLOW_RP_in_printstatement468); if (state.failed) return retval; 
-                    if ( state.backtracking==0 ) stream_RP.add(RP46);
+                    if ( state.backtracking==0 ) stream_expr.add(expr49.getTree());
+                    RP50=(Token)match(input,RP,FOLLOW_RP_in_printstatement497); if (state.failed) return retval; 
+                    if ( state.backtracking==0 ) stream_RP.add(RP50);
 
-                    SC47=(Token)match(input,SC,FOLLOW_SC_in_printstatement470); if (state.failed) return retval; 
-                    if ( state.backtracking==0 ) stream_SC.add(SC47);
+                    SC51=(Token)match(input,SC,FOLLOW_SC_in_printstatement499); if (state.failed) return retval; 
+                    if ( state.backtracking==0 ) stream_SC.add(SC51);
 
 
 
@@ -1270,9 +1369,9 @@ public class PIParser extends Parser {
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                     root_0 = (Object)adaptor.nil();
-                    // 93:27: -> ^( PRINTLN expr )
+                    // 97:27: -> ^( PRINTLN expr )
                     {
-                        // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:93:30: ^( PRINTLN expr )
+                        // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:97:30: ^( PRINTLN expr )
                         {
                         Object root_1 = (Object)adaptor.nil();
                         root_1 = (Object)adaptor.becomeRoot(stream_PRINTLN.nextNode(), root_1);
@@ -1304,7 +1403,7 @@ public class PIParser extends Parser {
 
         }
         finally {
-            if ( state.backtracking>0 ) { memoize(input, 9, printstatement_StartIndex); }
+            if ( state.backtracking>0 ) { memoize(input, 10, printstatement_StartIndex); }
         }
         return retval;
     }
@@ -1316,38 +1415,38 @@ public class PIParser extends Parser {
     };
 
     // $ANTLR start "block"
-    // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:96:1: block : LBRACE ( statement )* RBRACE -> ^( BLOCK ( statement )* ) ;
+    // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:100:1: block : LBRACE ( statement )* RBRACE -> ^( BLOCK ( statement )* ) ;
     public final PIParser.block_return block() throws RecognitionException {
         PIParser.block_return retval = new PIParser.block_return();
         retval.start = input.LT(1);
         int block_StartIndex = input.index();
         Object root_0 = null;
 
-        Token LBRACE48=null;
-        Token RBRACE50=null;
-        PIParser.statement_return statement49 = null;
+        Token LBRACE52=null;
+        Token RBRACE54=null;
+        PIParser.statement_return statement53 = null;
 
 
-        Object LBRACE48_tree=null;
-        Object RBRACE50_tree=null;
+        Object LBRACE52_tree=null;
+        Object RBRACE54_tree=null;
         RewriteRuleTokenStream stream_RBRACE=new RewriteRuleTokenStream(adaptor,"token RBRACE");
         RewriteRuleTokenStream stream_LBRACE=new RewriteRuleTokenStream(adaptor,"token LBRACE");
         RewriteRuleSubtreeStream stream_statement=new RewriteRuleSubtreeStream(adaptor,"rule statement");
         try {
-            if ( state.backtracking>0 && alreadyParsedRule(input, 10) ) { return retval; }
-            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:97:3: ( LBRACE ( statement )* RBRACE -> ^( BLOCK ( statement )* ) )
-            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:97:5: LBRACE ( statement )* RBRACE
+            if ( state.backtracking>0 && alreadyParsedRule(input, 11) ) { return retval; }
+            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:101:3: ( LBRACE ( statement )* RBRACE -> ^( BLOCK ( statement )* ) )
+            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:101:5: LBRACE ( statement )* RBRACE
             {
-            LBRACE48=(Token)match(input,LBRACE,FOLLOW_LBRACE_in_block493); if (state.failed) return retval; 
-            if ( state.backtracking==0 ) stream_LBRACE.add(LBRACE48);
+            LBRACE52=(Token)match(input,LBRACE,FOLLOW_LBRACE_in_block522); if (state.failed) return retval; 
+            if ( state.backtracking==0 ) stream_LBRACE.add(LBRACE52);
 
-            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:97:12: ( statement )*
+            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:101:12: ( statement )*
             loop9:
             do {
                 int alt9=2;
                 int LA9_0 = input.LA(1);
 
-                if ( (LA9_0==ARRAY||LA9_0==ID||(LA9_0>=BREAK && LA9_0<=WHILE)||LA9_0==IF||(LA9_0>=RETURN && LA9_0<=PRINTLN)||(LA9_0>=VAR && LA9_0<=VOID)) ) {
+                if ( (LA9_0==ARRAY||LA9_0==ID||(LA9_0>=BREAK && LA9_0<=CONTINUE)||(LA9_0>=WHILE && LA9_0<=IF)||(LA9_0>=RETURN && LA9_0<=PRINTLN)||(LA9_0>=VAR && LA9_0<=VOID)) ) {
                     alt9=1;
                 }
 
@@ -1356,12 +1455,12 @@ public class PIParser extends Parser {
             	case 1 :
             	    // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:0:0: statement
             	    {
-            	    pushFollow(FOLLOW_statement_in_block495);
-            	    statement49=statement();
+            	    pushFollow(FOLLOW_statement_in_block524);
+            	    statement53=statement();
 
             	    state._fsp--;
             	    if (state.failed) return retval;
-            	    if ( state.backtracking==0 ) stream_statement.add(statement49.getTree());
+            	    if ( state.backtracking==0 ) stream_statement.add(statement53.getTree());
 
             	    }
             	    break;
@@ -1371,8 +1470,8 @@ public class PIParser extends Parser {
                 }
             } while (true);
 
-            RBRACE50=(Token)match(input,RBRACE,FOLLOW_RBRACE_in_block498); if (state.failed) return retval; 
-            if ( state.backtracking==0 ) stream_RBRACE.add(RBRACE50);
+            RBRACE54=(Token)match(input,RBRACE,FOLLOW_RBRACE_in_block527); if (state.failed) return retval; 
+            if ( state.backtracking==0 ) stream_RBRACE.add(RBRACE54);
 
 
 
@@ -1388,14 +1487,14 @@ public class PIParser extends Parser {
             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
             root_0 = (Object)adaptor.nil();
-            // 97:30: -> ^( BLOCK ( statement )* )
+            // 101:30: -> ^( BLOCK ( statement )* )
             {
-                // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:97:33: ^( BLOCK ( statement )* )
+                // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:101:33: ^( BLOCK ( statement )* )
                 {
                 Object root_1 = (Object)adaptor.nil();
                 root_1 = (Object)adaptor.becomeRoot((Object)adaptor.create(BLOCK, "BLOCK"), root_1);
 
-                // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:97:41: ( statement )*
+                // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:101:41: ( statement )*
                 while ( stream_statement.hasNext() ) {
                     adaptor.addChild(root_1, stream_statement.nextTree());
 
@@ -1425,7 +1524,7 @@ public class PIParser extends Parser {
 
         }
         finally {
-            if ( state.backtracking>0 ) { memoize(input, 10, block_StartIndex); }
+            if ( state.backtracking>0 ) { memoize(input, 11, block_StartIndex); }
         }
         return retval;
     }
@@ -1437,7 +1536,7 @@ public class PIParser extends Parser {
     };
 
     // $ANTLR start "assignment"
-    // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:100:1: assignment : (obj= ID DOT ref= ID EQUAL expr SC -> ^( OBJ_ASSIG $obj $ref expr ) | ID LB index= expr RB EQUAL value= expr SC -> ^( ARRAY_ASSIG ID $index $value) | ID EQUAL expr SC -> ^( EQUAL ID expr ) | ID SET expr SC -> ^( SET ID expr ) );
+    // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:104:1: assignment : (obj= ID DOT ref= ID EQUAL expr SC -> ^( OBJ_ASSIG $obj $ref expr ) | ID LB index= expr RB EQUAL value= expr SC -> ^( ARRAY_ASSIG ID $index $value) | ID EQUAL expr SC -> ^( EQUAL ID expr ) | ID SET expr SC -> ^( SET ID expr ) );
     public final PIParser.assignment_return assignment() throws RecognitionException {
         PIParser.assignment_return retval = new PIParser.assignment_return();
         retval.start = input.LT(1);
@@ -1446,47 +1545,47 @@ public class PIParser extends Parser {
 
         Token obj=null;
         Token ref=null;
-        Token DOT51=null;
-        Token EQUAL52=null;
-        Token SC54=null;
-        Token ID55=null;
-        Token LB56=null;
-        Token RB57=null;
-        Token EQUAL58=null;
-        Token SC59=null;
-        Token ID60=null;
-        Token EQUAL61=null;
+        Token DOT55=null;
+        Token EQUAL56=null;
+        Token SC58=null;
+        Token ID59=null;
+        Token LB60=null;
+        Token RB61=null;
+        Token EQUAL62=null;
         Token SC63=null;
         Token ID64=null;
-        Token SET65=null;
+        Token EQUAL65=null;
         Token SC67=null;
+        Token ID68=null;
+        Token SET69=null;
+        Token SC71=null;
         PIParser.expr_return index = null;
 
         PIParser.expr_return value = null;
 
-        PIParser.expr_return expr53 = null;
-
-        PIParser.expr_return expr62 = null;
+        PIParser.expr_return expr57 = null;
 
         PIParser.expr_return expr66 = null;
+
+        PIParser.expr_return expr70 = null;
 
 
         Object obj_tree=null;
         Object ref_tree=null;
-        Object DOT51_tree=null;
-        Object EQUAL52_tree=null;
-        Object SC54_tree=null;
-        Object ID55_tree=null;
-        Object LB56_tree=null;
-        Object RB57_tree=null;
-        Object EQUAL58_tree=null;
-        Object SC59_tree=null;
-        Object ID60_tree=null;
-        Object EQUAL61_tree=null;
+        Object DOT55_tree=null;
+        Object EQUAL56_tree=null;
+        Object SC58_tree=null;
+        Object ID59_tree=null;
+        Object LB60_tree=null;
+        Object RB61_tree=null;
+        Object EQUAL62_tree=null;
         Object SC63_tree=null;
         Object ID64_tree=null;
-        Object SET65_tree=null;
+        Object EQUAL65_tree=null;
         Object SC67_tree=null;
+        Object ID68_tree=null;
+        Object SET69_tree=null;
+        Object SC71_tree=null;
         RewriteRuleTokenStream stream_SC=new RewriteRuleTokenStream(adaptor,"token SC");
         RewriteRuleTokenStream stream_SET=new RewriteRuleTokenStream(adaptor,"token SET");
         RewriteRuleTokenStream stream_LB=new RewriteRuleTokenStream(adaptor,"token LB");
@@ -1496,8 +1595,8 @@ public class PIParser extends Parser {
         RewriteRuleTokenStream stream_EQUAL=new RewriteRuleTokenStream(adaptor,"token EQUAL");
         RewriteRuleSubtreeStream stream_expr=new RewriteRuleSubtreeStream(adaptor,"rule expr");
         try {
-            if ( state.backtracking>0 && alreadyParsedRule(input, 11) ) { return retval; }
-            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:101:3: (obj= ID DOT ref= ID EQUAL expr SC -> ^( OBJ_ASSIG $obj $ref expr ) | ID LB index= expr RB EQUAL value= expr SC -> ^( ARRAY_ASSIG ID $index $value) | ID EQUAL expr SC -> ^( EQUAL ID expr ) | ID SET expr SC -> ^( SET ID expr ) )
+            if ( state.backtracking>0 && alreadyParsedRule(input, 12) ) { return retval; }
+            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:105:3: (obj= ID DOT ref= ID EQUAL expr SC -> ^( OBJ_ASSIG $obj $ref expr ) | ID LB index= expr RB EQUAL value= expr SC -> ^( ARRAY_ASSIG ID $index $value) | ID EQUAL expr SC -> ^( EQUAL ID expr ) | ID SET expr SC -> ^( SET ID expr ) )
             int alt10=4;
             int LA10_0 = input.LA(1);
 
@@ -1541,28 +1640,28 @@ public class PIParser extends Parser {
             }
             switch (alt10) {
                 case 1 :
-                    // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:101:5: obj= ID DOT ref= ID EQUAL expr SC
+                    // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:105:5: obj= ID DOT ref= ID EQUAL expr SC
                     {
-                    obj=(Token)match(input,ID,FOLLOW_ID_in_assignment524); if (state.failed) return retval; 
+                    obj=(Token)match(input,ID,FOLLOW_ID_in_assignment553); if (state.failed) return retval; 
                     if ( state.backtracking==0 ) stream_ID.add(obj);
 
-                    DOT51=(Token)match(input,DOT,FOLLOW_DOT_in_assignment526); if (state.failed) return retval; 
-                    if ( state.backtracking==0 ) stream_DOT.add(DOT51);
+                    DOT55=(Token)match(input,DOT,FOLLOW_DOT_in_assignment555); if (state.failed) return retval; 
+                    if ( state.backtracking==0 ) stream_DOT.add(DOT55);
 
-                    ref=(Token)match(input,ID,FOLLOW_ID_in_assignment530); if (state.failed) return retval; 
+                    ref=(Token)match(input,ID,FOLLOW_ID_in_assignment559); if (state.failed) return retval; 
                     if ( state.backtracking==0 ) stream_ID.add(ref);
 
-                    EQUAL52=(Token)match(input,EQUAL,FOLLOW_EQUAL_in_assignment532); if (state.failed) return retval; 
-                    if ( state.backtracking==0 ) stream_EQUAL.add(EQUAL52);
+                    EQUAL56=(Token)match(input,EQUAL,FOLLOW_EQUAL_in_assignment561); if (state.failed) return retval; 
+                    if ( state.backtracking==0 ) stream_EQUAL.add(EQUAL56);
 
-                    pushFollow(FOLLOW_expr_in_assignment534);
-                    expr53=expr();
+                    pushFollow(FOLLOW_expr_in_assignment563);
+                    expr57=expr();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    if ( state.backtracking==0 ) stream_expr.add(expr53.getTree());
-                    SC54=(Token)match(input,SC,FOLLOW_SC_in_assignment536); if (state.failed) return retval; 
-                    if ( state.backtracking==0 ) stream_SC.add(SC54);
+                    if ( state.backtracking==0 ) stream_expr.add(expr57.getTree());
+                    SC58=(Token)match(input,SC,FOLLOW_SC_in_assignment565); if (state.failed) return retval; 
+                    if ( state.backtracking==0 ) stream_SC.add(SC58);
 
 
 
@@ -1580,9 +1679,9 @@ public class PIParser extends Parser {
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                     root_0 = (Object)adaptor.nil();
-                    // 101:37: -> ^( OBJ_ASSIG $obj $ref expr )
+                    // 105:37: -> ^( OBJ_ASSIG $obj $ref expr )
                     {
-                        // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:101:40: ^( OBJ_ASSIG $obj $ref expr )
+                        // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:105:40: ^( OBJ_ASSIG $obj $ref expr )
                         {
                         Object root_1 = (Object)adaptor.nil();
                         root_1 = (Object)adaptor.becomeRoot((Object)adaptor.create(OBJ_ASSIG, "OBJ_ASSIG"), root_1);
@@ -1600,34 +1699,34 @@ public class PIParser extends Parser {
                     }
                     break;
                 case 2 :
-                    // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:102:5: ID LB index= expr RB EQUAL value= expr SC
+                    // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:106:5: ID LB index= expr RB EQUAL value= expr SC
                     {
-                    ID55=(Token)match(input,ID,FOLLOW_ID_in_assignment556); if (state.failed) return retval; 
-                    if ( state.backtracking==0 ) stream_ID.add(ID55);
+                    ID59=(Token)match(input,ID,FOLLOW_ID_in_assignment585); if (state.failed) return retval; 
+                    if ( state.backtracking==0 ) stream_ID.add(ID59);
 
-                    LB56=(Token)match(input,LB,FOLLOW_LB_in_assignment558); if (state.failed) return retval; 
-                    if ( state.backtracking==0 ) stream_LB.add(LB56);
+                    LB60=(Token)match(input,LB,FOLLOW_LB_in_assignment587); if (state.failed) return retval; 
+                    if ( state.backtracking==0 ) stream_LB.add(LB60);
 
-                    pushFollow(FOLLOW_expr_in_assignment562);
+                    pushFollow(FOLLOW_expr_in_assignment591);
                     index=expr();
 
                     state._fsp--;
                     if (state.failed) return retval;
                     if ( state.backtracking==0 ) stream_expr.add(index.getTree());
-                    RB57=(Token)match(input,RB,FOLLOW_RB_in_assignment564); if (state.failed) return retval; 
-                    if ( state.backtracking==0 ) stream_RB.add(RB57);
+                    RB61=(Token)match(input,RB,FOLLOW_RB_in_assignment593); if (state.failed) return retval; 
+                    if ( state.backtracking==0 ) stream_RB.add(RB61);
 
-                    EQUAL58=(Token)match(input,EQUAL,FOLLOW_EQUAL_in_assignment566); if (state.failed) return retval; 
-                    if ( state.backtracking==0 ) stream_EQUAL.add(EQUAL58);
+                    EQUAL62=(Token)match(input,EQUAL,FOLLOW_EQUAL_in_assignment595); if (state.failed) return retval; 
+                    if ( state.backtracking==0 ) stream_EQUAL.add(EQUAL62);
 
-                    pushFollow(FOLLOW_expr_in_assignment570);
+                    pushFollow(FOLLOW_expr_in_assignment599);
                     value=expr();
 
                     state._fsp--;
                     if (state.failed) return retval;
                     if ( state.backtracking==0 ) stream_expr.add(value.getTree());
-                    SC59=(Token)match(input,SC,FOLLOW_SC_in_assignment572); if (state.failed) return retval; 
-                    if ( state.backtracking==0 ) stream_SC.add(SC59);
+                    SC63=(Token)match(input,SC,FOLLOW_SC_in_assignment601); if (state.failed) return retval; 
+                    if ( state.backtracking==0 ) stream_SC.add(SC63);
 
 
 
@@ -1645,9 +1744,9 @@ public class PIParser extends Parser {
                     RewriteRuleSubtreeStream stream_value=new RewriteRuleSubtreeStream(adaptor,"rule value",value!=null?value.tree:null);
 
                     root_0 = (Object)adaptor.nil();
-                    // 102:45: -> ^( ARRAY_ASSIG ID $index $value)
+                    // 106:45: -> ^( ARRAY_ASSIG ID $index $value)
                     {
-                        // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:102:48: ^( ARRAY_ASSIG ID $index $value)
+                        // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:106:48: ^( ARRAY_ASSIG ID $index $value)
                         {
                         Object root_1 = (Object)adaptor.nil();
                         root_1 = (Object)adaptor.becomeRoot((Object)adaptor.create(ARRAY_ASSIG, "ARRAY_ASSIG"), root_1);
@@ -1665,22 +1764,22 @@ public class PIParser extends Parser {
                     }
                     break;
                 case 3 :
-                    // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:103:5: ID EQUAL expr SC
+                    // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:107:5: ID EQUAL expr SC
                     {
-                    ID60=(Token)match(input,ID,FOLLOW_ID_in_assignment592); if (state.failed) return retval; 
-                    if ( state.backtracking==0 ) stream_ID.add(ID60);
+                    ID64=(Token)match(input,ID,FOLLOW_ID_in_assignment621); if (state.failed) return retval; 
+                    if ( state.backtracking==0 ) stream_ID.add(ID64);
 
-                    EQUAL61=(Token)match(input,EQUAL,FOLLOW_EQUAL_in_assignment594); if (state.failed) return retval; 
-                    if ( state.backtracking==0 ) stream_EQUAL.add(EQUAL61);
+                    EQUAL65=(Token)match(input,EQUAL,FOLLOW_EQUAL_in_assignment623); if (state.failed) return retval; 
+                    if ( state.backtracking==0 ) stream_EQUAL.add(EQUAL65);
 
-                    pushFollow(FOLLOW_expr_in_assignment596);
-                    expr62=expr();
+                    pushFollow(FOLLOW_expr_in_assignment625);
+                    expr66=expr();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    if ( state.backtracking==0 ) stream_expr.add(expr62.getTree());
-                    SC63=(Token)match(input,SC,FOLLOW_SC_in_assignment598); if (state.failed) return retval; 
-                    if ( state.backtracking==0 ) stream_SC.add(SC63);
+                    if ( state.backtracking==0 ) stream_expr.add(expr66.getTree());
+                    SC67=(Token)match(input,SC,FOLLOW_SC_in_assignment627); if (state.failed) return retval; 
+                    if ( state.backtracking==0 ) stream_SC.add(SC67);
 
 
 
@@ -1696,9 +1795,9 @@ public class PIParser extends Parser {
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                     root_0 = (Object)adaptor.nil();
-                    // 103:22: -> ^( EQUAL ID expr )
+                    // 107:22: -> ^( EQUAL ID expr )
                     {
-                        // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:103:25: ^( EQUAL ID expr )
+                        // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:107:25: ^( EQUAL ID expr )
                         {
                         Object root_1 = (Object)adaptor.nil();
                         root_1 = (Object)adaptor.becomeRoot(stream_EQUAL.nextNode(), root_1);
@@ -1715,22 +1814,22 @@ public class PIParser extends Parser {
                     }
                     break;
                 case 4 :
-                    // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:104:5: ID SET expr SC
+                    // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:108:5: ID SET expr SC
                     {
-                    ID64=(Token)match(input,ID,FOLLOW_ID_in_assignment614); if (state.failed) return retval; 
-                    if ( state.backtracking==0 ) stream_ID.add(ID64);
+                    ID68=(Token)match(input,ID,FOLLOW_ID_in_assignment643); if (state.failed) return retval; 
+                    if ( state.backtracking==0 ) stream_ID.add(ID68);
 
-                    SET65=(Token)match(input,SET,FOLLOW_SET_in_assignment616); if (state.failed) return retval; 
-                    if ( state.backtracking==0 ) stream_SET.add(SET65);
+                    SET69=(Token)match(input,SET,FOLLOW_SET_in_assignment645); if (state.failed) return retval; 
+                    if ( state.backtracking==0 ) stream_SET.add(SET69);
 
-                    pushFollow(FOLLOW_expr_in_assignment618);
-                    expr66=expr();
+                    pushFollow(FOLLOW_expr_in_assignment647);
+                    expr70=expr();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    if ( state.backtracking==0 ) stream_expr.add(expr66.getTree());
-                    SC67=(Token)match(input,SC,FOLLOW_SC_in_assignment620); if (state.failed) return retval; 
-                    if ( state.backtracking==0 ) stream_SC.add(SC67);
+                    if ( state.backtracking==0 ) stream_expr.add(expr70.getTree());
+                    SC71=(Token)match(input,SC,FOLLOW_SC_in_assignment649); if (state.failed) return retval; 
+                    if ( state.backtracking==0 ) stream_SC.add(SC71);
 
 
 
@@ -1746,9 +1845,9 @@ public class PIParser extends Parser {
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                     root_0 = (Object)adaptor.nil();
-                    // 104:20: -> ^( SET ID expr )
+                    // 108:20: -> ^( SET ID expr )
                     {
-                        // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:104:23: ^( SET ID expr )
+                        // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:108:23: ^( SET ID expr )
                         {
                         Object root_1 = (Object)adaptor.nil();
                         root_1 = (Object)adaptor.becomeRoot(stream_SET.nextNode(), root_1);
@@ -1781,7 +1880,7 @@ public class PIParser extends Parser {
 
         }
         finally {
-            if ( state.backtracking>0 ) { memoize(input, 11, assignment_StartIndex); }
+            if ( state.backtracking>0 ) { memoize(input, 12, assignment_StartIndex); }
         }
         return retval;
     }
@@ -1793,26 +1892,26 @@ public class PIParser extends Parser {
     };
 
     // $ANTLR start "function"
-    // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:107:1: function : type ID LP ( params )? RP block -> ^( FUNCTION ^( ID type ) ( params )? block ) ;
+    // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:111:1: function : type ID LP ( params )? RP block -> ^( FUNCTION ^( ID type ) ( params )? block ) ;
     public final PIParser.function_return function() throws RecognitionException {
         PIParser.function_return retval = new PIParser.function_return();
         retval.start = input.LT(1);
         int function_StartIndex = input.index();
         Object root_0 = null;
 
-        Token ID69=null;
-        Token LP70=null;
-        Token RP72=null;
-        PIParser.type_return type68 = null;
+        Token ID73=null;
+        Token LP74=null;
+        Token RP76=null;
+        PIParser.type_return type72 = null;
 
-        PIParser.params_return params71 = null;
+        PIParser.params_return params75 = null;
 
-        PIParser.block_return block73 = null;
+        PIParser.block_return block77 = null;
 
 
-        Object ID69_tree=null;
-        Object LP70_tree=null;
-        Object RP72_tree=null;
+        Object ID73_tree=null;
+        Object LP74_tree=null;
+        Object RP76_tree=null;
         RewriteRuleTokenStream stream_ID=new RewriteRuleTokenStream(adaptor,"token ID");
         RewriteRuleTokenStream stream_RP=new RewriteRuleTokenStream(adaptor,"token RP");
         RewriteRuleTokenStream stream_LP=new RewriteRuleTokenStream(adaptor,"token LP");
@@ -1820,23 +1919,23 @@ public class PIParser extends Parser {
         RewriteRuleSubtreeStream stream_params=new RewriteRuleSubtreeStream(adaptor,"rule params");
         RewriteRuleSubtreeStream stream_type=new RewriteRuleSubtreeStream(adaptor,"rule type");
         try {
-            if ( state.backtracking>0 && alreadyParsedRule(input, 12) ) { return retval; }
-            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:108:3: ( type ID LP ( params )? RP block -> ^( FUNCTION ^( ID type ) ( params )? block ) )
-            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:108:5: type ID LP ( params )? RP block
+            if ( state.backtracking>0 && alreadyParsedRule(input, 13) ) { return retval; }
+            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:112:3: ( type ID LP ( params )? RP block -> ^( FUNCTION ^( ID type ) ( params )? block ) )
+            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:112:5: type ID LP ( params )? RP block
             {
-            pushFollow(FOLLOW_type_in_function645);
-            type68=type();
+            pushFollow(FOLLOW_type_in_function674);
+            type72=type();
 
             state._fsp--;
             if (state.failed) return retval;
-            if ( state.backtracking==0 ) stream_type.add(type68.getTree());
-            ID69=(Token)match(input,ID,FOLLOW_ID_in_function647); if (state.failed) return retval; 
-            if ( state.backtracking==0 ) stream_ID.add(ID69);
+            if ( state.backtracking==0 ) stream_type.add(type72.getTree());
+            ID73=(Token)match(input,ID,FOLLOW_ID_in_function676); if (state.failed) return retval; 
+            if ( state.backtracking==0 ) stream_ID.add(ID73);
 
-            LP70=(Token)match(input,LP,FOLLOW_LP_in_function649); if (state.failed) return retval; 
-            if ( state.backtracking==0 ) stream_LP.add(LP70);
+            LP74=(Token)match(input,LP,FOLLOW_LP_in_function678); if (state.failed) return retval; 
+            if ( state.backtracking==0 ) stream_LP.add(LP74);
 
-            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:108:16: ( params )?
+            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:112:16: ( params )?
             int alt11=2;
             int LA11_0 = input.LA(1);
 
@@ -1847,27 +1946,27 @@ public class PIParser extends Parser {
                 case 1 :
                     // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:0:0: params
                     {
-                    pushFollow(FOLLOW_params_in_function651);
-                    params71=params();
+                    pushFollow(FOLLOW_params_in_function680);
+                    params75=params();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    if ( state.backtracking==0 ) stream_params.add(params71.getTree());
+                    if ( state.backtracking==0 ) stream_params.add(params75.getTree());
 
                     }
                     break;
 
             }
 
-            RP72=(Token)match(input,RP,FOLLOW_RP_in_function654); if (state.failed) return retval; 
-            if ( state.backtracking==0 ) stream_RP.add(RP72);
+            RP76=(Token)match(input,RP,FOLLOW_RP_in_function683); if (state.failed) return retval; 
+            if ( state.backtracking==0 ) stream_RP.add(RP76);
 
-            pushFollow(FOLLOW_block_in_function656);
-            block73=block();
+            pushFollow(FOLLOW_block_in_function685);
+            block77=block();
 
             state._fsp--;
             if (state.failed) return retval;
-            if ( state.backtracking==0 ) stream_block.add(block73.getTree());
+            if ( state.backtracking==0 ) stream_block.add(block77.getTree());
 
 
             // AST REWRITE
@@ -1882,14 +1981,14 @@ public class PIParser extends Parser {
             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
             root_0 = (Object)adaptor.nil();
-            // 108:33: -> ^( FUNCTION ^( ID type ) ( params )? block )
+            // 112:33: -> ^( FUNCTION ^( ID type ) ( params )? block )
             {
-                // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:108:36: ^( FUNCTION ^( ID type ) ( params )? block )
+                // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:112:36: ^( FUNCTION ^( ID type ) ( params )? block )
                 {
                 Object root_1 = (Object)adaptor.nil();
                 root_1 = (Object)adaptor.becomeRoot((Object)adaptor.create(FUNCTION, "FUNCTION"), root_1);
 
-                // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:108:47: ^( ID type )
+                // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:112:47: ^( ID type )
                 {
                 Object root_2 = (Object)adaptor.nil();
                 root_2 = (Object)adaptor.becomeRoot(stream_ID.nextNode(), root_2);
@@ -1898,7 +1997,7 @@ public class PIParser extends Parser {
 
                 adaptor.addChild(root_1, root_2);
                 }
-                // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:108:58: ( params )?
+                // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:112:58: ( params )?
                 if ( stream_params.hasNext() ) {
                     adaptor.addChild(root_1, stream_params.nextTree());
 
@@ -1929,7 +2028,7 @@ public class PIParser extends Parser {
 
         }
         finally {
-            if ( state.backtracking>0 ) { memoize(input, 12, function_StartIndex); }
+            if ( state.backtracking>0 ) { memoize(input, 13, function_StartIndex); }
         }
         return retval;
     }
@@ -1941,34 +2040,34 @@ public class PIParser extends Parser {
     };
 
     // $ANTLR start "params"
-    // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:110:1: params : parameter ( COMMA parameter )* -> ^( PARAMS ( parameter )* ) ;
+    // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:114:1: params : parameter ( COMMA parameter )* -> ^( PARAMS ( parameter )* ) ;
     public final PIParser.params_return params() throws RecognitionException {
         PIParser.params_return retval = new PIParser.params_return();
         retval.start = input.LT(1);
         int params_StartIndex = input.index();
         Object root_0 = null;
 
-        Token COMMA75=null;
-        PIParser.parameter_return parameter74 = null;
+        Token COMMA79=null;
+        PIParser.parameter_return parameter78 = null;
 
-        PIParser.parameter_return parameter76 = null;
+        PIParser.parameter_return parameter80 = null;
 
 
-        Object COMMA75_tree=null;
+        Object COMMA79_tree=null;
         RewriteRuleTokenStream stream_COMMA=new RewriteRuleTokenStream(adaptor,"token COMMA");
         RewriteRuleSubtreeStream stream_parameter=new RewriteRuleSubtreeStream(adaptor,"rule parameter");
         try {
-            if ( state.backtracking>0 && alreadyParsedRule(input, 13) ) { return retval; }
-            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:111:3: ( parameter ( COMMA parameter )* -> ^( PARAMS ( parameter )* ) )
-            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:111:5: parameter ( COMMA parameter )*
+            if ( state.backtracking>0 && alreadyParsedRule(input, 14) ) { return retval; }
+            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:115:3: ( parameter ( COMMA parameter )* -> ^( PARAMS ( parameter )* ) )
+            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:115:5: parameter ( COMMA parameter )*
             {
-            pushFollow(FOLLOW_parameter_in_params685);
-            parameter74=parameter();
+            pushFollow(FOLLOW_parameter_in_params714);
+            parameter78=parameter();
 
             state._fsp--;
             if (state.failed) return retval;
-            if ( state.backtracking==0 ) stream_parameter.add(parameter74.getTree());
-            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:111:15: ( COMMA parameter )*
+            if ( state.backtracking==0 ) stream_parameter.add(parameter78.getTree());
+            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:115:15: ( COMMA parameter )*
             loop12:
             do {
                 int alt12=2;
@@ -1981,17 +2080,17 @@ public class PIParser extends Parser {
 
                 switch (alt12) {
             	case 1 :
-            	    // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:111:16: COMMA parameter
+            	    // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:115:16: COMMA parameter
             	    {
-            	    COMMA75=(Token)match(input,COMMA,FOLLOW_COMMA_in_params688); if (state.failed) return retval; 
-            	    if ( state.backtracking==0 ) stream_COMMA.add(COMMA75);
+            	    COMMA79=(Token)match(input,COMMA,FOLLOW_COMMA_in_params717); if (state.failed) return retval; 
+            	    if ( state.backtracking==0 ) stream_COMMA.add(COMMA79);
 
-            	    pushFollow(FOLLOW_parameter_in_params690);
-            	    parameter76=parameter();
+            	    pushFollow(FOLLOW_parameter_in_params719);
+            	    parameter80=parameter();
 
             	    state._fsp--;
             	    if (state.failed) return retval;
-            	    if ( state.backtracking==0 ) stream_parameter.add(parameter76.getTree());
+            	    if ( state.backtracking==0 ) stream_parameter.add(parameter80.getTree());
 
             	    }
             	    break;
@@ -2015,14 +2114,14 @@ public class PIParser extends Parser {
             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
             root_0 = (Object)adaptor.nil();
-            // 111:34: -> ^( PARAMS ( parameter )* )
+            // 115:34: -> ^( PARAMS ( parameter )* )
             {
-                // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:111:37: ^( PARAMS ( parameter )* )
+                // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:115:37: ^( PARAMS ( parameter )* )
                 {
                 Object root_1 = (Object)adaptor.nil();
                 root_1 = (Object)adaptor.becomeRoot((Object)adaptor.create(PARAMS, "PARAMS"), root_1);
 
-                // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:111:46: ( parameter )*
+                // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:115:46: ( parameter )*
                 while ( stream_parameter.hasNext() ) {
                     adaptor.addChild(root_1, stream_parameter.nextTree());
 
@@ -2052,7 +2151,7 @@ public class PIParser extends Parser {
 
         }
         finally {
-            if ( state.backtracking>0 ) { memoize(input, 13, params_StartIndex); }
+            if ( state.backtracking>0 ) { memoize(input, 14, params_StartIndex); }
         }
         return retval;
     }
@@ -2064,33 +2163,33 @@ public class PIParser extends Parser {
     };
 
     // $ANTLR start "parameter"
-    // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:113:1: parameter : type ID -> ^( ID type ) ;
+    // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:117:1: parameter : type ID -> ^( ID type ) ;
     public final PIParser.parameter_return parameter() throws RecognitionException {
         PIParser.parameter_return retval = new PIParser.parameter_return();
         retval.start = input.LT(1);
         int parameter_StartIndex = input.index();
         Object root_0 = null;
 
-        Token ID78=null;
-        PIParser.type_return type77 = null;
+        Token ID82=null;
+        PIParser.type_return type81 = null;
 
 
-        Object ID78_tree=null;
+        Object ID82_tree=null;
         RewriteRuleTokenStream stream_ID=new RewriteRuleTokenStream(adaptor,"token ID");
         RewriteRuleSubtreeStream stream_type=new RewriteRuleSubtreeStream(adaptor,"rule type");
         try {
-            if ( state.backtracking>0 && alreadyParsedRule(input, 14) ) { return retval; }
-            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:114:3: ( type ID -> ^( ID type ) )
-            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:114:5: type ID
+            if ( state.backtracking>0 && alreadyParsedRule(input, 15) ) { return retval; }
+            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:118:3: ( type ID -> ^( ID type ) )
+            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:118:5: type ID
             {
-            pushFollow(FOLLOW_type_in_parameter713);
-            type77=type();
+            pushFollow(FOLLOW_type_in_parameter742);
+            type81=type();
 
             state._fsp--;
             if (state.failed) return retval;
-            if ( state.backtracking==0 ) stream_type.add(type77.getTree());
-            ID78=(Token)match(input,ID,FOLLOW_ID_in_parameter715); if (state.failed) return retval; 
-            if ( state.backtracking==0 ) stream_ID.add(ID78);
+            if ( state.backtracking==0 ) stream_type.add(type81.getTree());
+            ID82=(Token)match(input,ID,FOLLOW_ID_in_parameter744); if (state.failed) return retval; 
+            if ( state.backtracking==0 ) stream_ID.add(ID82);
 
 
 
@@ -2106,9 +2205,9 @@ public class PIParser extends Parser {
             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
             root_0 = (Object)adaptor.nil();
-            // 114:13: -> ^( ID type )
+            // 118:13: -> ^( ID type )
             {
-                // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:114:16: ^( ID type )
+                // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:118:16: ^( ID type )
                 {
                 Object root_1 = (Object)adaptor.nil();
                 root_1 = (Object)adaptor.becomeRoot(stream_ID.nextNode(), root_1);
@@ -2138,7 +2237,7 @@ public class PIParser extends Parser {
 
         }
         finally {
-            if ( state.backtracking>0 ) { memoize(input, 14, parameter_StartIndex); }
+            if ( state.backtracking>0 ) { memoize(input, 15, parameter_StartIndex); }
         }
         return retval;
     }
@@ -2150,68 +2249,68 @@ public class PIParser extends Parser {
     };
 
     // $ANTLR start "statcall"
-    // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:117:1: statcall : ID LP ( args )? RP SC -> ^( CALL ID ( args )? ) ;
+    // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:121:1: statcall : ID LP ( args )? RP SC -> ^( CALL ID ( args )? ) ;
     public final PIParser.statcall_return statcall() throws RecognitionException {
         PIParser.statcall_return retval = new PIParser.statcall_return();
         retval.start = input.LT(1);
         int statcall_StartIndex = input.index();
         Object root_0 = null;
 
-        Token ID79=null;
-        Token LP80=null;
-        Token RP82=null;
-        Token SC83=null;
-        PIParser.args_return args81 = null;
+        Token ID83=null;
+        Token LP84=null;
+        Token RP86=null;
+        Token SC87=null;
+        PIParser.args_return args85 = null;
 
 
-        Object ID79_tree=null;
-        Object LP80_tree=null;
-        Object RP82_tree=null;
-        Object SC83_tree=null;
+        Object ID83_tree=null;
+        Object LP84_tree=null;
+        Object RP86_tree=null;
+        Object SC87_tree=null;
         RewriteRuleTokenStream stream_SC=new RewriteRuleTokenStream(adaptor,"token SC");
         RewriteRuleTokenStream stream_ID=new RewriteRuleTokenStream(adaptor,"token ID");
         RewriteRuleTokenStream stream_RP=new RewriteRuleTokenStream(adaptor,"token RP");
         RewriteRuleTokenStream stream_LP=new RewriteRuleTokenStream(adaptor,"token LP");
         RewriteRuleSubtreeStream stream_args=new RewriteRuleSubtreeStream(adaptor,"rule args");
         try {
-            if ( state.backtracking>0 && alreadyParsedRule(input, 15) ) { return retval; }
-            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:118:3: ( ID LP ( args )? RP SC -> ^( CALL ID ( args )? ) )
-            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:118:5: ID LP ( args )? RP SC
+            if ( state.backtracking>0 && alreadyParsedRule(input, 16) ) { return retval; }
+            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:122:3: ( ID LP ( args )? RP SC -> ^( CALL ID ( args )? ) )
+            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:122:5: ID LP ( args )? RP SC
             {
-            ID79=(Token)match(input,ID,FOLLOW_ID_in_statcall738); if (state.failed) return retval; 
-            if ( state.backtracking==0 ) stream_ID.add(ID79);
+            ID83=(Token)match(input,ID,FOLLOW_ID_in_statcall767); if (state.failed) return retval; 
+            if ( state.backtracking==0 ) stream_ID.add(ID83);
 
-            LP80=(Token)match(input,LP,FOLLOW_LP_in_statcall740); if (state.failed) return retval; 
-            if ( state.backtracking==0 ) stream_LP.add(LP80);
+            LP84=(Token)match(input,LP,FOLLOW_LP_in_statcall769); if (state.failed) return retval; 
+            if ( state.backtracking==0 ) stream_LP.add(LP84);
 
-            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:118:11: ( args )?
+            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:122:11: ( args )?
             int alt13=2;
             int LA13_0 = input.LA(1);
 
-            if ( ((LA13_0>=STRING && LA13_0<=ID)||LA13_0==LP||LA13_0==LB||LA13_0==LTHAN||(LA13_0>=PLUS && LA13_0<=MINUS)||(LA13_0>=NOT && LA13_0<=GET)||(LA13_0>=NUMBER && LA13_0<=FALSE)) ) {
+            if ( ((LA13_0>=STRING && LA13_0<=ID)||(LA13_0>=READ_JSON && LA13_0<=LP)||LA13_0==LB||LA13_0==LTHAN||(LA13_0>=PLUS && LA13_0<=MINUS)||(LA13_0>=NOT && LA13_0<=GET)||(LA13_0>=NUMBER && LA13_0<=FALSE)) ) {
                 alt13=1;
             }
             switch (alt13) {
                 case 1 :
                     // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:0:0: args
                     {
-                    pushFollow(FOLLOW_args_in_statcall742);
-                    args81=args();
+                    pushFollow(FOLLOW_args_in_statcall771);
+                    args85=args();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    if ( state.backtracking==0 ) stream_args.add(args81.getTree());
+                    if ( state.backtracking==0 ) stream_args.add(args85.getTree());
 
                     }
                     break;
 
             }
 
-            RP82=(Token)match(input,RP,FOLLOW_RP_in_statcall745); if (state.failed) return retval; 
-            if ( state.backtracking==0 ) stream_RP.add(RP82);
+            RP86=(Token)match(input,RP,FOLLOW_RP_in_statcall774); if (state.failed) return retval; 
+            if ( state.backtracking==0 ) stream_RP.add(RP86);
 
-            SC83=(Token)match(input,SC,FOLLOW_SC_in_statcall747); if (state.failed) return retval; 
-            if ( state.backtracking==0 ) stream_SC.add(SC83);
+            SC87=(Token)match(input,SC,FOLLOW_SC_in_statcall776); if (state.failed) return retval; 
+            if ( state.backtracking==0 ) stream_SC.add(SC87);
 
 
 
@@ -2227,15 +2326,15 @@ public class PIParser extends Parser {
             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
             root_0 = (Object)adaptor.nil();
-            // 118:23: -> ^( CALL ID ( args )? )
+            // 122:23: -> ^( CALL ID ( args )? )
             {
-                // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:118:26: ^( CALL ID ( args )? )
+                // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:122:26: ^( CALL ID ( args )? )
                 {
                 Object root_1 = (Object)adaptor.nil();
                 root_1 = (Object)adaptor.becomeRoot((Object)adaptor.create(CALL, "CALL"), root_1);
 
                 adaptor.addChild(root_1, stream_ID.nextNode());
-                // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:118:36: ( args )?
+                // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:122:36: ( args )?
                 if ( stream_args.hasNext() ) {
                     adaptor.addChild(root_1, stream_args.nextTree());
 
@@ -2265,7 +2364,7 @@ public class PIParser extends Parser {
 
         }
         finally {
-            if ( state.backtracking>0 ) { memoize(input, 15, statcall_StartIndex); }
+            if ( state.backtracking>0 ) { memoize(input, 16, statcall_StartIndex); }
         }
         return retval;
     }
@@ -2277,100 +2376,136 @@ public class PIParser extends Parser {
     };
 
     // $ANTLR start "exprcall"
-    // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:120:1: exprcall : ID LP ( args )? RP -> ^( CALL ID ( args )? ) ;
+    // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:124:1: exprcall : ( readfunction | ID LP ( args )? RP -> ^( CALL ID ( args )? ) );
     public final PIParser.exprcall_return exprcall() throws RecognitionException {
         PIParser.exprcall_return retval = new PIParser.exprcall_return();
         retval.start = input.LT(1);
         int exprcall_StartIndex = input.index();
         Object root_0 = null;
 
-        Token ID84=null;
-        Token LP85=null;
-        Token RP87=null;
-        PIParser.args_return args86 = null;
+        Token ID89=null;
+        Token LP90=null;
+        Token RP92=null;
+        PIParser.readfunction_return readfunction88 = null;
+
+        PIParser.args_return args91 = null;
 
 
-        Object ID84_tree=null;
-        Object LP85_tree=null;
-        Object RP87_tree=null;
+        Object ID89_tree=null;
+        Object LP90_tree=null;
+        Object RP92_tree=null;
         RewriteRuleTokenStream stream_ID=new RewriteRuleTokenStream(adaptor,"token ID");
         RewriteRuleTokenStream stream_RP=new RewriteRuleTokenStream(adaptor,"token RP");
         RewriteRuleTokenStream stream_LP=new RewriteRuleTokenStream(adaptor,"token LP");
         RewriteRuleSubtreeStream stream_args=new RewriteRuleSubtreeStream(adaptor,"rule args");
         try {
-            if ( state.backtracking>0 && alreadyParsedRule(input, 16) ) { return retval; }
-            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:121:3: ( ID LP ( args )? RP -> ^( CALL ID ( args )? ) )
-            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:121:5: ID LP ( args )? RP
-            {
-            ID84=(Token)match(input,ID,FOLLOW_ID_in_exprcall770); if (state.failed) return retval; 
-            if ( state.backtracking==0 ) stream_ID.add(ID84);
+            if ( state.backtracking>0 && alreadyParsedRule(input, 17) ) { return retval; }
+            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:125:3: ( readfunction | ID LP ( args )? RP -> ^( CALL ID ( args )? ) )
+            int alt15=2;
+            int LA15_0 = input.LA(1);
 
-            LP85=(Token)match(input,LP,FOLLOW_LP_in_exprcall772); if (state.failed) return retval; 
-            if ( state.backtracking==0 ) stream_LP.add(LP85);
-
-            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:121:11: ( args )?
-            int alt14=2;
-            int LA14_0 = input.LA(1);
-
-            if ( ((LA14_0>=STRING && LA14_0<=ID)||LA14_0==LP||LA14_0==LB||LA14_0==LTHAN||(LA14_0>=PLUS && LA14_0<=MINUS)||(LA14_0>=NOT && LA14_0<=GET)||(LA14_0>=NUMBER && LA14_0<=FALSE)) ) {
-                alt14=1;
+            if ( (LA15_0==READ_JSON) ) {
+                alt15=1;
             }
-            switch (alt14) {
+            else if ( (LA15_0==ID) ) {
+                alt15=2;
+            }
+            else {
+                if (state.backtracking>0) {state.failed=true; return retval;}
+                NoViableAltException nvae =
+                    new NoViableAltException("", 15, 0, input);
+
+                throw nvae;
+            }
+            switch (alt15) {
                 case 1 :
-                    // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:0:0: args
+                    // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:125:5: readfunction
                     {
-                    pushFollow(FOLLOW_args_in_exprcall774);
-                    args86=args();
+                    root_0 = (Object)adaptor.nil();
+
+                    pushFollow(FOLLOW_readfunction_in_exprcall799);
+                    readfunction88=readfunction();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    if ( state.backtracking==0 ) stream_args.add(args86.getTree());
+                    if ( state.backtracking==0 ) adaptor.addChild(root_0, readfunction88.getTree());
 
+                    }
+                    break;
+                case 2 :
+                    // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:126:5: ID LP ( args )? RP
+                    {
+                    ID89=(Token)match(input,ID,FOLLOW_ID_in_exprcall805); if (state.failed) return retval; 
+                    if ( state.backtracking==0 ) stream_ID.add(ID89);
+
+                    LP90=(Token)match(input,LP,FOLLOW_LP_in_exprcall807); if (state.failed) return retval; 
+                    if ( state.backtracking==0 ) stream_LP.add(LP90);
+
+                    // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:126:11: ( args )?
+                    int alt14=2;
+                    int LA14_0 = input.LA(1);
+
+                    if ( ((LA14_0>=STRING && LA14_0<=ID)||(LA14_0>=READ_JSON && LA14_0<=LP)||LA14_0==LB||LA14_0==LTHAN||(LA14_0>=PLUS && LA14_0<=MINUS)||(LA14_0>=NOT && LA14_0<=GET)||(LA14_0>=NUMBER && LA14_0<=FALSE)) ) {
+                        alt14=1;
+                    }
+                    switch (alt14) {
+                        case 1 :
+                            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:0:0: args
+                            {
+                            pushFollow(FOLLOW_args_in_exprcall809);
+                            args91=args();
+
+                            state._fsp--;
+                            if (state.failed) return retval;
+                            if ( state.backtracking==0 ) stream_args.add(args91.getTree());
+
+                            }
+                            break;
+
+                    }
+
+                    RP92=(Token)match(input,RP,FOLLOW_RP_in_exprcall812); if (state.failed) return retval; 
+                    if ( state.backtracking==0 ) stream_RP.add(RP92);
+
+
+
+                    // AST REWRITE
+                    // elements: ID, args
+                    // token labels: 
+                    // rule labels: retval
+                    // token list labels: 
+                    // rule list labels: 
+                    // wildcard labels: 
+                    if ( state.backtracking==0 ) {
+                    retval.tree = root_0;
+                    RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
+
+                    root_0 = (Object)adaptor.nil();
+                    // 126:20: -> ^( CALL ID ( args )? )
+                    {
+                        // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:126:23: ^( CALL ID ( args )? )
+                        {
+                        Object root_1 = (Object)adaptor.nil();
+                        root_1 = (Object)adaptor.becomeRoot((Object)adaptor.create(CALL, "CALL"), root_1);
+
+                        adaptor.addChild(root_1, stream_ID.nextNode());
+                        // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:126:33: ( args )?
+                        if ( stream_args.hasNext() ) {
+                            adaptor.addChild(root_1, stream_args.nextTree());
+
+                        }
+                        stream_args.reset();
+
+                        adaptor.addChild(root_0, root_1);
+                        }
+
+                    }
+
+                    retval.tree = root_0;}
                     }
                     break;
 
             }
-
-            RP87=(Token)match(input,RP,FOLLOW_RP_in_exprcall777); if (state.failed) return retval; 
-            if ( state.backtracking==0 ) stream_RP.add(RP87);
-
-
-
-            // AST REWRITE
-            // elements: args, ID
-            // token labels: 
-            // rule labels: retval
-            // token list labels: 
-            // rule list labels: 
-            // wildcard labels: 
-            if ( state.backtracking==0 ) {
-            retval.tree = root_0;
-            RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
-
-            root_0 = (Object)adaptor.nil();
-            // 121:20: -> ^( CALL ID ( args )? )
-            {
-                // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:121:23: ^( CALL ID ( args )? )
-                {
-                Object root_1 = (Object)adaptor.nil();
-                root_1 = (Object)adaptor.becomeRoot((Object)adaptor.create(CALL, "CALL"), root_1);
-
-                adaptor.addChild(root_1, stream_ID.nextNode());
-                // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:121:33: ( args )?
-                if ( stream_args.hasNext() ) {
-                    adaptor.addChild(root_1, stream_args.nextTree());
-
-                }
-                stream_args.reset();
-
-                adaptor.addChild(root_0, root_1);
-                }
-
-            }
-
-            retval.tree = root_0;}
-            }
-
             retval.stop = input.LT(-1);
 
             if ( state.backtracking==0 ) {
@@ -2386,7 +2521,7 @@ public class PIParser extends Parser {
 
         }
         finally {
-            if ( state.backtracking>0 ) { memoize(input, 16, exprcall_StartIndex); }
+            if ( state.backtracking>0 ) { memoize(input, 17, exprcall_StartIndex); }
         }
         return retval;
     }
@@ -2398,63 +2533,63 @@ public class PIParser extends Parser {
     };
 
     // $ANTLR start "args"
-    // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:123:1: args : expr ( COMMA expr )* -> ^( ARGS ( expr )* ) ;
+    // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:128:1: args : expr ( COMMA expr )* -> ^( ARGS ( expr )* ) ;
     public final PIParser.args_return args() throws RecognitionException {
         PIParser.args_return retval = new PIParser.args_return();
         retval.start = input.LT(1);
         int args_StartIndex = input.index();
         Object root_0 = null;
 
-        Token COMMA89=null;
-        PIParser.expr_return expr88 = null;
+        Token COMMA94=null;
+        PIParser.expr_return expr93 = null;
 
-        PIParser.expr_return expr90 = null;
+        PIParser.expr_return expr95 = null;
 
 
-        Object COMMA89_tree=null;
+        Object COMMA94_tree=null;
         RewriteRuleTokenStream stream_COMMA=new RewriteRuleTokenStream(adaptor,"token COMMA");
         RewriteRuleSubtreeStream stream_expr=new RewriteRuleSubtreeStream(adaptor,"rule expr");
         try {
-            if ( state.backtracking>0 && alreadyParsedRule(input, 17) ) { return retval; }
-            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:124:3: ( expr ( COMMA expr )* -> ^( ARGS ( expr )* ) )
-            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:124:5: expr ( COMMA expr )*
+            if ( state.backtracking>0 && alreadyParsedRule(input, 18) ) { return retval; }
+            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:129:3: ( expr ( COMMA expr )* -> ^( ARGS ( expr )* ) )
+            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:129:5: expr ( COMMA expr )*
             {
-            pushFollow(FOLLOW_expr_in_args800);
-            expr88=expr();
+            pushFollow(FOLLOW_expr_in_args835);
+            expr93=expr();
 
             state._fsp--;
             if (state.failed) return retval;
-            if ( state.backtracking==0 ) stream_expr.add(expr88.getTree());
-            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:124:10: ( COMMA expr )*
-            loop15:
+            if ( state.backtracking==0 ) stream_expr.add(expr93.getTree());
+            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:129:10: ( COMMA expr )*
+            loop16:
             do {
-                int alt15=2;
-                int LA15_0 = input.LA(1);
+                int alt16=2;
+                int LA16_0 = input.LA(1);
 
-                if ( (LA15_0==COMMA) ) {
-                    alt15=1;
+                if ( (LA16_0==COMMA) ) {
+                    alt16=1;
                 }
 
 
-                switch (alt15) {
+                switch (alt16) {
             	case 1 :
-            	    // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:124:11: COMMA expr
+            	    // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:129:11: COMMA expr
             	    {
-            	    COMMA89=(Token)match(input,COMMA,FOLLOW_COMMA_in_args803); if (state.failed) return retval; 
-            	    if ( state.backtracking==0 ) stream_COMMA.add(COMMA89);
+            	    COMMA94=(Token)match(input,COMMA,FOLLOW_COMMA_in_args838); if (state.failed) return retval; 
+            	    if ( state.backtracking==0 ) stream_COMMA.add(COMMA94);
 
-            	    pushFollow(FOLLOW_expr_in_args805);
-            	    expr90=expr();
+            	    pushFollow(FOLLOW_expr_in_args840);
+            	    expr95=expr();
 
             	    state._fsp--;
             	    if (state.failed) return retval;
-            	    if ( state.backtracking==0 ) stream_expr.add(expr90.getTree());
+            	    if ( state.backtracking==0 ) stream_expr.add(expr95.getTree());
 
             	    }
             	    break;
 
             	default :
-            	    break loop15;
+            	    break loop16;
                 }
             } while (true);
 
@@ -2472,14 +2607,14 @@ public class PIParser extends Parser {
             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
             root_0 = (Object)adaptor.nil();
-            // 124:24: -> ^( ARGS ( expr )* )
+            // 129:24: -> ^( ARGS ( expr )* )
             {
-                // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:124:27: ^( ARGS ( expr )* )
+                // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:129:27: ^( ARGS ( expr )* )
                 {
                 Object root_1 = (Object)adaptor.nil();
                 root_1 = (Object)adaptor.becomeRoot((Object)adaptor.create(ARGS, "ARGS"), root_1);
 
-                // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:124:34: ( expr )*
+                // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:129:34: ( expr )*
                 while ( stream_expr.hasNext() ) {
                     adaptor.addChild(root_1, stream_expr.nextTree());
 
@@ -2509,7 +2644,7 @@ public class PIParser extends Parser {
 
         }
         finally {
-            if ( state.backtracking>0 ) { memoize(input, 17, args_StartIndex); }
+            if ( state.backtracking>0 ) { memoize(input, 18, args_StartIndex); }
         }
         return retval;
     }
@@ -2521,30 +2656,30 @@ public class PIParser extends Parser {
     };
 
     // $ANTLR start "expr"
-    // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:127:1: expr : orexpr ;
+    // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:132:1: expr : orexpr ;
     public final PIParser.expr_return expr() throws RecognitionException {
         PIParser.expr_return retval = new PIParser.expr_return();
         retval.start = input.LT(1);
         int expr_StartIndex = input.index();
         Object root_0 = null;
 
-        PIParser.orexpr_return orexpr91 = null;
+        PIParser.orexpr_return orexpr96 = null;
 
 
 
         try {
-            if ( state.backtracking>0 && alreadyParsedRule(input, 18) ) { return retval; }
-            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:128:3: ( orexpr )
-            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:128:5: orexpr
+            if ( state.backtracking>0 && alreadyParsedRule(input, 19) ) { return retval; }
+            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:133:3: ( orexpr )
+            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:133:5: orexpr
             {
             root_0 = (Object)adaptor.nil();
 
-            pushFollow(FOLLOW_orexpr_in_expr831);
-            orexpr91=orexpr();
+            pushFollow(FOLLOW_orexpr_in_expr866);
+            orexpr96=orexpr();
 
             state._fsp--;
             if (state.failed) return retval;
-            if ( state.backtracking==0 ) adaptor.addChild(root_0, orexpr91.getTree());
+            if ( state.backtracking==0 ) adaptor.addChild(root_0, orexpr96.getTree());
 
             }
 
@@ -2563,7 +2698,7 @@ public class PIParser extends Parser {
 
         }
         finally {
-            if ( state.backtracking>0 ) { memoize(input, 18, expr_StartIndex); }
+            if ( state.backtracking>0 ) { memoize(input, 19, expr_StartIndex); }
         }
         return retval;
     }
@@ -2575,148 +2710,41 @@ public class PIParser extends Parser {
     };
 
     // $ANTLR start "orexpr"
-    // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:130:1: orexpr : andexpr ( ( XOR | OR ) andexpr )* ;
+    // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:135:1: orexpr : andexpr ( ( XOR | OR ) andexpr )* ;
     public final PIParser.orexpr_return orexpr() throws RecognitionException {
         PIParser.orexpr_return retval = new PIParser.orexpr_return();
         retval.start = input.LT(1);
         int orexpr_StartIndex = input.index();
         Object root_0 = null;
 
-        Token set93=null;
-        PIParser.andexpr_return andexpr92 = null;
+        Token set98=null;
+        PIParser.andexpr_return andexpr97 = null;
 
-        PIParser.andexpr_return andexpr94 = null;
-
-
-        Object set93_tree=null;
-
-        try {
-            if ( state.backtracking>0 && alreadyParsedRule(input, 19) ) { return retval; }
-            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:131:3: ( andexpr ( ( XOR | OR ) andexpr )* )
-            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:131:5: andexpr ( ( XOR | OR ) andexpr )*
-            {
-            root_0 = (Object)adaptor.nil();
-
-            pushFollow(FOLLOW_andexpr_in_orexpr843);
-            andexpr92=andexpr();
-
-            state._fsp--;
-            if (state.failed) return retval;
-            if ( state.backtracking==0 ) adaptor.addChild(root_0, andexpr92.getTree());
-            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:131:13: ( ( XOR | OR ) andexpr )*
-            loop16:
-            do {
-                int alt16=2;
-                int LA16_0 = input.LA(1);
-
-                if ( ((LA16_0>=XOR && LA16_0<=OR)) ) {
-                    int LA16_2 = input.LA(2);
-
-                    if ( (synpred26_PI()) ) {
-                        alt16=1;
-                    }
+        PIParser.andexpr_return andexpr99 = null;
 
 
-                }
-
-
-                switch (alt16) {
-            	case 1 :
-            	    // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:131:14: ( XOR | OR ) andexpr
-            	    {
-            	    set93=(Token)input.LT(1);
-            	    set93=(Token)input.LT(1);
-            	    if ( (input.LA(1)>=XOR && input.LA(1)<=OR) ) {
-            	        input.consume();
-            	        if ( state.backtracking==0 ) root_0 = (Object)adaptor.becomeRoot((Object)adaptor.create(set93), root_0);
-            	        state.errorRecovery=false;state.failed=false;
-            	    }
-            	    else {
-            	        if (state.backtracking>0) {state.failed=true; return retval;}
-            	        MismatchedSetException mse = new MismatchedSetException(null,input);
-            	        throw mse;
-            	    }
-
-            	    pushFollow(FOLLOW_andexpr_in_orexpr853);
-            	    andexpr94=andexpr();
-
-            	    state._fsp--;
-            	    if (state.failed) return retval;
-            	    if ( state.backtracking==0 ) adaptor.addChild(root_0, andexpr94.getTree());
-
-            	    }
-            	    break;
-
-            	default :
-            	    break loop16;
-                }
-            } while (true);
-
-
-            }
-
-            retval.stop = input.LT(-1);
-
-            if ( state.backtracking==0 ) {
-
-            retval.tree = (Object)adaptor.rulePostProcessing(root_0);
-            adaptor.setTokenBoundaries(retval.tree, retval.start, retval.stop);
-            }
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-    	retval.tree = (Object)adaptor.errorNode(input, retval.start, input.LT(-1), re);
-
-        }
-        finally {
-            if ( state.backtracking>0 ) { memoize(input, 19, orexpr_StartIndex); }
-        }
-        return retval;
-    }
-    // $ANTLR end "orexpr"
-
-    public static class andexpr_return extends ParserRuleReturnScope {
-        Object tree;
-        public Object getTree() { return tree; }
-    };
-
-    // $ANTLR start "andexpr"
-    // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:133:1: andexpr : eqexpr ( AND eqexpr )* ;
-    public final PIParser.andexpr_return andexpr() throws RecognitionException {
-        PIParser.andexpr_return retval = new PIParser.andexpr_return();
-        retval.start = input.LT(1);
-        int andexpr_StartIndex = input.index();
-        Object root_0 = null;
-
-        Token AND96=null;
-        PIParser.eqexpr_return eqexpr95 = null;
-
-        PIParser.eqexpr_return eqexpr97 = null;
-
-
-        Object AND96_tree=null;
+        Object set98_tree=null;
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 20) ) { return retval; }
-            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:134:3: ( eqexpr ( AND eqexpr )* )
-            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:134:5: eqexpr ( AND eqexpr )*
+            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:136:3: ( andexpr ( ( XOR | OR ) andexpr )* )
+            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:136:5: andexpr ( ( XOR | OR ) andexpr )*
             {
             root_0 = (Object)adaptor.nil();
 
-            pushFollow(FOLLOW_eqexpr_in_andexpr867);
-            eqexpr95=eqexpr();
+            pushFollow(FOLLOW_andexpr_in_orexpr878);
+            andexpr97=andexpr();
 
             state._fsp--;
             if (state.failed) return retval;
-            if ( state.backtracking==0 ) adaptor.addChild(root_0, eqexpr95.getTree());
-            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:134:12: ( AND eqexpr )*
+            if ( state.backtracking==0 ) adaptor.addChild(root_0, andexpr97.getTree());
+            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:136:13: ( ( XOR | OR ) andexpr )*
             loop17:
             do {
                 int alt17=2;
                 int LA17_0 = input.LA(1);
 
-                if ( (LA17_0==AND) ) {
+                if ( ((LA17_0>=XOR && LA17_0<=OR)) ) {
                     int LA17_2 = input.LA(2);
 
                     if ( (synpred27_PI()) ) {
@@ -2729,19 +2757,27 @@ public class PIParser extends Parser {
 
                 switch (alt17) {
             	case 1 :
-            	    // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:134:13: AND eqexpr
+            	    // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:136:14: ( XOR | OR ) andexpr
             	    {
-            	    AND96=(Token)match(input,AND,FOLLOW_AND_in_andexpr870); if (state.failed) return retval;
-            	    if ( state.backtracking==0 ) {
-            	    AND96_tree = (Object)adaptor.create(AND96);
-            	    root_0 = (Object)adaptor.becomeRoot(AND96_tree, root_0);
+            	    set98=(Token)input.LT(1);
+            	    set98=(Token)input.LT(1);
+            	    if ( (input.LA(1)>=XOR && input.LA(1)<=OR) ) {
+            	        input.consume();
+            	        if ( state.backtracking==0 ) root_0 = (Object)adaptor.becomeRoot((Object)adaptor.create(set98), root_0);
+            	        state.errorRecovery=false;state.failed=false;
             	    }
-            	    pushFollow(FOLLOW_eqexpr_in_andexpr873);
-            	    eqexpr97=eqexpr();
+            	    else {
+            	        if (state.backtracking>0) {state.failed=true; return retval;}
+            	        MismatchedSetException mse = new MismatchedSetException(null,input);
+            	        throw mse;
+            	    }
+
+            	    pushFollow(FOLLOW_andexpr_in_orexpr888);
+            	    andexpr99=andexpr();
 
             	    state._fsp--;
             	    if (state.failed) return retval;
-            	    if ( state.backtracking==0 ) adaptor.addChild(root_0, eqexpr97.getTree());
+            	    if ( state.backtracking==0 ) adaptor.addChild(root_0, andexpr99.getTree());
 
             	    }
             	    break;
@@ -2769,56 +2805,56 @@ public class PIParser extends Parser {
 
         }
         finally {
-            if ( state.backtracking>0 ) { memoize(input, 20, andexpr_StartIndex); }
+            if ( state.backtracking>0 ) { memoize(input, 20, orexpr_StartIndex); }
         }
         return retval;
     }
-    // $ANTLR end "andexpr"
+    // $ANTLR end "orexpr"
 
-    public static class eqexpr_return extends ParserRuleReturnScope {
+    public static class andexpr_return extends ParserRuleReturnScope {
         Object tree;
         public Object getTree() { return tree; }
     };
 
-    // $ANTLR start "eqexpr"
-    // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:136:1: eqexpr : relexpr ( ( EQUIV | NOTEQ ) relexpr )* ;
-    public final PIParser.eqexpr_return eqexpr() throws RecognitionException {
-        PIParser.eqexpr_return retval = new PIParser.eqexpr_return();
+    // $ANTLR start "andexpr"
+    // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:138:1: andexpr : eqexpr ( AND eqexpr )* ;
+    public final PIParser.andexpr_return andexpr() throws RecognitionException {
+        PIParser.andexpr_return retval = new PIParser.andexpr_return();
         retval.start = input.LT(1);
-        int eqexpr_StartIndex = input.index();
+        int andexpr_StartIndex = input.index();
         Object root_0 = null;
 
-        Token set99=null;
-        PIParser.relexpr_return relexpr98 = null;
+        Token AND101=null;
+        PIParser.eqexpr_return eqexpr100 = null;
 
-        PIParser.relexpr_return relexpr100 = null;
+        PIParser.eqexpr_return eqexpr102 = null;
 
 
-        Object set99_tree=null;
+        Object AND101_tree=null;
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 21) ) { return retval; }
-            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:137:3: ( relexpr ( ( EQUIV | NOTEQ ) relexpr )* )
-            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:137:5: relexpr ( ( EQUIV | NOTEQ ) relexpr )*
+            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:139:3: ( eqexpr ( AND eqexpr )* )
+            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:139:5: eqexpr ( AND eqexpr )*
             {
             root_0 = (Object)adaptor.nil();
 
-            pushFollow(FOLLOW_relexpr_in_eqexpr887);
-            relexpr98=relexpr();
+            pushFollow(FOLLOW_eqexpr_in_andexpr902);
+            eqexpr100=eqexpr();
 
             state._fsp--;
             if (state.failed) return retval;
-            if ( state.backtracking==0 ) adaptor.addChild(root_0, relexpr98.getTree());
-            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:137:13: ( ( EQUIV | NOTEQ ) relexpr )*
+            if ( state.backtracking==0 ) adaptor.addChild(root_0, eqexpr100.getTree());
+            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:139:12: ( AND eqexpr )*
             loop18:
             do {
                 int alt18=2;
                 int LA18_0 = input.LA(1);
 
-                if ( ((LA18_0>=EQUIV && LA18_0<=NOTEQ)) ) {
+                if ( (LA18_0==AND) ) {
                     int LA18_2 = input.LA(2);
 
-                    if ( (synpred29_PI()) ) {
+                    if ( (synpred28_PI()) ) {
                         alt18=1;
                     }
 
@@ -2828,27 +2864,19 @@ public class PIParser extends Parser {
 
                 switch (alt18) {
             	case 1 :
-            	    // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:137:14: ( EQUIV | NOTEQ ) relexpr
+            	    // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:139:13: AND eqexpr
             	    {
-            	    set99=(Token)input.LT(1);
-            	    set99=(Token)input.LT(1);
-            	    if ( (input.LA(1)>=EQUIV && input.LA(1)<=NOTEQ) ) {
-            	        input.consume();
-            	        if ( state.backtracking==0 ) root_0 = (Object)adaptor.becomeRoot((Object)adaptor.create(set99), root_0);
-            	        state.errorRecovery=false;state.failed=false;
+            	    AND101=(Token)match(input,AND,FOLLOW_AND_in_andexpr905); if (state.failed) return retval;
+            	    if ( state.backtracking==0 ) {
+            	    AND101_tree = (Object)adaptor.create(AND101);
+            	    root_0 = (Object)adaptor.becomeRoot(AND101_tree, root_0);
             	    }
-            	    else {
-            	        if (state.backtracking>0) {state.failed=true; return retval;}
-            	        MismatchedSetException mse = new MismatchedSetException(null,input);
-            	        throw mse;
-            	    }
-
-            	    pushFollow(FOLLOW_relexpr_in_eqexpr897);
-            	    relexpr100=relexpr();
+            	    pushFollow(FOLLOW_eqexpr_in_andexpr908);
+            	    eqexpr102=eqexpr();
 
             	    state._fsp--;
             	    if (state.failed) return retval;
-            	    if ( state.backtracking==0 ) adaptor.addChild(root_0, relexpr100.getTree());
+            	    if ( state.backtracking==0 ) adaptor.addChild(root_0, eqexpr102.getTree());
 
             	    }
             	    break;
@@ -2876,56 +2904,56 @@ public class PIParser extends Parser {
 
         }
         finally {
-            if ( state.backtracking>0 ) { memoize(input, 21, eqexpr_StartIndex); }
+            if ( state.backtracking>0 ) { memoize(input, 21, andexpr_StartIndex); }
         }
         return retval;
     }
-    // $ANTLR end "eqexpr"
+    // $ANTLR end "andexpr"
 
-    public static class relexpr_return extends ParserRuleReturnScope {
+    public static class eqexpr_return extends ParserRuleReturnScope {
         Object tree;
         public Object getTree() { return tree; }
     };
 
-    // $ANTLR start "relexpr"
-    // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:139:1: relexpr : plusexpr ( ( LTHAN | GTHAN | LTHANE | GTHANE ) plusexpr )* ;
-    public final PIParser.relexpr_return relexpr() throws RecognitionException {
-        PIParser.relexpr_return retval = new PIParser.relexpr_return();
+    // $ANTLR start "eqexpr"
+    // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:141:1: eqexpr : relexpr ( ( EQUIV | NOTEQ ) relexpr )* ;
+    public final PIParser.eqexpr_return eqexpr() throws RecognitionException {
+        PIParser.eqexpr_return retval = new PIParser.eqexpr_return();
         retval.start = input.LT(1);
-        int relexpr_StartIndex = input.index();
+        int eqexpr_StartIndex = input.index();
         Object root_0 = null;
 
-        Token set102=null;
-        PIParser.plusexpr_return plusexpr101 = null;
+        Token set104=null;
+        PIParser.relexpr_return relexpr103 = null;
 
-        PIParser.plusexpr_return plusexpr103 = null;
+        PIParser.relexpr_return relexpr105 = null;
 
 
-        Object set102_tree=null;
+        Object set104_tree=null;
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 22) ) { return retval; }
-            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:140:3: ( plusexpr ( ( LTHAN | GTHAN | LTHANE | GTHANE ) plusexpr )* )
-            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:140:5: plusexpr ( ( LTHAN | GTHAN | LTHANE | GTHANE ) plusexpr )*
+            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:142:3: ( relexpr ( ( EQUIV | NOTEQ ) relexpr )* )
+            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:142:5: relexpr ( ( EQUIV | NOTEQ ) relexpr )*
             {
             root_0 = (Object)adaptor.nil();
 
-            pushFollow(FOLLOW_plusexpr_in_relexpr911);
-            plusexpr101=plusexpr();
+            pushFollow(FOLLOW_relexpr_in_eqexpr922);
+            relexpr103=relexpr();
 
             state._fsp--;
             if (state.failed) return retval;
-            if ( state.backtracking==0 ) adaptor.addChild(root_0, plusexpr101.getTree());
-            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:140:14: ( ( LTHAN | GTHAN | LTHANE | GTHANE ) plusexpr )*
+            if ( state.backtracking==0 ) adaptor.addChild(root_0, relexpr103.getTree());
+            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:142:13: ( ( EQUIV | NOTEQ ) relexpr )*
             loop19:
             do {
                 int alt19=2;
                 int LA19_0 = input.LA(1);
 
-                if ( ((LA19_0>=LTHAN && LA19_0<=GTHANE)) ) {
+                if ( ((LA19_0>=EQUIV && LA19_0<=NOTEQ)) ) {
                     int LA19_2 = input.LA(2);
 
-                    if ( (synpred33_PI()) ) {
+                    if ( (synpred30_PI()) ) {
                         alt19=1;
                     }
 
@@ -2935,13 +2963,13 @@ public class PIParser extends Parser {
 
                 switch (alt19) {
             	case 1 :
-            	    // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:140:15: ( LTHAN | GTHAN | LTHANE | GTHANE ) plusexpr
+            	    // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:142:14: ( EQUIV | NOTEQ ) relexpr
             	    {
-            	    set102=(Token)input.LT(1);
-            	    set102=(Token)input.LT(1);
-            	    if ( (input.LA(1)>=LTHAN && input.LA(1)<=GTHANE) ) {
+            	    set104=(Token)input.LT(1);
+            	    set104=(Token)input.LT(1);
+            	    if ( (input.LA(1)>=EQUIV && input.LA(1)<=NOTEQ) ) {
             	        input.consume();
-            	        if ( state.backtracking==0 ) root_0 = (Object)adaptor.becomeRoot((Object)adaptor.create(set102), root_0);
+            	        if ( state.backtracking==0 ) root_0 = (Object)adaptor.becomeRoot((Object)adaptor.create(set104), root_0);
             	        state.errorRecovery=false;state.failed=false;
             	    }
             	    else {
@@ -2950,12 +2978,12 @@ public class PIParser extends Parser {
             	        throw mse;
             	    }
 
-            	    pushFollow(FOLLOW_plusexpr_in_relexpr925);
-            	    plusexpr103=plusexpr();
+            	    pushFollow(FOLLOW_relexpr_in_eqexpr932);
+            	    relexpr105=relexpr();
 
             	    state._fsp--;
             	    if (state.failed) return retval;
-            	    if ( state.backtracking==0 ) adaptor.addChild(root_0, plusexpr103.getTree());
+            	    if ( state.backtracking==0 ) adaptor.addChild(root_0, relexpr105.getTree());
 
             	    }
             	    break;
@@ -2983,56 +3011,56 @@ public class PIParser extends Parser {
 
         }
         finally {
-            if ( state.backtracking>0 ) { memoize(input, 22, relexpr_StartIndex); }
+            if ( state.backtracking>0 ) { memoize(input, 22, eqexpr_StartIndex); }
         }
         return retval;
     }
-    // $ANTLR end "relexpr"
+    // $ANTLR end "eqexpr"
 
-    public static class plusexpr_return extends ParserRuleReturnScope {
+    public static class relexpr_return extends ParserRuleReturnScope {
         Object tree;
         public Object getTree() { return tree; }
     };
 
-    // $ANTLR start "plusexpr"
-    // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:142:1: plusexpr : multexpr ( ( PLUS | MINUS | CONCAT ) multexpr )* ;
-    public final PIParser.plusexpr_return plusexpr() throws RecognitionException {
-        PIParser.plusexpr_return retval = new PIParser.plusexpr_return();
+    // $ANTLR start "relexpr"
+    // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:144:1: relexpr : plusexpr ( ( LTHAN | GTHAN | LTHANE | GTHANE ) plusexpr )* ;
+    public final PIParser.relexpr_return relexpr() throws RecognitionException {
+        PIParser.relexpr_return retval = new PIParser.relexpr_return();
         retval.start = input.LT(1);
-        int plusexpr_StartIndex = input.index();
+        int relexpr_StartIndex = input.index();
         Object root_0 = null;
 
-        Token set105=null;
-        PIParser.multexpr_return multexpr104 = null;
+        Token set107=null;
+        PIParser.plusexpr_return plusexpr106 = null;
 
-        PIParser.multexpr_return multexpr106 = null;
+        PIParser.plusexpr_return plusexpr108 = null;
 
 
-        Object set105_tree=null;
+        Object set107_tree=null;
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 23) ) { return retval; }
-            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:143:3: ( multexpr ( ( PLUS | MINUS | CONCAT ) multexpr )* )
-            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:143:5: multexpr ( ( PLUS | MINUS | CONCAT ) multexpr )*
+            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:145:3: ( plusexpr ( ( LTHAN | GTHAN | LTHANE | GTHANE ) plusexpr )* )
+            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:145:5: plusexpr ( ( LTHAN | GTHAN | LTHANE | GTHANE ) plusexpr )*
             {
             root_0 = (Object)adaptor.nil();
 
-            pushFollow(FOLLOW_multexpr_in_plusexpr939);
-            multexpr104=multexpr();
+            pushFollow(FOLLOW_plusexpr_in_relexpr946);
+            plusexpr106=plusexpr();
 
             state._fsp--;
             if (state.failed) return retval;
-            if ( state.backtracking==0 ) adaptor.addChild(root_0, multexpr104.getTree());
-            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:143:14: ( ( PLUS | MINUS | CONCAT ) multexpr )*
+            if ( state.backtracking==0 ) adaptor.addChild(root_0, plusexpr106.getTree());
+            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:145:14: ( ( LTHAN | GTHAN | LTHANE | GTHANE ) plusexpr )*
             loop20:
             do {
                 int alt20=2;
                 int LA20_0 = input.LA(1);
 
-                if ( ((LA20_0>=PLUS && LA20_0<=CONCAT)) ) {
+                if ( ((LA20_0>=LTHAN && LA20_0<=GTHANE)) ) {
                     int LA20_2 = input.LA(2);
 
-                    if ( (synpred36_PI()) ) {
+                    if ( (synpred34_PI()) ) {
                         alt20=1;
                     }
 
@@ -3042,13 +3070,13 @@ public class PIParser extends Parser {
 
                 switch (alt20) {
             	case 1 :
-            	    // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:143:15: ( PLUS | MINUS | CONCAT ) multexpr
+            	    // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:145:15: ( LTHAN | GTHAN | LTHANE | GTHANE ) plusexpr
             	    {
-            	    set105=(Token)input.LT(1);
-            	    set105=(Token)input.LT(1);
-            	    if ( (input.LA(1)>=PLUS && input.LA(1)<=CONCAT) ) {
+            	    set107=(Token)input.LT(1);
+            	    set107=(Token)input.LT(1);
+            	    if ( (input.LA(1)>=LTHAN && input.LA(1)<=GTHANE) ) {
             	        input.consume();
-            	        if ( state.backtracking==0 ) root_0 = (Object)adaptor.becomeRoot((Object)adaptor.create(set105), root_0);
+            	        if ( state.backtracking==0 ) root_0 = (Object)adaptor.becomeRoot((Object)adaptor.create(set107), root_0);
             	        state.errorRecovery=false;state.failed=false;
             	    }
             	    else {
@@ -3057,12 +3085,12 @@ public class PIParser extends Parser {
             	        throw mse;
             	    }
 
-            	    pushFollow(FOLLOW_multexpr_in_plusexpr951);
-            	    multexpr106=multexpr();
+            	    pushFollow(FOLLOW_plusexpr_in_relexpr960);
+            	    plusexpr108=plusexpr();
 
             	    state._fsp--;
             	    if (state.failed) return retval;
-            	    if ( state.backtracking==0 ) adaptor.addChild(root_0, multexpr106.getTree());
+            	    if ( state.backtracking==0 ) adaptor.addChild(root_0, plusexpr108.getTree());
 
             	    }
             	    break;
@@ -3090,56 +3118,56 @@ public class PIParser extends Parser {
 
         }
         finally {
-            if ( state.backtracking>0 ) { memoize(input, 23, plusexpr_StartIndex); }
+            if ( state.backtracking>0 ) { memoize(input, 23, relexpr_StartIndex); }
         }
         return retval;
     }
-    // $ANTLR end "plusexpr"
+    // $ANTLR end "relexpr"
 
-    public static class multexpr_return extends ParserRuleReturnScope {
+    public static class plusexpr_return extends ParserRuleReturnScope {
         Object tree;
         public Object getTree() { return tree; }
     };
 
-    // $ANTLR start "multexpr"
-    // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:145:1: multexpr : powexpr ( ( MULT | DIV ) powexpr )* ;
-    public final PIParser.multexpr_return multexpr() throws RecognitionException {
-        PIParser.multexpr_return retval = new PIParser.multexpr_return();
+    // $ANTLR start "plusexpr"
+    // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:147:1: plusexpr : multexpr ( ( PLUS | MINUS | CONCAT ) multexpr )* ;
+    public final PIParser.plusexpr_return plusexpr() throws RecognitionException {
+        PIParser.plusexpr_return retval = new PIParser.plusexpr_return();
         retval.start = input.LT(1);
-        int multexpr_StartIndex = input.index();
+        int plusexpr_StartIndex = input.index();
         Object root_0 = null;
 
-        Token set108=null;
-        PIParser.powexpr_return powexpr107 = null;
+        Token set110=null;
+        PIParser.multexpr_return multexpr109 = null;
 
-        PIParser.powexpr_return powexpr109 = null;
+        PIParser.multexpr_return multexpr111 = null;
 
 
-        Object set108_tree=null;
+        Object set110_tree=null;
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 24) ) { return retval; }
-            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:146:3: ( powexpr ( ( MULT | DIV ) powexpr )* )
-            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:146:5: powexpr ( ( MULT | DIV ) powexpr )*
+            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:148:3: ( multexpr ( ( PLUS | MINUS | CONCAT ) multexpr )* )
+            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:148:5: multexpr ( ( PLUS | MINUS | CONCAT ) multexpr )*
             {
             root_0 = (Object)adaptor.nil();
 
-            pushFollow(FOLLOW_powexpr_in_multexpr965);
-            powexpr107=powexpr();
+            pushFollow(FOLLOW_multexpr_in_plusexpr974);
+            multexpr109=multexpr();
 
             state._fsp--;
             if (state.failed) return retval;
-            if ( state.backtracking==0 ) adaptor.addChild(root_0, powexpr107.getTree());
-            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:146:13: ( ( MULT | DIV ) powexpr )*
+            if ( state.backtracking==0 ) adaptor.addChild(root_0, multexpr109.getTree());
+            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:148:14: ( ( PLUS | MINUS | CONCAT ) multexpr )*
             loop21:
             do {
                 int alt21=2;
                 int LA21_0 = input.LA(1);
 
-                if ( ((LA21_0>=MULT && LA21_0<=DIV)) ) {
+                if ( ((LA21_0>=PLUS && LA21_0<=CONCAT)) ) {
                     int LA21_2 = input.LA(2);
 
-                    if ( (synpred38_PI()) ) {
+                    if ( (synpred37_PI()) ) {
                         alt21=1;
                     }
 
@@ -3149,13 +3177,13 @@ public class PIParser extends Parser {
 
                 switch (alt21) {
             	case 1 :
-            	    // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:146:14: ( MULT | DIV ) powexpr
+            	    // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:148:15: ( PLUS | MINUS | CONCAT ) multexpr
             	    {
-            	    set108=(Token)input.LT(1);
-            	    set108=(Token)input.LT(1);
-            	    if ( (input.LA(1)>=MULT && input.LA(1)<=DIV) ) {
+            	    set110=(Token)input.LT(1);
+            	    set110=(Token)input.LT(1);
+            	    if ( (input.LA(1)>=PLUS && input.LA(1)<=CONCAT) ) {
             	        input.consume();
-            	        if ( state.backtracking==0 ) root_0 = (Object)adaptor.becomeRoot((Object)adaptor.create(set108), root_0);
+            	        if ( state.backtracking==0 ) root_0 = (Object)adaptor.becomeRoot((Object)adaptor.create(set110), root_0);
             	        state.errorRecovery=false;state.failed=false;
             	    }
             	    else {
@@ -3164,12 +3192,12 @@ public class PIParser extends Parser {
             	        throw mse;
             	    }
 
-            	    pushFollow(FOLLOW_powexpr_in_multexpr975);
-            	    powexpr109=powexpr();
+            	    pushFollow(FOLLOW_multexpr_in_plusexpr986);
+            	    multexpr111=multexpr();
 
             	    state._fsp--;
             	    if (state.failed) return retval;
-            	    if ( state.backtracking==0 ) adaptor.addChild(root_0, powexpr109.getTree());
+            	    if ( state.backtracking==0 ) adaptor.addChild(root_0, multexpr111.getTree());
 
             	    }
             	    break;
@@ -3197,53 +3225,53 @@ public class PIParser extends Parser {
 
         }
         finally {
-            if ( state.backtracking>0 ) { memoize(input, 24, multexpr_StartIndex); }
+            if ( state.backtracking>0 ) { memoize(input, 24, plusexpr_StartIndex); }
         }
         return retval;
     }
-    // $ANTLR end "multexpr"
+    // $ANTLR end "plusexpr"
 
-    public static class powexpr_return extends ParserRuleReturnScope {
+    public static class multexpr_return extends ParserRuleReturnScope {
         Object tree;
         public Object getTree() { return tree; }
     };
 
-    // $ANTLR start "powexpr"
-    // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:148:1: powexpr : unaryexpr ( POW unaryexpr )* ;
-    public final PIParser.powexpr_return powexpr() throws RecognitionException {
-        PIParser.powexpr_return retval = new PIParser.powexpr_return();
+    // $ANTLR start "multexpr"
+    // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:150:1: multexpr : powexpr ( ( MULT | DIV ) powexpr )* ;
+    public final PIParser.multexpr_return multexpr() throws RecognitionException {
+        PIParser.multexpr_return retval = new PIParser.multexpr_return();
         retval.start = input.LT(1);
-        int powexpr_StartIndex = input.index();
+        int multexpr_StartIndex = input.index();
         Object root_0 = null;
 
-        Token POW111=null;
-        PIParser.unaryexpr_return unaryexpr110 = null;
+        Token set113=null;
+        PIParser.powexpr_return powexpr112 = null;
 
-        PIParser.unaryexpr_return unaryexpr112 = null;
+        PIParser.powexpr_return powexpr114 = null;
 
 
-        Object POW111_tree=null;
+        Object set113_tree=null;
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 25) ) { return retval; }
-            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:149:3: ( unaryexpr ( POW unaryexpr )* )
-            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:149:5: unaryexpr ( POW unaryexpr )*
+            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:151:3: ( powexpr ( ( MULT | DIV ) powexpr )* )
+            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:151:5: powexpr ( ( MULT | DIV ) powexpr )*
             {
             root_0 = (Object)adaptor.nil();
 
-            pushFollow(FOLLOW_unaryexpr_in_powexpr989);
-            unaryexpr110=unaryexpr();
+            pushFollow(FOLLOW_powexpr_in_multexpr1000);
+            powexpr112=powexpr();
 
             state._fsp--;
             if (state.failed) return retval;
-            if ( state.backtracking==0 ) adaptor.addChild(root_0, unaryexpr110.getTree());
-            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:149:15: ( POW unaryexpr )*
+            if ( state.backtracking==0 ) adaptor.addChild(root_0, powexpr112.getTree());
+            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:151:13: ( ( MULT | DIV ) powexpr )*
             loop22:
             do {
                 int alt22=2;
                 int LA22_0 = input.LA(1);
 
-                if ( (LA22_0==POW) ) {
+                if ( ((LA22_0>=MULT && LA22_0<=DIV)) ) {
                     int LA22_2 = input.LA(2);
 
                     if ( (synpred39_PI()) ) {
@@ -3256,19 +3284,27 @@ public class PIParser extends Parser {
 
                 switch (alt22) {
             	case 1 :
-            	    // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:149:16: POW unaryexpr
+            	    // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:151:14: ( MULT | DIV ) powexpr
             	    {
-            	    POW111=(Token)match(input,POW,FOLLOW_POW_in_powexpr992); if (state.failed) return retval;
-            	    if ( state.backtracking==0 ) {
-            	    POW111_tree = (Object)adaptor.create(POW111);
-            	    root_0 = (Object)adaptor.becomeRoot(POW111_tree, root_0);
+            	    set113=(Token)input.LT(1);
+            	    set113=(Token)input.LT(1);
+            	    if ( (input.LA(1)>=MULT && input.LA(1)<=DIV) ) {
+            	        input.consume();
+            	        if ( state.backtracking==0 ) root_0 = (Object)adaptor.becomeRoot((Object)adaptor.create(set113), root_0);
+            	        state.errorRecovery=false;state.failed=false;
             	    }
-            	    pushFollow(FOLLOW_unaryexpr_in_powexpr995);
-            	    unaryexpr112=unaryexpr();
+            	    else {
+            	        if (state.backtracking>0) {state.failed=true; return retval;}
+            	        MismatchedSetException mse = new MismatchedSetException(null,input);
+            	        throw mse;
+            	    }
+
+            	    pushFollow(FOLLOW_powexpr_in_multexpr1010);
+            	    powexpr114=powexpr();
 
             	    state._fsp--;
             	    if (state.failed) return retval;
-            	    if ( state.backtracking==0 ) adaptor.addChild(root_0, unaryexpr112.getTree());
+            	    if ( state.backtracking==0 ) adaptor.addChild(root_0, powexpr114.getTree());
 
             	    }
             	    break;
@@ -3296,7 +3332,106 @@ public class PIParser extends Parser {
 
         }
         finally {
-            if ( state.backtracking>0 ) { memoize(input, 25, powexpr_StartIndex); }
+            if ( state.backtracking>0 ) { memoize(input, 25, multexpr_StartIndex); }
+        }
+        return retval;
+    }
+    // $ANTLR end "multexpr"
+
+    public static class powexpr_return extends ParserRuleReturnScope {
+        Object tree;
+        public Object getTree() { return tree; }
+    };
+
+    // $ANTLR start "powexpr"
+    // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:153:1: powexpr : unaryexpr ( POW unaryexpr )* ;
+    public final PIParser.powexpr_return powexpr() throws RecognitionException {
+        PIParser.powexpr_return retval = new PIParser.powexpr_return();
+        retval.start = input.LT(1);
+        int powexpr_StartIndex = input.index();
+        Object root_0 = null;
+
+        Token POW116=null;
+        PIParser.unaryexpr_return unaryexpr115 = null;
+
+        PIParser.unaryexpr_return unaryexpr117 = null;
+
+
+        Object POW116_tree=null;
+
+        try {
+            if ( state.backtracking>0 && alreadyParsedRule(input, 26) ) { return retval; }
+            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:154:3: ( unaryexpr ( POW unaryexpr )* )
+            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:154:5: unaryexpr ( POW unaryexpr )*
+            {
+            root_0 = (Object)adaptor.nil();
+
+            pushFollow(FOLLOW_unaryexpr_in_powexpr1024);
+            unaryexpr115=unaryexpr();
+
+            state._fsp--;
+            if (state.failed) return retval;
+            if ( state.backtracking==0 ) adaptor.addChild(root_0, unaryexpr115.getTree());
+            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:154:15: ( POW unaryexpr )*
+            loop23:
+            do {
+                int alt23=2;
+                int LA23_0 = input.LA(1);
+
+                if ( (LA23_0==POW) ) {
+                    int LA23_2 = input.LA(2);
+
+                    if ( (synpred40_PI()) ) {
+                        alt23=1;
+                    }
+
+
+                }
+
+
+                switch (alt23) {
+            	case 1 :
+            	    // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:154:16: POW unaryexpr
+            	    {
+            	    POW116=(Token)match(input,POW,FOLLOW_POW_in_powexpr1027); if (state.failed) return retval;
+            	    if ( state.backtracking==0 ) {
+            	    POW116_tree = (Object)adaptor.create(POW116);
+            	    root_0 = (Object)adaptor.becomeRoot(POW116_tree, root_0);
+            	    }
+            	    pushFollow(FOLLOW_unaryexpr_in_powexpr1030);
+            	    unaryexpr117=unaryexpr();
+
+            	    state._fsp--;
+            	    if (state.failed) return retval;
+            	    if ( state.backtracking==0 ) adaptor.addChild(root_0, unaryexpr117.getTree());
+
+            	    }
+            	    break;
+
+            	default :
+            	    break loop23;
+                }
+            } while (true);
+
+
+            }
+
+            retval.stop = input.LT(-1);
+
+            if ( state.backtracking==0 ) {
+
+            retval.tree = (Object)adaptor.rulePostProcessing(root_0);
+            adaptor.setTokenBoundaries(retval.tree, retval.start, retval.stop);
+            }
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+    	retval.tree = (Object)adaptor.errorNode(input, retval.start, input.LT(-1), re);
+
+        }
+        finally {
+            if ( state.backtracking>0 ) { memoize(input, 26, powexpr_StartIndex); }
         }
         return retval;
     }
@@ -3308,62 +3443,63 @@ public class PIParser extends Parser {
     };
 
     // $ANTLR start "unaryexpr"
-    // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:152:1: unaryexpr : ( PLUS unaryexpr -> ^( POS unaryexpr ) | MINUS unaryexpr -> ^( NEG unaryexpr ) | NOT unaryexpr | GET catom | catom );
+    // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:157:1: unaryexpr : ( PLUS unaryexpr -> ^( POS unaryexpr ) | MINUS unaryexpr -> ^( NEG unaryexpr ) | NOT unaryexpr | GET catom | catom );
     public final PIParser.unaryexpr_return unaryexpr() throws RecognitionException {
         PIParser.unaryexpr_return retval = new PIParser.unaryexpr_return();
         retval.start = input.LT(1);
         int unaryexpr_StartIndex = input.index();
         Object root_0 = null;
 
-        Token PLUS113=null;
-        Token MINUS115=null;
-        Token NOT117=null;
-        Token GET119=null;
-        PIParser.unaryexpr_return unaryexpr114 = null;
+        Token PLUS118=null;
+        Token MINUS120=null;
+        Token NOT122=null;
+        Token GET124=null;
+        PIParser.unaryexpr_return unaryexpr119 = null;
 
-        PIParser.unaryexpr_return unaryexpr116 = null;
+        PIParser.unaryexpr_return unaryexpr121 = null;
 
-        PIParser.unaryexpr_return unaryexpr118 = null;
+        PIParser.unaryexpr_return unaryexpr123 = null;
 
-        PIParser.catom_return catom120 = null;
+        PIParser.catom_return catom125 = null;
 
-        PIParser.catom_return catom121 = null;
+        PIParser.catom_return catom126 = null;
 
 
-        Object PLUS113_tree=null;
-        Object MINUS115_tree=null;
-        Object NOT117_tree=null;
-        Object GET119_tree=null;
+        Object PLUS118_tree=null;
+        Object MINUS120_tree=null;
+        Object NOT122_tree=null;
+        Object GET124_tree=null;
         RewriteRuleTokenStream stream_PLUS=new RewriteRuleTokenStream(adaptor,"token PLUS");
         RewriteRuleTokenStream stream_MINUS=new RewriteRuleTokenStream(adaptor,"token MINUS");
         RewriteRuleSubtreeStream stream_unaryexpr=new RewriteRuleSubtreeStream(adaptor,"rule unaryexpr");
         try {
-            if ( state.backtracking>0 && alreadyParsedRule(input, 26) ) { return retval; }
-            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:153:3: ( PLUS unaryexpr -> ^( POS unaryexpr ) | MINUS unaryexpr -> ^( NEG unaryexpr ) | NOT unaryexpr | GET catom | catom )
-            int alt23=5;
+            if ( state.backtracking>0 && alreadyParsedRule(input, 27) ) { return retval; }
+            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:158:3: ( PLUS unaryexpr -> ^( POS unaryexpr ) | MINUS unaryexpr -> ^( NEG unaryexpr ) | NOT unaryexpr | GET catom | catom )
+            int alt24=5;
             switch ( input.LA(1) ) {
             case PLUS:
                 {
-                alt23=1;
+                alt24=1;
                 }
                 break;
             case MINUS:
                 {
-                alt23=2;
+                alt24=2;
                 }
                 break;
             case NOT:
                 {
-                alt23=3;
+                alt24=3;
                 }
                 break;
             case GET:
                 {
-                alt23=4;
+                alt24=4;
                 }
                 break;
             case STRING:
             case ID:
+            case READ_JSON:
             case LP:
             case LB:
             case LTHAN:
@@ -3372,30 +3508,30 @@ public class PIParser extends Parser {
             case TRUE:
             case FALSE:
                 {
-                alt23=5;
+                alt24=5;
                 }
                 break;
             default:
                 if (state.backtracking>0) {state.failed=true; return retval;}
                 NoViableAltException nvae =
-                    new NoViableAltException("", 23, 0, input);
+                    new NoViableAltException("", 24, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt23) {
+            switch (alt24) {
                 case 1 :
-                    // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:153:5: PLUS unaryexpr
+                    // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:158:5: PLUS unaryexpr
                     {
-                    PLUS113=(Token)match(input,PLUS,FOLLOW_PLUS_in_unaryexpr1010); if (state.failed) return retval; 
-                    if ( state.backtracking==0 ) stream_PLUS.add(PLUS113);
+                    PLUS118=(Token)match(input,PLUS,FOLLOW_PLUS_in_unaryexpr1045); if (state.failed) return retval; 
+                    if ( state.backtracking==0 ) stream_PLUS.add(PLUS118);
 
-                    pushFollow(FOLLOW_unaryexpr_in_unaryexpr1012);
-                    unaryexpr114=unaryexpr();
+                    pushFollow(FOLLOW_unaryexpr_in_unaryexpr1047);
+                    unaryexpr119=unaryexpr();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    if ( state.backtracking==0 ) stream_unaryexpr.add(unaryexpr114.getTree());
+                    if ( state.backtracking==0 ) stream_unaryexpr.add(unaryexpr119.getTree());
 
 
                     // AST REWRITE
@@ -3410,9 +3546,9 @@ public class PIParser extends Parser {
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                     root_0 = (Object)adaptor.nil();
-                    // 153:20: -> ^( POS unaryexpr )
+                    // 158:20: -> ^( POS unaryexpr )
                     {
-                        // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:153:23: ^( POS unaryexpr )
+                        // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:158:23: ^( POS unaryexpr )
                         {
                         Object root_1 = (Object)adaptor.nil();
                         root_1 = (Object)adaptor.becomeRoot((Object)adaptor.create(POS, "POS"), root_1);
@@ -3428,17 +3564,17 @@ public class PIParser extends Parser {
                     }
                     break;
                 case 2 :
-                    // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:154:5: MINUS unaryexpr
+                    // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:159:5: MINUS unaryexpr
                     {
-                    MINUS115=(Token)match(input,MINUS,FOLLOW_MINUS_in_unaryexpr1026); if (state.failed) return retval; 
-                    if ( state.backtracking==0 ) stream_MINUS.add(MINUS115);
+                    MINUS120=(Token)match(input,MINUS,FOLLOW_MINUS_in_unaryexpr1061); if (state.failed) return retval; 
+                    if ( state.backtracking==0 ) stream_MINUS.add(MINUS120);
 
-                    pushFollow(FOLLOW_unaryexpr_in_unaryexpr1028);
-                    unaryexpr116=unaryexpr();
+                    pushFollow(FOLLOW_unaryexpr_in_unaryexpr1063);
+                    unaryexpr121=unaryexpr();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    if ( state.backtracking==0 ) stream_unaryexpr.add(unaryexpr116.getTree());
+                    if ( state.backtracking==0 ) stream_unaryexpr.add(unaryexpr121.getTree());
 
 
                     // AST REWRITE
@@ -3453,9 +3589,9 @@ public class PIParser extends Parser {
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                     root_0 = (Object)adaptor.nil();
-                    // 154:21: -> ^( NEG unaryexpr )
+                    // 159:21: -> ^( NEG unaryexpr )
                     {
-                        // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:154:24: ^( NEG unaryexpr )
+                        // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:159:24: ^( NEG unaryexpr )
                         {
                         Object root_1 = (Object)adaptor.nil();
                         root_1 = (Object)adaptor.becomeRoot((Object)adaptor.create(NEG, "NEG"), root_1);
@@ -3471,54 +3607,54 @@ public class PIParser extends Parser {
                     }
                     break;
                 case 3 :
-                    // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:155:5: NOT unaryexpr
+                    // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:160:5: NOT unaryexpr
                     {
                     root_0 = (Object)adaptor.nil();
 
-                    NOT117=(Token)match(input,NOT,FOLLOW_NOT_in_unaryexpr1042); if (state.failed) return retval;
+                    NOT122=(Token)match(input,NOT,FOLLOW_NOT_in_unaryexpr1077); if (state.failed) return retval;
                     if ( state.backtracking==0 ) {
-                    NOT117_tree = (Object)adaptor.create(NOT117);
-                    root_0 = (Object)adaptor.becomeRoot(NOT117_tree, root_0);
+                    NOT122_tree = (Object)adaptor.create(NOT122);
+                    root_0 = (Object)adaptor.becomeRoot(NOT122_tree, root_0);
                     }
-                    pushFollow(FOLLOW_unaryexpr_in_unaryexpr1045);
-                    unaryexpr118=unaryexpr();
+                    pushFollow(FOLLOW_unaryexpr_in_unaryexpr1080);
+                    unaryexpr123=unaryexpr();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    if ( state.backtracking==0 ) adaptor.addChild(root_0, unaryexpr118.getTree());
+                    if ( state.backtracking==0 ) adaptor.addChild(root_0, unaryexpr123.getTree());
 
                     }
                     break;
                 case 4 :
-                    // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:156:5: GET catom
+                    // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:161:5: GET catom
                     {
                     root_0 = (Object)adaptor.nil();
 
-                    GET119=(Token)match(input,GET,FOLLOW_GET_in_unaryexpr1051); if (state.failed) return retval;
+                    GET124=(Token)match(input,GET,FOLLOW_GET_in_unaryexpr1086); if (state.failed) return retval;
                     if ( state.backtracking==0 ) {
-                    GET119_tree = (Object)adaptor.create(GET119);
-                    root_0 = (Object)adaptor.becomeRoot(GET119_tree, root_0);
+                    GET124_tree = (Object)adaptor.create(GET124);
+                    root_0 = (Object)adaptor.becomeRoot(GET124_tree, root_0);
                     }
-                    pushFollow(FOLLOW_catom_in_unaryexpr1054);
-                    catom120=catom();
+                    pushFollow(FOLLOW_catom_in_unaryexpr1089);
+                    catom125=catom();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    if ( state.backtracking==0 ) adaptor.addChild(root_0, catom120.getTree());
+                    if ( state.backtracking==0 ) adaptor.addChild(root_0, catom125.getTree());
 
                     }
                     break;
                 case 5 :
-                    // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:157:5: catom
+                    // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:162:5: catom
                     {
                     root_0 = (Object)adaptor.nil();
 
-                    pushFollow(FOLLOW_catom_in_unaryexpr1060);
-                    catom121=catom();
+                    pushFollow(FOLLOW_catom_in_unaryexpr1095);
+                    catom126=catom();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    if ( state.backtracking==0 ) adaptor.addChild(root_0, catom121.getTree());
+                    if ( state.backtracking==0 ) adaptor.addChild(root_0, catom126.getTree());
 
                     }
                     break;
@@ -3539,7 +3675,7 @@ public class PIParser extends Parser {
 
         }
         finally {
-            if ( state.backtracking>0 ) { memoize(input, 26, unaryexpr_StartIndex); }
+            if ( state.backtracking>0 ) { memoize(input, 27, unaryexpr_StartIndex); }
         }
         return retval;
     }
@@ -3551,60 +3687,60 @@ public class PIParser extends Parser {
     };
 
     // $ANTLR start "catom"
-    // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:160:1: catom : atom ( KVPAIR atom )? ;
+    // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:165:1: catom : atom ( KVPAIR atom )? ;
     public final PIParser.catom_return catom() throws RecognitionException {
         PIParser.catom_return retval = new PIParser.catom_return();
         retval.start = input.LT(1);
         int catom_StartIndex = input.index();
         Object root_0 = null;
 
-        Token KVPAIR123=null;
-        PIParser.atom_return atom122 = null;
+        Token KVPAIR128=null;
+        PIParser.atom_return atom127 = null;
 
-        PIParser.atom_return atom124 = null;
+        PIParser.atom_return atom129 = null;
 
 
-        Object KVPAIR123_tree=null;
+        Object KVPAIR128_tree=null;
 
         try {
-            if ( state.backtracking>0 && alreadyParsedRule(input, 27) ) { return retval; }
-            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:161:3: ( atom ( KVPAIR atom )? )
-            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:161:5: atom ( KVPAIR atom )?
+            if ( state.backtracking>0 && alreadyParsedRule(input, 28) ) { return retval; }
+            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:166:3: ( atom ( KVPAIR atom )? )
+            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:166:5: atom ( KVPAIR atom )?
             {
             root_0 = (Object)adaptor.nil();
 
-            pushFollow(FOLLOW_atom_in_catom1075);
-            atom122=atom();
+            pushFollow(FOLLOW_atom_in_catom1110);
+            atom127=atom();
 
             state._fsp--;
             if (state.failed) return retval;
-            if ( state.backtracking==0 ) adaptor.addChild(root_0, atom122.getTree());
-            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:161:10: ( KVPAIR atom )?
-            int alt24=2;
-            int LA24_0 = input.LA(1);
+            if ( state.backtracking==0 ) adaptor.addChild(root_0, atom127.getTree());
+            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:166:10: ( KVPAIR atom )?
+            int alt25=2;
+            int LA25_0 = input.LA(1);
 
-            if ( (LA24_0==KVPAIR) ) {
-                int LA24_1 = input.LA(2);
+            if ( (LA25_0==KVPAIR) ) {
+                int LA25_1 = input.LA(2);
 
-                if ( (synpred44_PI()) ) {
-                    alt24=1;
+                if ( (synpred45_PI()) ) {
+                    alt25=1;
                 }
             }
-            switch (alt24) {
+            switch (alt25) {
                 case 1 :
-                    // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:161:11: KVPAIR atom
+                    // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:166:11: KVPAIR atom
                     {
-                    KVPAIR123=(Token)match(input,KVPAIR,FOLLOW_KVPAIR_in_catom1078); if (state.failed) return retval;
+                    KVPAIR128=(Token)match(input,KVPAIR,FOLLOW_KVPAIR_in_catom1113); if (state.failed) return retval;
                     if ( state.backtracking==0 ) {
-                    KVPAIR123_tree = (Object)adaptor.create(KVPAIR123);
-                    root_0 = (Object)adaptor.becomeRoot(KVPAIR123_tree, root_0);
+                    KVPAIR128_tree = (Object)adaptor.create(KVPAIR128);
+                    root_0 = (Object)adaptor.becomeRoot(KVPAIR128_tree, root_0);
                     }
-                    pushFollow(FOLLOW_atom_in_catom1081);
-                    atom124=atom();
+                    pushFollow(FOLLOW_atom_in_catom1116);
+                    atom129=atom();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    if ( state.backtracking==0 ) adaptor.addChild(root_0, atom124.getTree());
+                    if ( state.backtracking==0 ) adaptor.addChild(root_0, atom129.getTree());
 
                     }
                     break;
@@ -3629,7 +3765,7 @@ public class PIParser extends Parser {
 
         }
         finally {
-            if ( state.backtracking>0 ) { memoize(input, 27, catom_StartIndex); }
+            if ( state.backtracking>0 ) { memoize(input, 28, catom_StartIndex); }
         }
         return retval;
     }
@@ -3641,7 +3777,7 @@ public class PIParser extends Parser {
     };
 
     // $ANTLR start "atom"
-    // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:164:1: atom : ( LP expr RP | LP type RP e= expr -> ^( CAST type $e) | LB expr ( COMMA expr )* RB -> ^( ARRAY ( expr )* ) | ID LB expr RB -> ^( INDEX ID expr ) | obj= ID DOT ref= ID -> ^( OBJ_REF $obj $ref) | LTHAN params GTHAN -> ^( OBJECT_CONSTRUCTOR params ) | exprcall | NUMBER | FPNUMBER | TRUE | FALSE | STRING | ID );
+    // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:169:1: atom : ( LP expr RP | LP type RP e= expr -> ^( CAST type $e) | LB expr ( COMMA expr )* RB -> ^( ARRAY ( expr )* ) | ID LB expr RB -> ^( INDEX ID expr ) | obj= ID DOT ref= ID -> ^( OBJ_REF $obj $ref) | LTHAN params GTHAN -> ^( OBJECT_CONSTRUCTOR params ) | exprcall | NUMBER | FPNUMBER | TRUE | FALSE | STRING | ID );
     public final PIParser.atom_return atom() throws RecognitionException {
         PIParser.atom_return retval = new PIParser.atom_return();
         retval.start = input.LT(1);
@@ -3650,63 +3786,63 @@ public class PIParser extends Parser {
 
         Token obj=null;
         Token ref=null;
-        Token LP125=null;
-        Token RP127=null;
-        Token LP128=null;
-        Token RP130=null;
-        Token LB131=null;
-        Token COMMA133=null;
-        Token RB135=null;
-        Token ID136=null;
-        Token LB137=null;
-        Token RB139=null;
-        Token DOT140=null;
-        Token LTHAN141=null;
-        Token GTHAN143=null;
-        Token NUMBER145=null;
-        Token FPNUMBER146=null;
-        Token TRUE147=null;
-        Token FALSE148=null;
-        Token STRING149=null;
-        Token ID150=null;
+        Token LP130=null;
+        Token RP132=null;
+        Token LP133=null;
+        Token RP135=null;
+        Token LB136=null;
+        Token COMMA138=null;
+        Token RB140=null;
+        Token ID141=null;
+        Token LB142=null;
+        Token RB144=null;
+        Token DOT145=null;
+        Token LTHAN146=null;
+        Token GTHAN148=null;
+        Token NUMBER150=null;
+        Token FPNUMBER151=null;
+        Token TRUE152=null;
+        Token FALSE153=null;
+        Token STRING154=null;
+        Token ID155=null;
         PIParser.expr_return e = null;
 
-        PIParser.expr_return expr126 = null;
+        PIParser.expr_return expr131 = null;
 
-        PIParser.type_return type129 = null;
+        PIParser.type_return type134 = null;
 
-        PIParser.expr_return expr132 = null;
+        PIParser.expr_return expr137 = null;
 
-        PIParser.expr_return expr134 = null;
+        PIParser.expr_return expr139 = null;
 
-        PIParser.expr_return expr138 = null;
+        PIParser.expr_return expr143 = null;
 
-        PIParser.params_return params142 = null;
+        PIParser.params_return params147 = null;
 
-        PIParser.exprcall_return exprcall144 = null;
+        PIParser.exprcall_return exprcall149 = null;
 
 
         Object obj_tree=null;
         Object ref_tree=null;
-        Object LP125_tree=null;
-        Object RP127_tree=null;
-        Object LP128_tree=null;
-        Object RP130_tree=null;
-        Object LB131_tree=null;
-        Object COMMA133_tree=null;
-        Object RB135_tree=null;
-        Object ID136_tree=null;
-        Object LB137_tree=null;
-        Object RB139_tree=null;
-        Object DOT140_tree=null;
-        Object LTHAN141_tree=null;
-        Object GTHAN143_tree=null;
-        Object NUMBER145_tree=null;
-        Object FPNUMBER146_tree=null;
-        Object TRUE147_tree=null;
-        Object FALSE148_tree=null;
-        Object STRING149_tree=null;
-        Object ID150_tree=null;
+        Object LP130_tree=null;
+        Object RP132_tree=null;
+        Object LP133_tree=null;
+        Object RP135_tree=null;
+        Object LB136_tree=null;
+        Object COMMA138_tree=null;
+        Object RB140_tree=null;
+        Object ID141_tree=null;
+        Object LB142_tree=null;
+        Object RB144_tree=null;
+        Object DOT145_tree=null;
+        Object LTHAN146_tree=null;
+        Object GTHAN148_tree=null;
+        Object NUMBER150_tree=null;
+        Object FPNUMBER151_tree=null;
+        Object TRUE152_tree=null;
+        Object FALSE153_tree=null;
+        Object STRING154_tree=null;
+        Object ID155_tree=null;
         RewriteRuleTokenStream stream_LTHAN=new RewriteRuleTokenStream(adaptor,"token LTHAN");
         RewriteRuleTokenStream stream_LB=new RewriteRuleTokenStream(adaptor,"token LB");
         RewriteRuleTokenStream stream_RB=new RewriteRuleTokenStream(adaptor,"token RB");
@@ -3720,43 +3856,43 @@ public class PIParser extends Parser {
         RewriteRuleSubtreeStream stream_params=new RewriteRuleSubtreeStream(adaptor,"rule params");
         RewriteRuleSubtreeStream stream_type=new RewriteRuleSubtreeStream(adaptor,"rule type");
         try {
-            if ( state.backtracking>0 && alreadyParsedRule(input, 28) ) { return retval; }
-            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:165:3: ( LP expr RP | LP type RP e= expr -> ^( CAST type $e) | LB expr ( COMMA expr )* RB -> ^( ARRAY ( expr )* ) | ID LB expr RB -> ^( INDEX ID expr ) | obj= ID DOT ref= ID -> ^( OBJ_REF $obj $ref) | LTHAN params GTHAN -> ^( OBJECT_CONSTRUCTOR params ) | exprcall | NUMBER | FPNUMBER | TRUE | FALSE | STRING | ID )
-            int alt26=13;
-            alt26 = dfa26.predict(input);
-            switch (alt26) {
+            if ( state.backtracking>0 && alreadyParsedRule(input, 29) ) { return retval; }
+            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:170:3: ( LP expr RP | LP type RP e= expr -> ^( CAST type $e) | LB expr ( COMMA expr )* RB -> ^( ARRAY ( expr )* ) | ID LB expr RB -> ^( INDEX ID expr ) | obj= ID DOT ref= ID -> ^( OBJ_REF $obj $ref) | LTHAN params GTHAN -> ^( OBJECT_CONSTRUCTOR params ) | exprcall | NUMBER | FPNUMBER | TRUE | FALSE | STRING | ID )
+            int alt27=13;
+            alt27 = dfa27.predict(input);
+            switch (alt27) {
                 case 1 :
-                    // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:165:5: LP expr RP
+                    // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:170:5: LP expr RP
                     {
                     root_0 = (Object)adaptor.nil();
 
-                    LP125=(Token)match(input,LP,FOLLOW_LP_in_atom1096); if (state.failed) return retval;
-                    pushFollow(FOLLOW_expr_in_atom1099);
-                    expr126=expr();
+                    LP130=(Token)match(input,LP,FOLLOW_LP_in_atom1131); if (state.failed) return retval;
+                    pushFollow(FOLLOW_expr_in_atom1134);
+                    expr131=expr();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    if ( state.backtracking==0 ) adaptor.addChild(root_0, expr126.getTree());
-                    RP127=(Token)match(input,RP,FOLLOW_RP_in_atom1101); if (state.failed) return retval;
+                    if ( state.backtracking==0 ) adaptor.addChild(root_0, expr131.getTree());
+                    RP132=(Token)match(input,RP,FOLLOW_RP_in_atom1136); if (state.failed) return retval;
 
                     }
                     break;
                 case 2 :
-                    // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:166:5: LP type RP e= expr
+                    // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:171:5: LP type RP e= expr
                     {
-                    LP128=(Token)match(input,LP,FOLLOW_LP_in_atom1108); if (state.failed) return retval; 
-                    if ( state.backtracking==0 ) stream_LP.add(LP128);
+                    LP133=(Token)match(input,LP,FOLLOW_LP_in_atom1143); if (state.failed) return retval; 
+                    if ( state.backtracking==0 ) stream_LP.add(LP133);
 
-                    pushFollow(FOLLOW_type_in_atom1110);
-                    type129=type();
+                    pushFollow(FOLLOW_type_in_atom1145);
+                    type134=type();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    if ( state.backtracking==0 ) stream_type.add(type129.getTree());
-                    RP130=(Token)match(input,RP,FOLLOW_RP_in_atom1112); if (state.failed) return retval; 
-                    if ( state.backtracking==0 ) stream_RP.add(RP130);
+                    if ( state.backtracking==0 ) stream_type.add(type134.getTree());
+                    RP135=(Token)match(input,RP,FOLLOW_RP_in_atom1147); if (state.failed) return retval; 
+                    if ( state.backtracking==0 ) stream_RP.add(RP135);
 
-                    pushFollow(FOLLOW_expr_in_atom1116);
+                    pushFollow(FOLLOW_expr_in_atom1151);
                     e=expr();
 
                     state._fsp--;
@@ -3765,7 +3901,7 @@ public class PIParser extends Parser {
 
 
                     // AST REWRITE
-                    // elements: e, type
+                    // elements: type, e
                     // token labels: 
                     // rule labels: retval, e
                     // token list labels: 
@@ -3777,9 +3913,9 @@ public class PIParser extends Parser {
                     RewriteRuleSubtreeStream stream_e=new RewriteRuleSubtreeStream(adaptor,"rule e",e!=null?e.tree:null);
 
                     root_0 = (Object)adaptor.nil();
-                    // 166:23: -> ^( CAST type $e)
+                    // 171:23: -> ^( CAST type $e)
                     {
-                        // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:166:26: ^( CAST type $e)
+                        // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:171:26: ^( CAST type $e)
                         {
                         Object root_1 = (Object)adaptor.nil();
                         root_1 = (Object)adaptor.becomeRoot((Object)adaptor.create(CAST, "CAST"), root_1);
@@ -3796,52 +3932,52 @@ public class PIParser extends Parser {
                     }
                     break;
                 case 3 :
-                    // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:167:5: LB expr ( COMMA expr )* RB
+                    // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:172:5: LB expr ( COMMA expr )* RB
                     {
-                    LB131=(Token)match(input,LB,FOLLOW_LB_in_atom1133); if (state.failed) return retval; 
-                    if ( state.backtracking==0 ) stream_LB.add(LB131);
+                    LB136=(Token)match(input,LB,FOLLOW_LB_in_atom1168); if (state.failed) return retval; 
+                    if ( state.backtracking==0 ) stream_LB.add(LB136);
 
-                    pushFollow(FOLLOW_expr_in_atom1135);
-                    expr132=expr();
+                    pushFollow(FOLLOW_expr_in_atom1170);
+                    expr137=expr();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    if ( state.backtracking==0 ) stream_expr.add(expr132.getTree());
-                    // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:167:13: ( COMMA expr )*
-                    loop25:
+                    if ( state.backtracking==0 ) stream_expr.add(expr137.getTree());
+                    // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:172:13: ( COMMA expr )*
+                    loop26:
                     do {
-                        int alt25=2;
-                        int LA25_0 = input.LA(1);
+                        int alt26=2;
+                        int LA26_0 = input.LA(1);
 
-                        if ( (LA25_0==COMMA) ) {
-                            alt25=1;
+                        if ( (LA26_0==COMMA) ) {
+                            alt26=1;
                         }
 
 
-                        switch (alt25) {
+                        switch (alt26) {
                     	case 1 :
-                    	    // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:167:14: COMMA expr
+                    	    // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:172:14: COMMA expr
                     	    {
-                    	    COMMA133=(Token)match(input,COMMA,FOLLOW_COMMA_in_atom1138); if (state.failed) return retval; 
-                    	    if ( state.backtracking==0 ) stream_COMMA.add(COMMA133);
+                    	    COMMA138=(Token)match(input,COMMA,FOLLOW_COMMA_in_atom1173); if (state.failed) return retval; 
+                    	    if ( state.backtracking==0 ) stream_COMMA.add(COMMA138);
 
-                    	    pushFollow(FOLLOW_expr_in_atom1140);
-                    	    expr134=expr();
+                    	    pushFollow(FOLLOW_expr_in_atom1175);
+                    	    expr139=expr();
 
                     	    state._fsp--;
                     	    if (state.failed) return retval;
-                    	    if ( state.backtracking==0 ) stream_expr.add(expr134.getTree());
+                    	    if ( state.backtracking==0 ) stream_expr.add(expr139.getTree());
 
                     	    }
                     	    break;
 
                     	default :
-                    	    break loop25;
+                    	    break loop26;
                         }
                     } while (true);
 
-                    RB135=(Token)match(input,RB,FOLLOW_RB_in_atom1144); if (state.failed) return retval; 
-                    if ( state.backtracking==0 ) stream_RB.add(RB135);
+                    RB140=(Token)match(input,RB,FOLLOW_RB_in_atom1179); if (state.failed) return retval; 
+                    if ( state.backtracking==0 ) stream_RB.add(RB140);
 
 
 
@@ -3857,14 +3993,14 @@ public class PIParser extends Parser {
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                     root_0 = (Object)adaptor.nil();
-                    // 167:30: -> ^( ARRAY ( expr )* )
+                    // 172:30: -> ^( ARRAY ( expr )* )
                     {
-                        // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:167:33: ^( ARRAY ( expr )* )
+                        // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:172:33: ^( ARRAY ( expr )* )
                         {
                         Object root_1 = (Object)adaptor.nil();
                         root_1 = (Object)adaptor.becomeRoot((Object)adaptor.create(ARRAY, "ARRAY"), root_1);
 
-                        // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:167:41: ( expr )*
+                        // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:172:41: ( expr )*
                         while ( stream_expr.hasNext() ) {
                             adaptor.addChild(root_1, stream_expr.nextTree());
 
@@ -3880,27 +4016,27 @@ public class PIParser extends Parser {
                     }
                     break;
                 case 4 :
-                    // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:168:5: ID LB expr RB
+                    // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:173:5: ID LB expr RB
                     {
-                    ID136=(Token)match(input,ID,FOLLOW_ID_in_atom1159); if (state.failed) return retval; 
-                    if ( state.backtracking==0 ) stream_ID.add(ID136);
+                    ID141=(Token)match(input,ID,FOLLOW_ID_in_atom1194); if (state.failed) return retval; 
+                    if ( state.backtracking==0 ) stream_ID.add(ID141);
 
-                    LB137=(Token)match(input,LB,FOLLOW_LB_in_atom1161); if (state.failed) return retval; 
-                    if ( state.backtracking==0 ) stream_LB.add(LB137);
+                    LB142=(Token)match(input,LB,FOLLOW_LB_in_atom1196); if (state.failed) return retval; 
+                    if ( state.backtracking==0 ) stream_LB.add(LB142);
 
-                    pushFollow(FOLLOW_expr_in_atom1163);
-                    expr138=expr();
+                    pushFollow(FOLLOW_expr_in_atom1198);
+                    expr143=expr();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    if ( state.backtracking==0 ) stream_expr.add(expr138.getTree());
-                    RB139=(Token)match(input,RB,FOLLOW_RB_in_atom1165); if (state.failed) return retval; 
-                    if ( state.backtracking==0 ) stream_RB.add(RB139);
+                    if ( state.backtracking==0 ) stream_expr.add(expr143.getTree());
+                    RB144=(Token)match(input,RB,FOLLOW_RB_in_atom1200); if (state.failed) return retval; 
+                    if ( state.backtracking==0 ) stream_RB.add(RB144);
 
 
 
                     // AST REWRITE
-                    // elements: expr, ID
+                    // elements: ID, expr
                     // token labels: 
                     // rule labels: retval
                     // token list labels: 
@@ -3911,9 +4047,9 @@ public class PIParser extends Parser {
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                     root_0 = (Object)adaptor.nil();
-                    // 168:19: -> ^( INDEX ID expr )
+                    // 173:19: -> ^( INDEX ID expr )
                     {
-                        // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:168:22: ^( INDEX ID expr )
+                        // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:173:22: ^( INDEX ID expr )
                         {
                         Object root_1 = (Object)adaptor.nil();
                         root_1 = (Object)adaptor.becomeRoot((Object)adaptor.create(INDEX, "INDEX"), root_1);
@@ -3930,21 +4066,21 @@ public class PIParser extends Parser {
                     }
                     break;
                 case 5 :
-                    // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:169:5: obj= ID DOT ref= ID
+                    // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:174:5: obj= ID DOT ref= ID
                     {
-                    obj=(Token)match(input,ID,FOLLOW_ID_in_atom1183); if (state.failed) return retval; 
+                    obj=(Token)match(input,ID,FOLLOW_ID_in_atom1218); if (state.failed) return retval; 
                     if ( state.backtracking==0 ) stream_ID.add(obj);
 
-                    DOT140=(Token)match(input,DOT,FOLLOW_DOT_in_atom1185); if (state.failed) return retval; 
-                    if ( state.backtracking==0 ) stream_DOT.add(DOT140);
+                    DOT145=(Token)match(input,DOT,FOLLOW_DOT_in_atom1220); if (state.failed) return retval; 
+                    if ( state.backtracking==0 ) stream_DOT.add(DOT145);
 
-                    ref=(Token)match(input,ID,FOLLOW_ID_in_atom1189); if (state.failed) return retval; 
+                    ref=(Token)match(input,ID,FOLLOW_ID_in_atom1224); if (state.failed) return retval; 
                     if ( state.backtracking==0 ) stream_ID.add(ref);
 
 
 
                     // AST REWRITE
-                    // elements: obj, ref
+                    // elements: ref, obj
                     // token labels: ref, obj
                     // rule labels: retval
                     // token list labels: 
@@ -3957,9 +4093,9 @@ public class PIParser extends Parser {
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                     root_0 = (Object)adaptor.nil();
-                    // 169:23: -> ^( OBJ_REF $obj $ref)
+                    // 174:23: -> ^( OBJ_REF $obj $ref)
                     {
-                        // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:169:26: ^( OBJ_REF $obj $ref)
+                        // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:174:26: ^( OBJ_REF $obj $ref)
                         {
                         Object root_1 = (Object)adaptor.nil();
                         root_1 = (Object)adaptor.becomeRoot((Object)adaptor.create(OBJ_REF, "OBJ_REF"), root_1);
@@ -3976,19 +4112,19 @@ public class PIParser extends Parser {
                     }
                     break;
                 case 6 :
-                    // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:170:5: LTHAN params GTHAN
+                    // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:175:5: LTHAN params GTHAN
                     {
-                    LTHAN141=(Token)match(input,LTHAN,FOLLOW_LTHAN_in_atom1207); if (state.failed) return retval; 
-                    if ( state.backtracking==0 ) stream_LTHAN.add(LTHAN141);
+                    LTHAN146=(Token)match(input,LTHAN,FOLLOW_LTHAN_in_atom1242); if (state.failed) return retval; 
+                    if ( state.backtracking==0 ) stream_LTHAN.add(LTHAN146);
 
-                    pushFollow(FOLLOW_params_in_atom1209);
-                    params142=params();
+                    pushFollow(FOLLOW_params_in_atom1244);
+                    params147=params();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    if ( state.backtracking==0 ) stream_params.add(params142.getTree());
-                    GTHAN143=(Token)match(input,GTHAN,FOLLOW_GTHAN_in_atom1211); if (state.failed) return retval; 
-                    if ( state.backtracking==0 ) stream_GTHAN.add(GTHAN143);
+                    if ( state.backtracking==0 ) stream_params.add(params147.getTree());
+                    GTHAN148=(Token)match(input,GTHAN,FOLLOW_GTHAN_in_atom1246); if (state.failed) return retval; 
+                    if ( state.backtracking==0 ) stream_GTHAN.add(GTHAN148);
 
 
 
@@ -4004,9 +4140,9 @@ public class PIParser extends Parser {
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                     root_0 = (Object)adaptor.nil();
-                    // 170:24: -> ^( OBJECT_CONSTRUCTOR params )
+                    // 175:24: -> ^( OBJECT_CONSTRUCTOR params )
                     {
-                        // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:170:27: ^( OBJECT_CONSTRUCTOR params )
+                        // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:175:27: ^( OBJECT_CONSTRUCTOR params )
                         {
                         Object root_1 = (Object)adaptor.nil();
                         root_1 = (Object)adaptor.becomeRoot((Object)adaptor.create(OBJECT_CONSTRUCTOR, "OBJECT_CONSTRUCTOR"), root_1);
@@ -4022,93 +4158,93 @@ public class PIParser extends Parser {
                     }
                     break;
                 case 7 :
-                    // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:171:5: exprcall
+                    // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:176:5: exprcall
                     {
                     root_0 = (Object)adaptor.nil();
 
-                    pushFollow(FOLLOW_exprcall_in_atom1225);
-                    exprcall144=exprcall();
+                    pushFollow(FOLLOW_exprcall_in_atom1260);
+                    exprcall149=exprcall();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    if ( state.backtracking==0 ) adaptor.addChild(root_0, exprcall144.getTree());
+                    if ( state.backtracking==0 ) adaptor.addChild(root_0, exprcall149.getTree());
 
                     }
                     break;
                 case 8 :
-                    // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:172:5: NUMBER
+                    // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:177:5: NUMBER
                     {
                     root_0 = (Object)adaptor.nil();
 
-                    NUMBER145=(Token)match(input,NUMBER,FOLLOW_NUMBER_in_atom1231); if (state.failed) return retval;
+                    NUMBER150=(Token)match(input,NUMBER,FOLLOW_NUMBER_in_atom1266); if (state.failed) return retval;
                     if ( state.backtracking==0 ) {
-                    NUMBER145_tree = (Object)adaptor.create(NUMBER145);
-                    adaptor.addChild(root_0, NUMBER145_tree);
+                    NUMBER150_tree = (Object)adaptor.create(NUMBER150);
+                    adaptor.addChild(root_0, NUMBER150_tree);
                     }
 
                     }
                     break;
                 case 9 :
-                    // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:173:5: FPNUMBER
+                    // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:178:5: FPNUMBER
                     {
                     root_0 = (Object)adaptor.nil();
 
-                    FPNUMBER146=(Token)match(input,FPNUMBER,FOLLOW_FPNUMBER_in_atom1237); if (state.failed) return retval;
+                    FPNUMBER151=(Token)match(input,FPNUMBER,FOLLOW_FPNUMBER_in_atom1272); if (state.failed) return retval;
                     if ( state.backtracking==0 ) {
-                    FPNUMBER146_tree = (Object)adaptor.create(FPNUMBER146);
-                    adaptor.addChild(root_0, FPNUMBER146_tree);
+                    FPNUMBER151_tree = (Object)adaptor.create(FPNUMBER151);
+                    adaptor.addChild(root_0, FPNUMBER151_tree);
                     }
 
                     }
                     break;
                 case 10 :
-                    // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:174:5: TRUE
+                    // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:179:5: TRUE
                     {
                     root_0 = (Object)adaptor.nil();
 
-                    TRUE147=(Token)match(input,TRUE,FOLLOW_TRUE_in_atom1243); if (state.failed) return retval;
+                    TRUE152=(Token)match(input,TRUE,FOLLOW_TRUE_in_atom1278); if (state.failed) return retval;
                     if ( state.backtracking==0 ) {
-                    TRUE147_tree = (Object)adaptor.create(TRUE147);
-                    adaptor.addChild(root_0, TRUE147_tree);
+                    TRUE152_tree = (Object)adaptor.create(TRUE152);
+                    adaptor.addChild(root_0, TRUE152_tree);
                     }
 
                     }
                     break;
                 case 11 :
-                    // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:175:5: FALSE
+                    // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:180:5: FALSE
                     {
                     root_0 = (Object)adaptor.nil();
 
-                    FALSE148=(Token)match(input,FALSE,FOLLOW_FALSE_in_atom1249); if (state.failed) return retval;
+                    FALSE153=(Token)match(input,FALSE,FOLLOW_FALSE_in_atom1284); if (state.failed) return retval;
                     if ( state.backtracking==0 ) {
-                    FALSE148_tree = (Object)adaptor.create(FALSE148);
-                    adaptor.addChild(root_0, FALSE148_tree);
+                    FALSE153_tree = (Object)adaptor.create(FALSE153);
+                    adaptor.addChild(root_0, FALSE153_tree);
                     }
 
                     }
                     break;
                 case 12 :
-                    // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:176:5: STRING
+                    // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:181:5: STRING
                     {
                     root_0 = (Object)adaptor.nil();
 
-                    STRING149=(Token)match(input,STRING,FOLLOW_STRING_in_atom1255); if (state.failed) return retval;
+                    STRING154=(Token)match(input,STRING,FOLLOW_STRING_in_atom1290); if (state.failed) return retval;
                     if ( state.backtracking==0 ) {
-                    STRING149_tree = (Object)adaptor.create(STRING149);
-                    adaptor.addChild(root_0, STRING149_tree);
+                    STRING154_tree = (Object)adaptor.create(STRING154);
+                    adaptor.addChild(root_0, STRING154_tree);
                     }
 
                     }
                     break;
                 case 13 :
-                    // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:177:5: ID
+                    // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:182:5: ID
                     {
                     root_0 = (Object)adaptor.nil();
 
-                    ID150=(Token)match(input,ID,FOLLOW_ID_in_atom1261); if (state.failed) return retval;
+                    ID155=(Token)match(input,ID,FOLLOW_ID_in_atom1296); if (state.failed) return retval;
                     if ( state.backtracking==0 ) {
-                    ID150_tree = (Object)adaptor.create(ID150);
-                    adaptor.addChild(root_0, ID150_tree);
+                    ID155_tree = (Object)adaptor.create(ID155);
+                    adaptor.addChild(root_0, ID155_tree);
                     }
 
                     }
@@ -4130,7 +4266,7 @@ public class PIParser extends Parser {
 
         }
         finally {
-            if ( state.backtracking>0 ) { memoize(input, 28, atom_StartIndex); }
+            if ( state.backtracking>0 ) { memoize(input, 29, atom_StartIndex); }
         }
         return retval;
     }
@@ -4142,69 +4278,69 @@ public class PIParser extends Parser {
     };
 
     // $ANTLR start "string"
-    // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:179:1: string : QUOTE ( . )* QUOTE ;
+    // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:184:1: string : QUOTE ( . )* QUOTE ;
     public final PIParser.string_return string() throws RecognitionException {
         PIParser.string_return retval = new PIParser.string_return();
         retval.start = input.LT(1);
         int string_StartIndex = input.index();
         Object root_0 = null;
 
-        Token QUOTE151=null;
-        Token wildcard152=null;
-        Token QUOTE153=null;
+        Token QUOTE156=null;
+        Token wildcard157=null;
+        Token QUOTE158=null;
 
-        Object QUOTE151_tree=null;
-        Object wildcard152_tree=null;
-        Object QUOTE153_tree=null;
+        Object QUOTE156_tree=null;
+        Object wildcard157_tree=null;
+        Object QUOTE158_tree=null;
 
         try {
-            if ( state.backtracking>0 && alreadyParsedRule(input, 29) ) { return retval; }
-            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:180:3: ( QUOTE ( . )* QUOTE )
-            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:180:5: QUOTE ( . )* QUOTE
+            if ( state.backtracking>0 && alreadyParsedRule(input, 30) ) { return retval; }
+            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:185:3: ( QUOTE ( . )* QUOTE )
+            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:185:5: QUOTE ( . )* QUOTE
             {
             root_0 = (Object)adaptor.nil();
 
-            QUOTE151=(Token)match(input,QUOTE,FOLLOW_QUOTE_in_string1273); if (state.failed) return retval;
-            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:180:12: ( . )*
-            loop27:
+            QUOTE156=(Token)match(input,QUOTE,FOLLOW_QUOTE_in_string1308); if (state.failed) return retval;
+            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:185:12: ( . )*
+            loop28:
             do {
-                int alt27=2;
-                int LA27_0 = input.LA(1);
+                int alt28=2;
+                int LA28_0 = input.LA(1);
 
-                if ( (LA27_0==QUOTE) ) {
-                    int LA27_1 = input.LA(2);
+                if ( (LA28_0==QUOTE) ) {
+                    int LA28_1 = input.LA(2);
 
-                    if ( ((LA27_1>=PROGRAM && LA27_1<=DIGIT)) ) {
-                        alt27=1;
+                    if ( ((LA28_1>=PROGRAM && LA28_1<=DIGIT)) ) {
+                        alt28=1;
                     }
 
 
                 }
-                else if ( ((LA27_0>=PROGRAM && LA27_0<=FALSE)||(LA27_0>=VAR && LA27_0<=DIGIT)) ) {
-                    alt27=1;
+                else if ( ((LA28_0>=PROGRAM && LA28_0<=FALSE)||(LA28_0>=VAR && LA28_0<=DIGIT)) ) {
+                    alt28=1;
                 }
 
 
-                switch (alt27) {
+                switch (alt28) {
             	case 1 :
             	    // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:0:0: .
             	    {
-            	    wildcard152=(Token)input.LT(1);
+            	    wildcard157=(Token)input.LT(1);
             	    matchAny(input); if (state.failed) return retval;
             	    if ( state.backtracking==0 ) {
-            	    wildcard152_tree = (Object)adaptor.create(wildcard152);
-            	    adaptor.addChild(root_0, wildcard152_tree);
+            	    wildcard157_tree = (Object)adaptor.create(wildcard157);
+            	    adaptor.addChild(root_0, wildcard157_tree);
             	    }
 
             	    }
             	    break;
 
             	default :
-            	    break loop27;
+            	    break loop28;
                 }
             } while (true);
 
-            QUOTE153=(Token)match(input,QUOTE,FOLLOW_QUOTE_in_string1279); if (state.failed) return retval;
+            QUOTE158=(Token)match(input,QUOTE,FOLLOW_QUOTE_in_string1314); if (state.failed) return retval;
 
             }
 
@@ -4223,7 +4359,7 @@ public class PIParser extends Parser {
 
         }
         finally {
-            if ( state.backtracking>0 ) { memoize(input, 29, string_StartIndex); }
+            if ( state.backtracking>0 ) { memoize(input, 30, string_StartIndex); }
         }
         return retval;
     }
@@ -4235,28 +4371,28 @@ public class PIParser extends Parser {
     };
 
     // $ANTLR start "type"
-    // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:183:1: type : ( VAR | KEY | OBJECT | ARRAY | VECTOR | VOID );
+    // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:188:1: type : ( VAR | KEY | OBJECT | ARRAY | VECTOR | VOID );
     public final PIParser.type_return type() throws RecognitionException {
         PIParser.type_return retval = new PIParser.type_return();
         retval.start = input.LT(1);
         int type_StartIndex = input.index();
         Object root_0 = null;
 
-        Token set154=null;
+        Token set159=null;
 
-        Object set154_tree=null;
+        Object set159_tree=null;
 
         try {
-            if ( state.backtracking>0 && alreadyParsedRule(input, 30) ) { return retval; }
-            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:184:3: ( VAR | KEY | OBJECT | ARRAY | VECTOR | VOID )
+            if ( state.backtracking>0 && alreadyParsedRule(input, 31) ) { return retval; }
+            // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:189:3: ( VAR | KEY | OBJECT | ARRAY | VECTOR | VOID )
             // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:
             {
             root_0 = (Object)adaptor.nil();
 
-            set154=(Token)input.LT(1);
+            set159=(Token)input.LT(1);
             if ( input.LA(1)==ARRAY||(input.LA(1)>=VAR && input.LA(1)<=VOID) ) {
                 input.consume();
-                if ( state.backtracking==0 ) adaptor.addChild(root_0, (Object)adaptor.create(set154));
+                if ( state.backtracking==0 ) adaptor.addChild(root_0, (Object)adaptor.create(set159));
                 state.errorRecovery=false;state.failed=false;
             }
             else {
@@ -4283,16 +4419,16 @@ public class PIParser extends Parser {
 
         }
         finally {
-            if ( state.backtracking>0 ) { memoize(input, 30, type_StartIndex); }
+            if ( state.backtracking>0 ) { memoize(input, 31, type_StartIndex); }
         }
         return retval;
     }
     // $ANTLR end "type"
 
-    // $ANTLR start synpred26_PI
-    public final void synpred26_PI_fragment() throws RecognitionException {   
-        // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:131:14: ( ( XOR | OR ) andexpr )
-        // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:131:14: ( XOR | OR ) andexpr
+    // $ANTLR start synpred27_PI
+    public final void synpred27_PI_fragment() throws RecognitionException {   
+        // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:136:14: ( ( XOR | OR ) andexpr )
+        // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:136:14: ( XOR | OR ) andexpr
         {
         if ( (input.LA(1)>=XOR && input.LA(1)<=OR) ) {
             input.consume();
@@ -4304,24 +4440,8 @@ public class PIParser extends Parser {
             throw mse;
         }
 
-        pushFollow(FOLLOW_andexpr_in_synpred26_PI853);
+        pushFollow(FOLLOW_andexpr_in_synpred27_PI888);
         andexpr();
-
-        state._fsp--;
-        if (state.failed) return ;
-
-        }
-    }
-    // $ANTLR end synpred26_PI
-
-    // $ANTLR start synpred27_PI
-    public final void synpred27_PI_fragment() throws RecognitionException {   
-        // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:134:13: ( AND eqexpr )
-        // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:134:13: AND eqexpr
-        {
-        match(input,AND,FOLLOW_AND_in_synpred27_PI870); if (state.failed) return ;
-        pushFollow(FOLLOW_eqexpr_in_synpred27_PI873);
-        eqexpr();
 
         state._fsp--;
         if (state.failed) return ;
@@ -4330,10 +4450,26 @@ public class PIParser extends Parser {
     }
     // $ANTLR end synpred27_PI
 
-    // $ANTLR start synpred29_PI
-    public final void synpred29_PI_fragment() throws RecognitionException {   
-        // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:137:14: ( ( EQUIV | NOTEQ ) relexpr )
-        // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:137:14: ( EQUIV | NOTEQ ) relexpr
+    // $ANTLR start synpred28_PI
+    public final void synpred28_PI_fragment() throws RecognitionException {   
+        // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:139:13: ( AND eqexpr )
+        // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:139:13: AND eqexpr
+        {
+        match(input,AND,FOLLOW_AND_in_synpred28_PI905); if (state.failed) return ;
+        pushFollow(FOLLOW_eqexpr_in_synpred28_PI908);
+        eqexpr();
+
+        state._fsp--;
+        if (state.failed) return ;
+
+        }
+    }
+    // $ANTLR end synpred28_PI
+
+    // $ANTLR start synpred30_PI
+    public final void synpred30_PI_fragment() throws RecognitionException {   
+        // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:142:14: ( ( EQUIV | NOTEQ ) relexpr )
+        // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:142:14: ( EQUIV | NOTEQ ) relexpr
         {
         if ( (input.LA(1)>=EQUIV && input.LA(1)<=NOTEQ) ) {
             input.consume();
@@ -4345,7 +4481,7 @@ public class PIParser extends Parser {
             throw mse;
         }
 
-        pushFollow(FOLLOW_relexpr_in_synpred29_PI897);
+        pushFollow(FOLLOW_relexpr_in_synpred30_PI932);
         relexpr();
 
         state._fsp--;
@@ -4353,12 +4489,12 @@ public class PIParser extends Parser {
 
         }
     }
-    // $ANTLR end synpred29_PI
+    // $ANTLR end synpred30_PI
 
-    // $ANTLR start synpred33_PI
-    public final void synpred33_PI_fragment() throws RecognitionException {   
-        // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:140:15: ( ( LTHAN | GTHAN | LTHANE | GTHANE ) plusexpr )
-        // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:140:15: ( LTHAN | GTHAN | LTHANE | GTHANE ) plusexpr
+    // $ANTLR start synpred34_PI
+    public final void synpred34_PI_fragment() throws RecognitionException {   
+        // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:145:15: ( ( LTHAN | GTHAN | LTHANE | GTHANE ) plusexpr )
+        // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:145:15: ( LTHAN | GTHAN | LTHANE | GTHANE ) plusexpr
         {
         if ( (input.LA(1)>=LTHAN && input.LA(1)<=GTHANE) ) {
             input.consume();
@@ -4370,7 +4506,7 @@ public class PIParser extends Parser {
             throw mse;
         }
 
-        pushFollow(FOLLOW_plusexpr_in_synpred33_PI925);
+        pushFollow(FOLLOW_plusexpr_in_synpred34_PI960);
         plusexpr();
 
         state._fsp--;
@@ -4378,12 +4514,12 @@ public class PIParser extends Parser {
 
         }
     }
-    // $ANTLR end synpred33_PI
+    // $ANTLR end synpred34_PI
 
-    // $ANTLR start synpred36_PI
-    public final void synpred36_PI_fragment() throws RecognitionException {   
-        // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:143:15: ( ( PLUS | MINUS | CONCAT ) multexpr )
-        // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:143:15: ( PLUS | MINUS | CONCAT ) multexpr
+    // $ANTLR start synpred37_PI
+    public final void synpred37_PI_fragment() throws RecognitionException {   
+        // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:148:15: ( ( PLUS | MINUS | CONCAT ) multexpr )
+        // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:148:15: ( PLUS | MINUS | CONCAT ) multexpr
         {
         if ( (input.LA(1)>=PLUS && input.LA(1)<=CONCAT) ) {
             input.consume();
@@ -4395,7 +4531,7 @@ public class PIParser extends Parser {
             throw mse;
         }
 
-        pushFollow(FOLLOW_multexpr_in_synpred36_PI951);
+        pushFollow(FOLLOW_multexpr_in_synpred37_PI986);
         multexpr();
 
         state._fsp--;
@@ -4403,12 +4539,12 @@ public class PIParser extends Parser {
 
         }
     }
-    // $ANTLR end synpred36_PI
+    // $ANTLR end synpred37_PI
 
-    // $ANTLR start synpred38_PI
-    public final void synpred38_PI_fragment() throws RecognitionException {   
-        // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:146:14: ( ( MULT | DIV ) powexpr )
-        // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:146:14: ( MULT | DIV ) powexpr
+    // $ANTLR start synpred39_PI
+    public final void synpred39_PI_fragment() throws RecognitionException {   
+        // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:151:14: ( ( MULT | DIV ) powexpr )
+        // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:151:14: ( MULT | DIV ) powexpr
         {
         if ( (input.LA(1)>=MULT && input.LA(1)<=DIV) ) {
             input.consume();
@@ -4420,24 +4556,8 @@ public class PIParser extends Parser {
             throw mse;
         }
 
-        pushFollow(FOLLOW_powexpr_in_synpred38_PI975);
+        pushFollow(FOLLOW_powexpr_in_synpred39_PI1010);
         powexpr();
-
-        state._fsp--;
-        if (state.failed) return ;
-
-        }
-    }
-    // $ANTLR end synpred38_PI
-
-    // $ANTLR start synpred39_PI
-    public final void synpred39_PI_fragment() throws RecognitionException {   
-        // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:149:16: ( POW unaryexpr )
-        // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:149:16: POW unaryexpr
-        {
-        match(input,POW,FOLLOW_POW_in_synpred39_PI992); if (state.failed) return ;
-        pushFollow(FOLLOW_unaryexpr_in_synpred39_PI995);
-        unaryexpr();
 
         state._fsp--;
         if (state.failed) return ;
@@ -4446,13 +4566,29 @@ public class PIParser extends Parser {
     }
     // $ANTLR end synpred39_PI
 
-    // $ANTLR start synpred44_PI
-    public final void synpred44_PI_fragment() throws RecognitionException {   
-        // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:161:11: ( KVPAIR atom )
-        // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:161:11: KVPAIR atom
+    // $ANTLR start synpred40_PI
+    public final void synpred40_PI_fragment() throws RecognitionException {   
+        // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:154:16: ( POW unaryexpr )
+        // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:154:16: POW unaryexpr
         {
-        match(input,KVPAIR,FOLLOW_KVPAIR_in_synpred44_PI1078); if (state.failed) return ;
-        pushFollow(FOLLOW_atom_in_synpred44_PI1081);
+        match(input,POW,FOLLOW_POW_in_synpred40_PI1027); if (state.failed) return ;
+        pushFollow(FOLLOW_unaryexpr_in_synpred40_PI1030);
+        unaryexpr();
+
+        state._fsp--;
+        if (state.failed) return ;
+
+        }
+    }
+    // $ANTLR end synpred40_PI
+
+    // $ANTLR start synpred45_PI
+    public final void synpred45_PI_fragment() throws RecognitionException {   
+        // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:166:11: ( KVPAIR atom )
+        // C:\\Users\\Lyle\\workspace\\PIDSL\\src\\PISDLParser\\PI.g:166:11: KVPAIR atom
+        {
+        match(input,KVPAIR,FOLLOW_KVPAIR_in_synpred45_PI1113); if (state.failed) return ;
+        pushFollow(FOLLOW_atom_in_synpred45_PI1116);
         atom();
 
         state._fsp--;
@@ -4460,15 +4596,15 @@ public class PIParser extends Parser {
 
         }
     }
-    // $ANTLR end synpred44_PI
+    // $ANTLR end synpred45_PI
 
     // Delegated rules
 
-    public final boolean synpred26_PI() {
+    public final boolean synpred37_PI() {
         state.backtracking++;
         int start = input.mark();
         try {
-            synpred26_PI_fragment(); // can never throw exception
+            synpred37_PI_fragment(); // can never throw exception
         } catch (RecognitionException re) {
             System.err.println("impossible: "+re);
         }
@@ -4478,11 +4614,11 @@ public class PIParser extends Parser {
         state.failed=false;
         return success;
     }
-    public final boolean synpred36_PI() {
+    public final boolean synpred34_PI() {
         state.backtracking++;
         int start = input.mark();
         try {
-            synpred36_PI_fragment(); // can never throw exception
+            synpred34_PI_fragment(); // can never throw exception
         } catch (RecognitionException re) {
             System.err.println("impossible: "+re);
         }
@@ -4492,11 +4628,39 @@ public class PIParser extends Parser {
         state.failed=false;
         return success;
     }
-    public final boolean synpred38_PI() {
+    public final boolean synpred45_PI() {
         state.backtracking++;
         int start = input.mark();
         try {
-            synpred38_PI_fragment(); // can never throw exception
+            synpred45_PI_fragment(); // can never throw exception
+        } catch (RecognitionException re) {
+            System.err.println("impossible: "+re);
+        }
+        boolean success = !state.failed;
+        input.rewind(start);
+        state.backtracking--;
+        state.failed=false;
+        return success;
+    }
+    public final boolean synpred40_PI() {
+        state.backtracking++;
+        int start = input.mark();
+        try {
+            synpred40_PI_fragment(); // can never throw exception
+        } catch (RecognitionException re) {
+            System.err.println("impossible: "+re);
+        }
+        boolean success = !state.failed;
+        input.rewind(start);
+        state.backtracking--;
+        state.failed=false;
+        return success;
+    }
+    public final boolean synpred28_PI() {
+        state.backtracking++;
+        int start = input.mark();
+        try {
+            synpred28_PI_fragment(); // can never throw exception
         } catch (RecognitionException re) {
             System.err.println("impossible: "+re);
         }
@@ -4520,25 +4684,11 @@ public class PIParser extends Parser {
         state.failed=false;
         return success;
     }
-    public final boolean synpred44_PI() {
+    public final boolean synpred30_PI() {
         state.backtracking++;
         int start = input.mark();
         try {
-            synpred44_PI_fragment(); // can never throw exception
-        } catch (RecognitionException re) {
-            System.err.println("impossible: "+re);
-        }
-        boolean success = !state.failed;
-        input.rewind(start);
-        state.backtracking--;
-        state.failed=false;
-        return success;
-    }
-    public final boolean synpred33_PI() {
-        state.backtracking++;
-        int start = input.mark();
-        try {
-            synpred33_PI_fragment(); // can never throw exception
+            synpred30_PI_fragment(); // can never throw exception
         } catch (RecognitionException re) {
             System.err.println("impossible: "+re);
         }
@@ -4562,24 +4712,10 @@ public class PIParser extends Parser {
         state.failed=false;
         return success;
     }
-    public final boolean synpred29_PI() {
-        state.backtracking++;
-        int start = input.mark();
-        try {
-            synpred29_PI_fragment(); // can never throw exception
-        } catch (RecognitionException re) {
-            System.err.println("impossible: "+re);
-        }
-        boolean success = !state.failed;
-        input.rewind(start);
-        state.backtracking--;
-        state.failed=false;
-        return success;
-    }
 
 
     protected DFA5 dfa5 = new DFA5(this);
-    protected DFA26 dfa26 = new DFA26(this);
+    protected DFA27 dfa27 = new DFA27(this);
     static final String DFA5_eotS =
         "\13\uffff";
     static final String DFA5_eofS =
@@ -4587,15 +4723,15 @@ public class PIParser extends Parser {
     static final String DFA5_minS =
         "\1\16\1\27\11\uffff";
     static final String DFA5_maxS =
-        "\1\105\1\50\11\uffff";
+        "\1\106\1\51\11\uffff";
     static final String DFA5_acceptS =
         "\2\uffff\1\2\1\3\1\4\1\6\1\7\1\10\1\11\1\1\1\5";
     static final String DFA5_specialS =
         "\13\uffff}>";
     static final String[] DFA5_transitionS = {
-            "\1\2\7\uffff\1\1\2\uffff\1\7\1\10\1\6\2\uffff\1\5\1\uffff\1"+
+            "\1\2\7\uffff\1\1\2\uffff\1\7\1\10\3\uffff\1\6\1\5\1\uffff\1"+
             "\4\2\3\36\uffff\5\2",
-            "\1\11\4\uffff\1\12\10\uffff\2\11\1\uffff\1\11",
+            "\1\11\4\uffff\1\12\11\uffff\2\11\1\uffff\1\11",
             "",
             "",
             "",
@@ -4640,26 +4776,26 @@ public class PIParser extends Parser {
             return "67:1: statement : ( assignment | declaration | printstatement | returnstatement | statcall | ifstatement | whilestatement | BREAK SC | CONTINUE SC );";
         }
     }
-    static final String DFA26_eotS =
+    static final String DFA27_eotS =
         "\20\uffff";
-    static final String DFA26_eofS =
+    static final String DFA27_eofS =
         "\3\uffff\1\17\14\uffff";
-    static final String DFA26_minS =
+    static final String DFA27_minS =
         "\1\25\1\16\1\uffff\1\30\14\uffff";
-    static final String DFA26_maxS =
-        "\1\77\1\105\1\uffff\1\73\14\uffff";
-    static final String DFA26_acceptS =
-        "\2\uffff\1\3\1\uffff\1\6\1\10\1\11\1\12\1\13\1\14\1\1\1\2\1\4\1"+
-        "\5\1\7\1\15";
-    static final String DFA26_specialS =
+    static final String DFA27_maxS =
+        "\1\100\1\106\1\uffff\1\74\14\uffff";
+    static final String DFA27_acceptS =
+        "\2\uffff\1\3\1\uffff\1\6\1\7\1\10\1\11\1\12\1\13\1\14\1\1\1\2\1"+
+        "\4\1\5\1\15";
+    static final String DFA27_specialS =
         "\20\uffff}>";
-    static final String[] DFA26_transitionS = {
-            "\1\11\1\3\5\uffff\1\1\11\uffff\1\2\10\uffff\1\4\14\uffff\1"+
-            "\5\1\6\1\7\1\10",
-            "\1\13\6\uffff\2\12\5\uffff\1\12\11\uffff\1\12\10\uffff\1\12"+
-            "\3\uffff\2\12\4\uffff\2\12\1\uffff\4\12\1\uffff\5\13",
+    static final String[] DFA27_transitionS = {
+            "\1\12\1\3\4\uffff\1\5\1\1\12\uffff\1\2\10\uffff\1\4\14\uffff"+
+            "\1\6\1\7\1\10\1\11",
+            "\1\14\6\uffff\2\13\4\uffff\2\13\12\uffff\1\13\10\uffff\1\13"+
+            "\3\uffff\2\13\4\uffff\2\13\1\uffff\4\13\1\uffff\5\14",
             "",
-            "\1\17\3\uffff\1\16\1\17\7\uffff\1\15\1\14\1\17\1\uffff\20"+
+            "\1\17\3\uffff\1\5\1\17\10\uffff\1\16\1\15\1\17\1\uffff\20"+
             "\17\2\uffff\1\17",
             "",
             "",
@@ -4675,50 +4811,50 @@ public class PIParser extends Parser {
             ""
     };
 
-    static final short[] DFA26_eot = DFA.unpackEncodedString(DFA26_eotS);
-    static final short[] DFA26_eof = DFA.unpackEncodedString(DFA26_eofS);
-    static final char[] DFA26_min = DFA.unpackEncodedStringToUnsignedChars(DFA26_minS);
-    static final char[] DFA26_max = DFA.unpackEncodedStringToUnsignedChars(DFA26_maxS);
-    static final short[] DFA26_accept = DFA.unpackEncodedString(DFA26_acceptS);
-    static final short[] DFA26_special = DFA.unpackEncodedString(DFA26_specialS);
-    static final short[][] DFA26_transition;
+    static final short[] DFA27_eot = DFA.unpackEncodedString(DFA27_eotS);
+    static final short[] DFA27_eof = DFA.unpackEncodedString(DFA27_eofS);
+    static final char[] DFA27_min = DFA.unpackEncodedStringToUnsignedChars(DFA27_minS);
+    static final char[] DFA27_max = DFA.unpackEncodedStringToUnsignedChars(DFA27_maxS);
+    static final short[] DFA27_accept = DFA.unpackEncodedString(DFA27_acceptS);
+    static final short[] DFA27_special = DFA.unpackEncodedString(DFA27_specialS);
+    static final short[][] DFA27_transition;
 
     static {
-        int numStates = DFA26_transitionS.length;
-        DFA26_transition = new short[numStates][];
+        int numStates = DFA27_transitionS.length;
+        DFA27_transition = new short[numStates][];
         for (int i=0; i<numStates; i++) {
-            DFA26_transition[i] = DFA.unpackEncodedString(DFA26_transitionS[i]);
+            DFA27_transition[i] = DFA.unpackEncodedString(DFA27_transitionS[i]);
         }
     }
 
-    class DFA26 extends DFA {
+    class DFA27 extends DFA {
 
-        public DFA26(BaseRecognizer recognizer) {
+        public DFA27(BaseRecognizer recognizer) {
             this.recognizer = recognizer;
-            this.decisionNumber = 26;
-            this.eot = DFA26_eot;
-            this.eof = DFA26_eof;
-            this.min = DFA26_min;
-            this.max = DFA26_max;
-            this.accept = DFA26_accept;
-            this.special = DFA26_special;
-            this.transition = DFA26_transition;
+            this.decisionNumber = 27;
+            this.eot = DFA27_eot;
+            this.eof = DFA27_eof;
+            this.min = DFA27_min;
+            this.max = DFA27_max;
+            this.accept = DFA27_accept;
+            this.special = DFA27_special;
+            this.transition = DFA27_transition;
         }
         public String getDescription() {
-            return "164:1: atom : ( LP expr RP | LP type RP e= expr -> ^( CAST type $e) | LB expr ( COMMA expr )* RB -> ^( ARRAY ( expr )* ) | ID LB expr RB -> ^( INDEX ID expr ) | obj= ID DOT ref= ID -> ^( OBJ_REF $obj $ref) | LTHAN params GTHAN -> ^( OBJECT_CONSTRUCTOR params ) | exprcall | NUMBER | FPNUMBER | TRUE | FALSE | STRING | ID );";
+            return "169:1: atom : ( LP expr RP | LP type RP e= expr -> ^( CAST type $e) | LB expr ( COMMA expr )* RB -> ^( ARRAY ( expr )* ) | ID LB expr RB -> ^( INDEX ID expr ) | obj= ID DOT ref= ID -> ^( OBJ_REF $obj $ref) | LTHAN params GTHAN -> ^( OBJECT_CONSTRUCTOR params ) | exprcall | NUMBER | FPNUMBER | TRUE | FALSE | STRING | ID );";
         }
     }
  
 
-    public static final BitSet FOLLOW_imports_in_program153 = new BitSet(new long[]{0x0000000000104000L,0x000000000000003EL});
+    public static final BitSet FOLLOW_imports_in_program153 = new BitSet(new long[]{0x0000000000104000L,0x000000000000007CL});
     public static final BitSet FOLLOW_globals_in_program156 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_INCLUDE_in_imports179 = new BitSet(new long[]{0x0000000000200000L});
     public static final BitSet FOLLOW_STRING_in_imports181 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_declaration_in_globals198 = new BitSet(new long[]{0x0000000000004002L,0x000000000000003EL});
-    public static final BitSet FOLLOW_function_in_globals201 = new BitSet(new long[]{0x0000000000004002L,0x000000000000003EL});
+    public static final BitSet FOLLOW_declaration_in_globals198 = new BitSet(new long[]{0x0000000000004002L,0x000000000000007CL});
+    public static final BitSet FOLLOW_function_in_globals201 = new BitSet(new long[]{0x0000000000004002L,0x000000000000007CL});
     public static final BitSet FOLLOW_type_in_declaration220 = new BitSet(new long[]{0x0000000000400000L});
     public static final BitSet FOLLOW_ID_in_declaration222 = new BitSet(new long[]{0x0000000001800000L});
-    public static final BitSet FOLLOW_EQUAL_in_declaration225 = new BitSet(new long[]{0xF618804010600000L});
+    public static final BitSet FOLLOW_EQUAL_in_declaration225 = new BitSet(new long[]{0xEC31008018600000L,0x0000000000000001L});
     public static final BitSet FOLLOW_expr_in_declaration227 = new BitSet(new long[]{0x0000000001000000L});
     public static final BitSet FOLLOW_SC_in_declaration231 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_assignment_in_statement263 = new BitSet(new long[]{0x0000000000000002L});
@@ -4732,159 +4868,164 @@ public class PIParser extends Parser {
     public static final BitSet FOLLOW_SC_in_statement307 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_CONTINUE_in_statement314 = new BitSet(new long[]{0x0000000001000000L});
     public static final BitSet FOLLOW_SC_in_statement316 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_WHILE_in_whilestatement332 = new BitSet(new long[]{0x0000000010000000L});
-    public static final BitSet FOLLOW_LP_in_whilestatement334 = new BitSet(new long[]{0xF618804010600000L});
-    public static final BitSet FOLLOW_expr_in_whilestatement336 = new BitSet(new long[]{0x0000000020000000L});
-    public static final BitSet FOLLOW_RP_in_whilestatement338 = new BitSet(new long[]{0x0000000800000000L});
-    public static final BitSet FOLLOW_block_in_whilestatement340 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_IF_in_ifstatement365 = new BitSet(new long[]{0x0000000010000000L});
-    public static final BitSet FOLLOW_LP_in_ifstatement367 = new BitSet(new long[]{0xF618804010600000L});
-    public static final BitSet FOLLOW_expr_in_ifstatement369 = new BitSet(new long[]{0x0000000020000000L});
-    public static final BitSet FOLLOW_RP_in_ifstatement371 = new BitSet(new long[]{0x0000000800000000L});
-    public static final BitSet FOLLOW_block_in_ifstatement373 = new BitSet(new long[]{0x0000000080000002L});
-    public static final BitSet FOLLOW_ELSE_in_ifstatement376 = new BitSet(new long[]{0x0000000800000000L});
-    public static final BitSet FOLLOW_block_in_ifstatement378 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RETURN_in_returnstatement411 = new BitSet(new long[]{0xF618804011600000L});
-    public static final BitSet FOLLOW_expr_in_returnstatement413 = new BitSet(new long[]{0x0000000001000000L});
-    public static final BitSet FOLLOW_SC_in_returnstatement416 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_PRINT_in_printstatement440 = new BitSet(new long[]{0x0000000010000000L});
-    public static final BitSet FOLLOW_LP_in_printstatement442 = new BitSet(new long[]{0xF618804010600000L});
-    public static final BitSet FOLLOW_expr_in_printstatement444 = new BitSet(new long[]{0x0000000020000000L});
-    public static final BitSet FOLLOW_RP_in_printstatement446 = new BitSet(new long[]{0x0000000001000000L});
-    public static final BitSet FOLLOW_SC_in_printstatement448 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_PRINTLN_in_printstatement462 = new BitSet(new long[]{0x0000000010000000L});
-    public static final BitSet FOLLOW_LP_in_printstatement464 = new BitSet(new long[]{0xF618804010600000L});
-    public static final BitSet FOLLOW_expr_in_printstatement466 = new BitSet(new long[]{0x0000000020000000L});
-    public static final BitSet FOLLOW_RP_in_printstatement468 = new BitSet(new long[]{0x0000000001000000L});
-    public static final BitSet FOLLOW_SC_in_printstatement470 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_LBRACE_in_block493 = new BitSet(new long[]{0x000000174E404000L,0x000000000000003EL});
-    public static final BitSet FOLLOW_statement_in_block495 = new BitSet(new long[]{0x000000174E404000L,0x000000000000003EL});
-    public static final BitSet FOLLOW_RBRACE_in_block498 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ID_in_assignment524 = new BitSet(new long[]{0x0000002000000000L});
-    public static final BitSet FOLLOW_DOT_in_assignment526 = new BitSet(new long[]{0x0000000000400000L});
-    public static final BitSet FOLLOW_ID_in_assignment530 = new BitSet(new long[]{0x0000000000800000L});
-    public static final BitSet FOLLOW_EQUAL_in_assignment532 = new BitSet(new long[]{0xF618804010600000L});
-    public static final BitSet FOLLOW_expr_in_assignment534 = new BitSet(new long[]{0x0000000001000000L});
-    public static final BitSet FOLLOW_SC_in_assignment536 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ID_in_assignment556 = new BitSet(new long[]{0x0000004000000000L});
-    public static final BitSet FOLLOW_LB_in_assignment558 = new BitSet(new long[]{0xF618804010600000L});
-    public static final BitSet FOLLOW_expr_in_assignment562 = new BitSet(new long[]{0x0000008000000000L});
-    public static final BitSet FOLLOW_RB_in_assignment564 = new BitSet(new long[]{0x0000000000800000L});
-    public static final BitSet FOLLOW_EQUAL_in_assignment566 = new BitSet(new long[]{0xF618804010600000L});
-    public static final BitSet FOLLOW_expr_in_assignment570 = new BitSet(new long[]{0x0000000001000000L});
-    public static final BitSet FOLLOW_SC_in_assignment572 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ID_in_assignment592 = new BitSet(new long[]{0x0000000000800000L});
-    public static final BitSet FOLLOW_EQUAL_in_assignment594 = new BitSet(new long[]{0xF618804010600000L});
-    public static final BitSet FOLLOW_expr_in_assignment596 = new BitSet(new long[]{0x0000000001000000L});
-    public static final BitSet FOLLOW_SC_in_assignment598 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ID_in_assignment614 = new BitSet(new long[]{0x0000010000000000L});
-    public static final BitSet FOLLOW_SET_in_assignment616 = new BitSet(new long[]{0xF618804010600000L});
-    public static final BitSet FOLLOW_expr_in_assignment618 = new BitSet(new long[]{0x0000000001000000L});
-    public static final BitSet FOLLOW_SC_in_assignment620 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_type_in_function645 = new BitSet(new long[]{0x0000000000400000L});
-    public static final BitSet FOLLOW_ID_in_function647 = new BitSet(new long[]{0x0000000010000000L});
-    public static final BitSet FOLLOW_LP_in_function649 = new BitSet(new long[]{0x0000000020004000L,0x000000000000003EL});
-    public static final BitSet FOLLOW_params_in_function651 = new BitSet(new long[]{0x0000000020000000L});
-    public static final BitSet FOLLOW_RP_in_function654 = new BitSet(new long[]{0x0000000800000000L});
-    public static final BitSet FOLLOW_block_in_function656 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_parameter_in_params685 = new BitSet(new long[]{0x0000020000000002L});
-    public static final BitSet FOLLOW_COMMA_in_params688 = new BitSet(new long[]{0x0000000000004000L,0x000000000000003EL});
-    public static final BitSet FOLLOW_parameter_in_params690 = new BitSet(new long[]{0x0000020000000002L});
-    public static final BitSet FOLLOW_type_in_parameter713 = new BitSet(new long[]{0x0000000000400000L});
-    public static final BitSet FOLLOW_ID_in_parameter715 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ID_in_statcall738 = new BitSet(new long[]{0x0000000010000000L});
-    public static final BitSet FOLLOW_LP_in_statcall740 = new BitSet(new long[]{0xF618804030600000L});
-    public static final BitSet FOLLOW_args_in_statcall742 = new BitSet(new long[]{0x0000000020000000L});
-    public static final BitSet FOLLOW_RP_in_statcall745 = new BitSet(new long[]{0x0000000001000000L});
-    public static final BitSet FOLLOW_SC_in_statcall747 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ID_in_exprcall770 = new BitSet(new long[]{0x0000000010000000L});
-    public static final BitSet FOLLOW_LP_in_exprcall772 = new BitSet(new long[]{0xF618804030600000L});
-    public static final BitSet FOLLOW_args_in_exprcall774 = new BitSet(new long[]{0x0000000020000000L});
-    public static final BitSet FOLLOW_RP_in_exprcall777 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_expr_in_args800 = new BitSet(new long[]{0x0000020000000002L});
-    public static final BitSet FOLLOW_COMMA_in_args803 = new BitSet(new long[]{0xF618804010600000L});
-    public static final BitSet FOLLOW_expr_in_args805 = new BitSet(new long[]{0x0000020000000002L});
-    public static final BitSet FOLLOW_orexpr_in_expr831 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_andexpr_in_orexpr843 = new BitSet(new long[]{0x00000C0000000002L});
-    public static final BitSet FOLLOW_set_in_orexpr846 = new BitSet(new long[]{0xF618804010600000L});
-    public static final BitSet FOLLOW_andexpr_in_orexpr853 = new BitSet(new long[]{0x00000C0000000002L});
-    public static final BitSet FOLLOW_eqexpr_in_andexpr867 = new BitSet(new long[]{0x0000100000000002L});
-    public static final BitSet FOLLOW_AND_in_andexpr870 = new BitSet(new long[]{0xF618804010600000L});
-    public static final BitSet FOLLOW_eqexpr_in_andexpr873 = new BitSet(new long[]{0x0000100000000002L});
-    public static final BitSet FOLLOW_relexpr_in_eqexpr887 = new BitSet(new long[]{0x0000600000000002L});
-    public static final BitSet FOLLOW_set_in_eqexpr890 = new BitSet(new long[]{0xF618804010600000L});
-    public static final BitSet FOLLOW_relexpr_in_eqexpr897 = new BitSet(new long[]{0x0000600000000002L});
-    public static final BitSet FOLLOW_plusexpr_in_relexpr911 = new BitSet(new long[]{0x0007800000000002L});
-    public static final BitSet FOLLOW_set_in_relexpr914 = new BitSet(new long[]{0xF618804010600000L});
-    public static final BitSet FOLLOW_plusexpr_in_relexpr925 = new BitSet(new long[]{0x0007800000000002L});
-    public static final BitSet FOLLOW_multexpr_in_plusexpr939 = new BitSet(new long[]{0x0038000000000002L});
-    public static final BitSet FOLLOW_set_in_plusexpr942 = new BitSet(new long[]{0xF618804010600000L});
-    public static final BitSet FOLLOW_multexpr_in_plusexpr951 = new BitSet(new long[]{0x0038000000000002L});
-    public static final BitSet FOLLOW_powexpr_in_multexpr965 = new BitSet(new long[]{0x00C0000000000002L});
-    public static final BitSet FOLLOW_set_in_multexpr968 = new BitSet(new long[]{0xF618804010600000L});
-    public static final BitSet FOLLOW_powexpr_in_multexpr975 = new BitSet(new long[]{0x00C0000000000002L});
-    public static final BitSet FOLLOW_unaryexpr_in_powexpr989 = new BitSet(new long[]{0x0100000000000002L});
-    public static final BitSet FOLLOW_POW_in_powexpr992 = new BitSet(new long[]{0xF618804010600000L});
-    public static final BitSet FOLLOW_unaryexpr_in_powexpr995 = new BitSet(new long[]{0x0100000000000002L});
-    public static final BitSet FOLLOW_PLUS_in_unaryexpr1010 = new BitSet(new long[]{0xF618804010600000L});
-    public static final BitSet FOLLOW_unaryexpr_in_unaryexpr1012 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_MINUS_in_unaryexpr1026 = new BitSet(new long[]{0xF618804010600000L});
-    public static final BitSet FOLLOW_unaryexpr_in_unaryexpr1028 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_NOT_in_unaryexpr1042 = new BitSet(new long[]{0xF618804010600000L});
-    public static final BitSet FOLLOW_unaryexpr_in_unaryexpr1045 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_GET_in_unaryexpr1051 = new BitSet(new long[]{0xF618804010600000L});
-    public static final BitSet FOLLOW_catom_in_unaryexpr1054 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_catom_in_unaryexpr1060 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_atom_in_catom1075 = new BitSet(new long[]{0x0800000000000002L});
-    public static final BitSet FOLLOW_KVPAIR_in_catom1078 = new BitSet(new long[]{0xF618804010600000L});
-    public static final BitSet FOLLOW_atom_in_catom1081 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_LP_in_atom1096 = new BitSet(new long[]{0xF618804010600000L});
-    public static final BitSet FOLLOW_expr_in_atom1099 = new BitSet(new long[]{0x0000000020000000L});
-    public static final BitSet FOLLOW_RP_in_atom1101 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_LP_in_atom1108 = new BitSet(new long[]{0x0000000000004000L,0x000000000000003EL});
-    public static final BitSet FOLLOW_type_in_atom1110 = new BitSet(new long[]{0x0000000020000000L});
-    public static final BitSet FOLLOW_RP_in_atom1112 = new BitSet(new long[]{0xF618804010600000L});
-    public static final BitSet FOLLOW_expr_in_atom1116 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_LB_in_atom1133 = new BitSet(new long[]{0xF618804010600000L});
-    public static final BitSet FOLLOW_expr_in_atom1135 = new BitSet(new long[]{0x0000028000000000L});
-    public static final BitSet FOLLOW_COMMA_in_atom1138 = new BitSet(new long[]{0xF618804010600000L});
-    public static final BitSet FOLLOW_expr_in_atom1140 = new BitSet(new long[]{0x0000028000000000L});
-    public static final BitSet FOLLOW_RB_in_atom1144 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ID_in_atom1159 = new BitSet(new long[]{0x0000004000000000L});
-    public static final BitSet FOLLOW_LB_in_atom1161 = new BitSet(new long[]{0xF618804010600000L});
-    public static final BitSet FOLLOW_expr_in_atom1163 = new BitSet(new long[]{0x0000008000000000L});
-    public static final BitSet FOLLOW_RB_in_atom1165 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ID_in_atom1183 = new BitSet(new long[]{0x0000002000000000L});
-    public static final BitSet FOLLOW_DOT_in_atom1185 = new BitSet(new long[]{0x0000000000400000L});
-    public static final BitSet FOLLOW_ID_in_atom1189 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_LTHAN_in_atom1207 = new BitSet(new long[]{0x0000000000004000L,0x000000000000003EL});
-    public static final BitSet FOLLOW_params_in_atom1209 = new BitSet(new long[]{0x0001000000000000L});
-    public static final BitSet FOLLOW_GTHAN_in_atom1211 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_exprcall_in_atom1225 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_NUMBER_in_atom1231 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_FPNUMBER_in_atom1237 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_TRUE_in_atom1243 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_FALSE_in_atom1249 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_STRING_in_atom1255 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ID_in_atom1261 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_QUOTE_in_string1273 = new BitSet(new long[]{0xFFFFFFFFFFFFFFF0L,0x0000000000007FFFL});
-    public static final BitSet FOLLOW_QUOTE_in_string1279 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_READ_JSON_in_readfunction332 = new BitSet(new long[]{0x0000000010000000L});
+    public static final BitSet FOLLOW_LP_in_readfunction334 = new BitSet(new long[]{0xEC31008018600000L,0x0000000000000001L});
+    public static final BitSet FOLLOW_expr_in_readfunction336 = new BitSet(new long[]{0x0000000020000000L});
+    public static final BitSet FOLLOW_RP_in_readfunction338 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_WHILE_in_whilestatement361 = new BitSet(new long[]{0x0000000010000000L});
+    public static final BitSet FOLLOW_LP_in_whilestatement363 = new BitSet(new long[]{0xEC31008018600000L,0x0000000000000001L});
+    public static final BitSet FOLLOW_expr_in_whilestatement365 = new BitSet(new long[]{0x0000000020000000L});
+    public static final BitSet FOLLOW_RP_in_whilestatement367 = new BitSet(new long[]{0x0000001000000000L});
+    public static final BitSet FOLLOW_block_in_whilestatement369 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_IF_in_ifstatement394 = new BitSet(new long[]{0x0000000010000000L});
+    public static final BitSet FOLLOW_LP_in_ifstatement396 = new BitSet(new long[]{0xEC31008018600000L,0x0000000000000001L});
+    public static final BitSet FOLLOW_expr_in_ifstatement398 = new BitSet(new long[]{0x0000000020000000L});
+    public static final BitSet FOLLOW_RP_in_ifstatement400 = new BitSet(new long[]{0x0000001000000000L});
+    public static final BitSet FOLLOW_block_in_ifstatement402 = new BitSet(new long[]{0x0000000100000002L});
+    public static final BitSet FOLLOW_ELSE_in_ifstatement405 = new BitSet(new long[]{0x0000001000000000L});
+    public static final BitSet FOLLOW_block_in_ifstatement407 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RETURN_in_returnstatement440 = new BitSet(new long[]{0xEC31008019600000L,0x0000000000000001L});
+    public static final BitSet FOLLOW_expr_in_returnstatement442 = new BitSet(new long[]{0x0000000001000000L});
+    public static final BitSet FOLLOW_SC_in_returnstatement445 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_PRINT_in_printstatement469 = new BitSet(new long[]{0x0000000010000000L});
+    public static final BitSet FOLLOW_LP_in_printstatement471 = new BitSet(new long[]{0xEC31008018600000L,0x0000000000000001L});
+    public static final BitSet FOLLOW_expr_in_printstatement473 = new BitSet(new long[]{0x0000000020000000L});
+    public static final BitSet FOLLOW_RP_in_printstatement475 = new BitSet(new long[]{0x0000000001000000L});
+    public static final BitSet FOLLOW_SC_in_printstatement477 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_PRINTLN_in_printstatement491 = new BitSet(new long[]{0x0000000010000000L});
+    public static final BitSet FOLLOW_LP_in_printstatement493 = new BitSet(new long[]{0xEC31008018600000L,0x0000000000000001L});
+    public static final BitSet FOLLOW_expr_in_printstatement495 = new BitSet(new long[]{0x0000000020000000L});
+    public static final BitSet FOLLOW_RP_in_printstatement497 = new BitSet(new long[]{0x0000000001000000L});
+    public static final BitSet FOLLOW_SC_in_printstatement499 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_LBRACE_in_block522 = new BitSet(new long[]{0x0000002EC6404000L,0x000000000000007CL});
+    public static final BitSet FOLLOW_statement_in_block524 = new BitSet(new long[]{0x0000002EC6404000L,0x000000000000007CL});
+    public static final BitSet FOLLOW_RBRACE_in_block527 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ID_in_assignment553 = new BitSet(new long[]{0x0000004000000000L});
+    public static final BitSet FOLLOW_DOT_in_assignment555 = new BitSet(new long[]{0x0000000000400000L});
+    public static final BitSet FOLLOW_ID_in_assignment559 = new BitSet(new long[]{0x0000000000800000L});
+    public static final BitSet FOLLOW_EQUAL_in_assignment561 = new BitSet(new long[]{0xEC31008018600000L,0x0000000000000001L});
+    public static final BitSet FOLLOW_expr_in_assignment563 = new BitSet(new long[]{0x0000000001000000L});
+    public static final BitSet FOLLOW_SC_in_assignment565 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ID_in_assignment585 = new BitSet(new long[]{0x0000008000000000L});
+    public static final BitSet FOLLOW_LB_in_assignment587 = new BitSet(new long[]{0xEC31008018600000L,0x0000000000000001L});
+    public static final BitSet FOLLOW_expr_in_assignment591 = new BitSet(new long[]{0x0000010000000000L});
+    public static final BitSet FOLLOW_RB_in_assignment593 = new BitSet(new long[]{0x0000000000800000L});
+    public static final BitSet FOLLOW_EQUAL_in_assignment595 = new BitSet(new long[]{0xEC31008018600000L,0x0000000000000001L});
+    public static final BitSet FOLLOW_expr_in_assignment599 = new BitSet(new long[]{0x0000000001000000L});
+    public static final BitSet FOLLOW_SC_in_assignment601 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ID_in_assignment621 = new BitSet(new long[]{0x0000000000800000L});
+    public static final BitSet FOLLOW_EQUAL_in_assignment623 = new BitSet(new long[]{0xEC31008018600000L,0x0000000000000001L});
+    public static final BitSet FOLLOW_expr_in_assignment625 = new BitSet(new long[]{0x0000000001000000L});
+    public static final BitSet FOLLOW_SC_in_assignment627 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ID_in_assignment643 = new BitSet(new long[]{0x0000020000000000L});
+    public static final BitSet FOLLOW_SET_in_assignment645 = new BitSet(new long[]{0xEC31008018600000L,0x0000000000000001L});
+    public static final BitSet FOLLOW_expr_in_assignment647 = new BitSet(new long[]{0x0000000001000000L});
+    public static final BitSet FOLLOW_SC_in_assignment649 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_type_in_function674 = new BitSet(new long[]{0x0000000000400000L});
+    public static final BitSet FOLLOW_ID_in_function676 = new BitSet(new long[]{0x0000000010000000L});
+    public static final BitSet FOLLOW_LP_in_function678 = new BitSet(new long[]{0x0000000020004000L,0x000000000000007CL});
+    public static final BitSet FOLLOW_params_in_function680 = new BitSet(new long[]{0x0000000020000000L});
+    public static final BitSet FOLLOW_RP_in_function683 = new BitSet(new long[]{0x0000001000000000L});
+    public static final BitSet FOLLOW_block_in_function685 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_parameter_in_params714 = new BitSet(new long[]{0x0000040000000002L});
+    public static final BitSet FOLLOW_COMMA_in_params717 = new BitSet(new long[]{0x0000000000004000L,0x000000000000007CL});
+    public static final BitSet FOLLOW_parameter_in_params719 = new BitSet(new long[]{0x0000040000000002L});
+    public static final BitSet FOLLOW_type_in_parameter742 = new BitSet(new long[]{0x0000000000400000L});
+    public static final BitSet FOLLOW_ID_in_parameter744 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ID_in_statcall767 = new BitSet(new long[]{0x0000000010000000L});
+    public static final BitSet FOLLOW_LP_in_statcall769 = new BitSet(new long[]{0xEC31008038600000L,0x0000000000000001L});
+    public static final BitSet FOLLOW_args_in_statcall771 = new BitSet(new long[]{0x0000000020000000L});
+    public static final BitSet FOLLOW_RP_in_statcall774 = new BitSet(new long[]{0x0000000001000000L});
+    public static final BitSet FOLLOW_SC_in_statcall776 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_readfunction_in_exprcall799 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ID_in_exprcall805 = new BitSet(new long[]{0x0000000010000000L});
+    public static final BitSet FOLLOW_LP_in_exprcall807 = new BitSet(new long[]{0xEC31008038600000L,0x0000000000000001L});
+    public static final BitSet FOLLOW_args_in_exprcall809 = new BitSet(new long[]{0x0000000020000000L});
+    public static final BitSet FOLLOW_RP_in_exprcall812 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_expr_in_args835 = new BitSet(new long[]{0x0000040000000002L});
+    public static final BitSet FOLLOW_COMMA_in_args838 = new BitSet(new long[]{0xEC31008018600000L,0x0000000000000001L});
+    public static final BitSet FOLLOW_expr_in_args840 = new BitSet(new long[]{0x0000040000000002L});
+    public static final BitSet FOLLOW_orexpr_in_expr866 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_andexpr_in_orexpr878 = new BitSet(new long[]{0x0000180000000002L});
+    public static final BitSet FOLLOW_set_in_orexpr881 = new BitSet(new long[]{0xEC31008018600000L,0x0000000000000001L});
+    public static final BitSet FOLLOW_andexpr_in_orexpr888 = new BitSet(new long[]{0x0000180000000002L});
+    public static final BitSet FOLLOW_eqexpr_in_andexpr902 = new BitSet(new long[]{0x0000200000000002L});
+    public static final BitSet FOLLOW_AND_in_andexpr905 = new BitSet(new long[]{0xEC31008018600000L,0x0000000000000001L});
+    public static final BitSet FOLLOW_eqexpr_in_andexpr908 = new BitSet(new long[]{0x0000200000000002L});
+    public static final BitSet FOLLOW_relexpr_in_eqexpr922 = new BitSet(new long[]{0x0000C00000000002L});
+    public static final BitSet FOLLOW_set_in_eqexpr925 = new BitSet(new long[]{0xEC31008018600000L,0x0000000000000001L});
+    public static final BitSet FOLLOW_relexpr_in_eqexpr932 = new BitSet(new long[]{0x0000C00000000002L});
+    public static final BitSet FOLLOW_plusexpr_in_relexpr946 = new BitSet(new long[]{0x000F000000000002L});
+    public static final BitSet FOLLOW_set_in_relexpr949 = new BitSet(new long[]{0xEC31008018600000L,0x0000000000000001L});
+    public static final BitSet FOLLOW_plusexpr_in_relexpr960 = new BitSet(new long[]{0x000F000000000002L});
+    public static final BitSet FOLLOW_multexpr_in_plusexpr974 = new BitSet(new long[]{0x0070000000000002L});
+    public static final BitSet FOLLOW_set_in_plusexpr977 = new BitSet(new long[]{0xEC31008018600000L,0x0000000000000001L});
+    public static final BitSet FOLLOW_multexpr_in_plusexpr986 = new BitSet(new long[]{0x0070000000000002L});
+    public static final BitSet FOLLOW_powexpr_in_multexpr1000 = new BitSet(new long[]{0x0180000000000002L});
+    public static final BitSet FOLLOW_set_in_multexpr1003 = new BitSet(new long[]{0xEC31008018600000L,0x0000000000000001L});
+    public static final BitSet FOLLOW_powexpr_in_multexpr1010 = new BitSet(new long[]{0x0180000000000002L});
+    public static final BitSet FOLLOW_unaryexpr_in_powexpr1024 = new BitSet(new long[]{0x0200000000000002L});
+    public static final BitSet FOLLOW_POW_in_powexpr1027 = new BitSet(new long[]{0xEC31008018600000L,0x0000000000000001L});
+    public static final BitSet FOLLOW_unaryexpr_in_powexpr1030 = new BitSet(new long[]{0x0200000000000002L});
+    public static final BitSet FOLLOW_PLUS_in_unaryexpr1045 = new BitSet(new long[]{0xEC31008018600000L,0x0000000000000001L});
+    public static final BitSet FOLLOW_unaryexpr_in_unaryexpr1047 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_MINUS_in_unaryexpr1061 = new BitSet(new long[]{0xEC31008018600000L,0x0000000000000001L});
+    public static final BitSet FOLLOW_unaryexpr_in_unaryexpr1063 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_NOT_in_unaryexpr1077 = new BitSet(new long[]{0xEC31008018600000L,0x0000000000000001L});
+    public static final BitSet FOLLOW_unaryexpr_in_unaryexpr1080 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_GET_in_unaryexpr1086 = new BitSet(new long[]{0xEC31008018600000L,0x0000000000000001L});
+    public static final BitSet FOLLOW_catom_in_unaryexpr1089 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_catom_in_unaryexpr1095 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_atom_in_catom1110 = new BitSet(new long[]{0x1000000000000002L});
+    public static final BitSet FOLLOW_KVPAIR_in_catom1113 = new BitSet(new long[]{0xEC31008018600000L,0x0000000000000001L});
+    public static final BitSet FOLLOW_atom_in_catom1116 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_LP_in_atom1131 = new BitSet(new long[]{0xEC31008018600000L,0x0000000000000001L});
+    public static final BitSet FOLLOW_expr_in_atom1134 = new BitSet(new long[]{0x0000000020000000L});
+    public static final BitSet FOLLOW_RP_in_atom1136 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_LP_in_atom1143 = new BitSet(new long[]{0x0000000000004000L,0x000000000000007CL});
+    public static final BitSet FOLLOW_type_in_atom1145 = new BitSet(new long[]{0x0000000020000000L});
+    public static final BitSet FOLLOW_RP_in_atom1147 = new BitSet(new long[]{0xEC31008018600000L,0x0000000000000001L});
+    public static final BitSet FOLLOW_expr_in_atom1151 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_LB_in_atom1168 = new BitSet(new long[]{0xEC31008018600000L,0x0000000000000001L});
+    public static final BitSet FOLLOW_expr_in_atom1170 = new BitSet(new long[]{0x0000050000000000L});
+    public static final BitSet FOLLOW_COMMA_in_atom1173 = new BitSet(new long[]{0xEC31008018600000L,0x0000000000000001L});
+    public static final BitSet FOLLOW_expr_in_atom1175 = new BitSet(new long[]{0x0000050000000000L});
+    public static final BitSet FOLLOW_RB_in_atom1179 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ID_in_atom1194 = new BitSet(new long[]{0x0000008000000000L});
+    public static final BitSet FOLLOW_LB_in_atom1196 = new BitSet(new long[]{0xEC31008018600000L,0x0000000000000001L});
+    public static final BitSet FOLLOW_expr_in_atom1198 = new BitSet(new long[]{0x0000010000000000L});
+    public static final BitSet FOLLOW_RB_in_atom1200 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ID_in_atom1218 = new BitSet(new long[]{0x0000004000000000L});
+    public static final BitSet FOLLOW_DOT_in_atom1220 = new BitSet(new long[]{0x0000000000400000L});
+    public static final BitSet FOLLOW_ID_in_atom1224 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_LTHAN_in_atom1242 = new BitSet(new long[]{0x0000000000004000L,0x000000000000007CL});
+    public static final BitSet FOLLOW_params_in_atom1244 = new BitSet(new long[]{0x0002000000000000L});
+    public static final BitSet FOLLOW_GTHAN_in_atom1246 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_exprcall_in_atom1260 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_NUMBER_in_atom1266 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_FPNUMBER_in_atom1272 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_TRUE_in_atom1278 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_FALSE_in_atom1284 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_STRING_in_atom1290 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ID_in_atom1296 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_QUOTE_in_string1308 = new BitSet(new long[]{0xFFFFFFFFFFFFFFF0L,0x000000000000FFFFL});
+    public static final BitSet FOLLOW_QUOTE_in_string1314 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_set_in_type0 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_set_in_synpred26_PI846 = new BitSet(new long[]{0xF618804010600000L});
-    public static final BitSet FOLLOW_andexpr_in_synpred26_PI853 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_AND_in_synpred27_PI870 = new BitSet(new long[]{0xF618804010600000L});
-    public static final BitSet FOLLOW_eqexpr_in_synpred27_PI873 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_set_in_synpred29_PI890 = new BitSet(new long[]{0xF618804010600000L});
-    public static final BitSet FOLLOW_relexpr_in_synpred29_PI897 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_set_in_synpred33_PI914 = new BitSet(new long[]{0xF618804010600000L});
-    public static final BitSet FOLLOW_plusexpr_in_synpred33_PI925 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_set_in_synpred36_PI942 = new BitSet(new long[]{0xF618804010600000L});
-    public static final BitSet FOLLOW_multexpr_in_synpred36_PI951 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_set_in_synpred38_PI968 = new BitSet(new long[]{0xF618804010600000L});
-    public static final BitSet FOLLOW_powexpr_in_synpred38_PI975 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_POW_in_synpred39_PI992 = new BitSet(new long[]{0xF618804010600000L});
-    public static final BitSet FOLLOW_unaryexpr_in_synpred39_PI995 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_KVPAIR_in_synpred44_PI1078 = new BitSet(new long[]{0xF618804010600000L});
-    public static final BitSet FOLLOW_atom_in_synpred44_PI1081 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_set_in_synpred27_PI881 = new BitSet(new long[]{0xEC31008018600000L,0x0000000000000001L});
+    public static final BitSet FOLLOW_andexpr_in_synpred27_PI888 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_AND_in_synpred28_PI905 = new BitSet(new long[]{0xEC31008018600000L,0x0000000000000001L});
+    public static final BitSet FOLLOW_eqexpr_in_synpred28_PI908 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_set_in_synpred30_PI925 = new BitSet(new long[]{0xEC31008018600000L,0x0000000000000001L});
+    public static final BitSet FOLLOW_relexpr_in_synpred30_PI932 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_set_in_synpred34_PI949 = new BitSet(new long[]{0xEC31008018600000L,0x0000000000000001L});
+    public static final BitSet FOLLOW_plusexpr_in_synpred34_PI960 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_set_in_synpred37_PI977 = new BitSet(new long[]{0xEC31008018600000L,0x0000000000000001L});
+    public static final BitSet FOLLOW_multexpr_in_synpred37_PI986 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_set_in_synpred39_PI1003 = new BitSet(new long[]{0xEC31008018600000L,0x0000000000000001L});
+    public static final BitSet FOLLOW_powexpr_in_synpred39_PI1010 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_POW_in_synpred40_PI1027 = new BitSet(new long[]{0xEC31008018600000L,0x0000000000000001L});
+    public static final BitSet FOLLOW_unaryexpr_in_synpred40_PI1030 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_KVPAIR_in_synpred45_PI1113 = new BitSet(new long[]{0xEC31008018600000L,0x0000000000000001L});
+    public static final BitSet FOLLOW_atom_in_synpred45_PI1116 = new BitSet(new long[]{0x0000000000000002L});
 
 }

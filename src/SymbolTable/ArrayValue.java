@@ -10,6 +10,9 @@ public class ArrayValue implements Value {
 	public ArrayValue(ArrayList<Value> array) {
 		this.array = array;
 	}
+	public ArrayValue() {
+		this(new ArrayList<Value>());
+	}
 	
 	public ArrayList<Value> getValue() {return array;}
 	public TypeSymbol getType() {return PersistentData.symtab.resolveType("array");}
